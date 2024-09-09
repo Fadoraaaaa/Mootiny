@@ -1,0 +1,118 @@
+[gd_scene load_steps=9 format=3 uid="uid://b5cyk16qqhx3s"]
+
+[ext_resource type="Script" path="res://menu stuff/menu scripts/Menu.gd" id="1_gyh52"]
+[ext_resource type="Texture2D" uid="uid://ci116oebadbe5" path="res://assets/textures/startscreen.png" id="2_e72kq"]
+[ext_resource type="AudioStream" uid="uid://cjlh8ni0qcf63" path="res://assets/sound/music/StartScreen Harmony.wav" id="3_toh0g"]
+[ext_resource type="PackedScene" uid="uid://cpaddhkdb7p3p" path="res://menu stuff/menu scenes/Options.tscn" id="4_eaqif"]
+
+[sub_resource type="Animation" id="Animation_itagb"]
+resource_name = "Fade in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4t6yw"]
+resource_name = "Fade out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_agjgc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hipqa"]
+_data = {
+"Fade in": SubResource("Animation_itagb"),
+"Fade out": SubResource("Animation_4t6yw"),
+"RESET": SubResource("Animation_agjgc")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -125.0
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gyh52")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="StartScreen" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(513, 511)
+texture = ExtResource("2_e72kq")
+
+[node name="MusicStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_toh0g")
+volume_db = -14.0
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hipqa")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1029.0
+offset_bottom = 1025.0
+color = Color(0, 0, 0, 1)
+
+[node name="StartButton" type="Button" parent="."]
+visibility_layer = 0
+layout_mode = 2
+offset_left = 6.0
+offset_top = 144.0
+offset_right = 250.0
+offset_bottom = 220.0
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="."]
+visibility_layer = 0
+layout_mode = 2
+offset_left = 761.0
+offset_top = 144.0
+offset_right = 1020.0
+offset_bottom = 218.0
+text = "Options"
+
+[node name="Options" parent="." instance=ExtResource("4_eaqif")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

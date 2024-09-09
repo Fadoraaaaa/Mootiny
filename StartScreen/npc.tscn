@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=3 uid="uid://dmkbx4xm8x5gj"]
+
+[ext_resource type="Texture2D" uid="uid://b1a2edb171we5" path="res://assets/sprites/cocoa_idle.png" id="1_i25c7"]
+[ext_resource type="Script" path="res://npc.gd" id="1_yig3m"]
+[ext_resource type="Texture2D" uid="uid://vy144rcdcao5" path="res://assets/sprites/honey_idle.png" id="3_1fldq"]
+[ext_resource type="Texture2D" uid="uid://did5r1m54g48g" path="res://assets/sprites/holy_cow_idle.png" id="3_lnb3f"]
+[ext_resource type="FontFile" uid="uid://ci8txfvxy1kvo" path="res://fonts/PixelfySans.ttf" id="4_vgomf"]
+[ext_resource type="Texture2D" uid="uid://3s1s0hs5xpbw" path="res://assets/textures/questionmark.png" id="5_d2xyr"]
+[ext_resource type="Texture2D" uid="uid://cc8bawglkbwtg" path="res://assets/textures/exclamation.png" id="6_flmcy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udb4f"]
+atlas = ExtResource("1_i25c7")
+region = Rect2(0, 0, 135, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_barlc"]
+atlas = ExtResource("1_i25c7")
+region = Rect2(135, 0, 135, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uyb5t"]
+atlas = ExtResource("3_lnb3f")
+region = Rect2(0, 0, 135, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kte4w"]
+atlas = ExtResource("3_lnb3f")
+region = Rect2(135, 0, 135, 102)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqhtv"]
+atlas = ExtResource("3_1fldq")
+region = Rect2(0, 0, 135, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r05u"]
+atlas = ExtResource("3_1fldq")
+region = Rect2(135, 0, 135, 78)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h0g3n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udb4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_barlc")
+}],
+"loop": true,
+"name": &"cocoa_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uyb5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kte4w")
+}],
+"loop": true,
+"name": &"holy_cow_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqhtv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r05u")
+}],
+"loop": true,
+"name": &"honey_idle",
+"speed": 5.0
+}]
+
+[node name="NPC" type="CharacterBody2D"]
+script = ExtResource("1_yig3m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(68, -40)
+sprite_frames = SubResource("SpriteFrames_h0g3n")
+animation = &"holy_cow_idle"
+frame_progress = 0.132353
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(224, -9)
+polygon = PackedVector2Array(-120, -69, -195, -67, -196, 11, -123, 11)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 28.0
+offset_top = -100.0
+offset_right = 105.0
+offset_bottom = -82.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 32.0
+offset_top = -98.0
+offset_right = 101.0
+offset_bottom = -84.0
+color = Color(0.0923971, 0.0923971, 0.0923971, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 32.0
+offset_top = -101.0
+offset_right = 101.0
+offset_bottom = -81.0
+theme_override_fonts/font = ExtResource("4_vgomf")
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Questionmark" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(67, -147)
+scale = Vector2(0.875, 1)
+texture = ExtResource("5_d2xyr")
+
+[node name="Exclamation" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(68, -145)
+texture = ExtResource("6_flmcy")
