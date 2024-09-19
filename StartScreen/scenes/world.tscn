@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://dnakgkiabqblk"]
+[gd_scene load_steps=20 format=3 uid="uid://dnakgkiabqblk"]
 
 [ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="1_qbsxo"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_smdob"]
 [ext_resource type="AudioStream" uid="uid://cdm6l8jrbqymf" path="res://assets/sound/music/Overworld Serene.wav" id="2_fyus3"]
 [ext_resource type="Texture2D" uid="uid://du16rkv25iosi" path="res://assets/textures/restofbackground.png" id="2_sv3jt"]
 [ext_resource type="Texture2D" uid="uid://be82xgfpnsrei" path="res://assets/textures/grass.png" id="4_uluvg"]
-[ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://npc.tscn" id="6_t2ysa"]
+[ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="6_t2ysa"]
 [ext_resource type="PackedScene" uid="uid://6bad8xisr5ci" path="res://dialogue_box.tscn" id="7_pwp76"]
 [ext_resource type="FontFile" uid="uid://ci8txfvxy1kvo" path="res://fonts/PixelfySans.ttf" id="8_4efgo"]
-[ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://alien_ufo.tscn" id="9_n8hi5"]
+[ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="9_n8hi5"]
+[ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://dialog.tscn" id="10_w7nv1"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5mtn7"]
 size = Vector2(1000, 100)
@@ -46,7 +47,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Player:position")
+tracks/2/path = NodePath("You:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -58,7 +59,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Player")
+tracks/3/path = NodePath("You")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -176,6 +177,48 @@ tracks/12/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Dialog:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ejlub"]
+resource_name = "act 0"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["(lifting head from grass) Hey Honey, have you heard of the latest barn gossip?", "You", "You", "right", ""], ["(chewing thoughtfully) Mmm, spill it! What's the moo!", "Honey", "Honey", "left", "curious"], ["Well, apparently Farmer Brown's bringing in a new bull next week. They say the big fella is fit for a rodeo bull!", "You", "You", "right", ""], ["(raising an eyebrow, or the cow equivalent) A new bull, huh? About time. Our last one was a bit of a snoozer.", "Cocoa_Happy", "Cocoa", "left", "curious"], ["...", "Honey", "Honey", "right", ""], ["You know what I heard? Old Bessie swears she saw a UFO last night!!!!!", "Honey", "Honey", "left", ""], ["Hahahaha good one!", "You_Happy", "You", "right", ""], ["I bet she just saw a frisbee!", "Cocoa_Happy", "Cocoa", "left", ""], ["Well, if they come looking for intelligent life, they certain won't find it here...", "Honey", "Honey", "left", ""]]],
+"method": &"change_dialog"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_6tc1m"]
 resource_name = "act 0_1"
@@ -227,7 +270,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Player:position")
+tracks/2/path = NodePath("You:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -239,7 +282,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Player")
+tracks/3/path = NodePath("You")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -467,6 +510,7 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iucdi"]
 _data = {
 "RESET": SubResource("Animation_xisdo"),
+"act 0": SubResource("Animation_ejlub"),
 "act 0_1": SubResource("Animation_6tc1m"),
 "act 0_2": SubResource("Animation_qvrid"),
 "fade in": SubResource("Animation_edpmd"),
@@ -480,7 +524,7 @@ script = ExtResource("1_smdob")
 position = Vector2(511, 431.891)
 texture = ExtResource("2_sv3jt")
 
-[node name="Player" parent="." instance=ExtResource("1_qbsxo")]
+[node name="You" parent="." instance=ExtResource("1_qbsxo")]
 position = Vector2(319, 746)
 scale = Vector2(0.8, 0.8)
 jump_force = 600
@@ -504,7 +548,7 @@ scale = Vector2(1.679, 0.55)
 mesh = SubResource("QuadMesh_5mtn7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(842, 783)
+position = Vector2(842, 789)
 shape = SubResource("RectangleShape2D_m4ea5")
 
 [node name="MusicStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
@@ -522,9 +566,11 @@ libraries = {
 }
 
 [node name="DialogueBox" parent="." instance=ExtResource("7_pwp76")]
+visible = false
 character_name = ""
 
 [node name="Text" type="Label" parent="."]
+visible = false
 offset_left = 124.0
 offset_top = 872.0
 offset_right = 746.0
@@ -554,3 +600,5 @@ text = "One hour later..."
 [node name="AlienUFO" parent="." instance=ExtResource("9_n8hi5")]
 visible = false
 position = Vector2(-246, 212)
+
+[node name="Dialog" parent="." instance=ExtResource("10_w7nv1")]

@@ -1,0 +1,154 @@
+[gd_scene load_steps=18 format=3 uid="uid://dnv0wy0kcoar0"]
+
+[ext_resource type="Script" path="res://dialogue.gd" id="1_tusfr"]
+[ext_resource type="Texture2D" uid="uid://dmk8pyv1gxk8b" path="res://assets/sprites/cocoa_closeup.png" id="2_2sfld"]
+[ext_resource type="FontFile" uid="uid://ci8txfvxy1kvo" path="res://fonts/PixelfySans.ttf" id="2_spdoc"]
+[ext_resource type="Texture2D" uid="uid://65c7wi6nxgdo" path="res://assets/sprites/cocoa_closeup_happy.png" id="3_mvrp5"]
+[ext_resource type="Texture2D" uid="uid://c6yqlqamuat0g" path="res://assets/sprites/honey_closeup.png" id="4_3ppoh"]
+[ext_resource type="Texture2D" uid="uid://by57c2p512cfx" path="res://assets/sprites/honey_closeup_happy.png" id="5_suirc"]
+[ext_resource type="Texture2D" uid="uid://dvjhacsgc402f" path="res://assets/sprites/unknown.png" id="6_00bfu"]
+[ext_resource type="Texture2D" uid="uid://bpveeqbt0vcre" path="res://assets/sprites/mc_closeup.png" id="7_fu2v8"]
+[ext_resource type="Texture2D" uid="uid://brou477w33lca" path="res://assets/sprites/mc_closeup_happy.png" id="8_de311"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mj4w"]
+atlas = ExtResource("2_2sfld")
+region = Rect2(0, 0, 250, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2nw2"]
+atlas = ExtResource("3_mvrp5")
+region = Rect2(0, 0, 240, 260)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpf5f"]
+atlas = ExtResource("4_3ppoh")
+region = Rect2(0, 0, 240, 260)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0507e"]
+atlas = ExtResource("5_suirc")
+region = Rect2(0, 0, 240, 260)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpvpw"]
+atlas = ExtResource("6_00bfu")
+region = Rect2(0, 0, 240, 260)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_23vmr"]
+atlas = ExtResource("7_fu2v8")
+region = Rect2(0, 0, 240, 260)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dwpj"]
+atlas = ExtResource("8_de311")
+region = Rect2(0, 0, 240, 260)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1ny8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mj4w")
+}],
+"loop": true,
+"name": &"Cocoa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2nw2")
+}],
+"loop": true,
+"name": &"Cocoa_Happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpf5f")
+}],
+"loop": true,
+"name": &"Honey",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0507e")
+}],
+"loop": true,
+"name": &"Honey_Happy",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpvpw")
+}],
+"loop": true,
+"name": &"Unknown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_23vmr")
+}],
+"loop": true,
+"name": &"You",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dwpj")
+}],
+"loop": true,
+"name": &"You_Happy",
+"speed": 5.0
+}]
+
+[node name="Dialog" type="Node2D"]
+script = ExtResource("1_tusfr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[node name="ColorRect11" type="ColorRect" parent="."]
+offset_left = 80.0
+offset_top = 784.0
+offset_right = 368.0
+offset_bottom = 848.0
+color = Color(0.172833, 0.172833, 0.172833, 1)
+
+[node name="ColorRect9" type="ColorRect" parent="."]
+offset_left = 80.0
+offset_top = 830.0
+offset_right = 1024.0
+offset_bottom = 1008.0
+color = Color(0.270588, 0.270588, 0.270588, 1)
+
+[node name="ColorRect10" type="ColorRect" parent="."]
+offset_left = 95.0
+offset_top = 846.0
+offset_right = 761.0
+offset_bottom = 992.0
+color = Color(0.172833, 0.172833, 0.172833, 1)
+
+[node name="Character" type="Label" parent="."]
+offset_left = 98.0
+offset_top = 792.0
+offset_right = 343.0
+offset_bottom = 829.0
+theme_override_fonts/font = ExtResource("2_spdoc")
+theme_override_font_sizes/font_size = 30
+text = "Character Name"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(898.5, 834.75)
+scale = Vector2(1.72083, 1.62115)
+sprite_frames = SubResource("SpriteFrames_s1ny8")
+animation = &"Unknown"
+autoplay = "Unknown"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 112.0
+offset_top = 864.0
+offset_right = 752.0
+offset_bottom = 976.0
+theme_override_fonts/normal_font = ExtResource("2_spdoc")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "aaaaaa WHY IS THIS NOT CHANGING"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

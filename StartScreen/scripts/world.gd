@@ -1,15 +1,18 @@
 extends Node2D
 
 @onready var music = $MusicStreamPlayer2D as AudioStreamPlayer2D
+@onready var current_anim = 0
+@onready var do_special_thing
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$DialogueBox.visible = false
+	$Dialog.visible = false
 	$AnimationPlayer.play("fade in")
 	await get_tree().create_timer(5).timeout
-	level0cutscene()
+	#level0cutscene()
+	$AnimationPlayer.play("act 0")
+	#await get_tree().create_timer(5).timeout
 	
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

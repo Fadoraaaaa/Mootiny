@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://6bad8xisr5ci"]
 
-[ext_resource type="Script" path="res://dialogue_box.gd" id="1_ima76"]
+[ext_resource type="Script" path="res://scripts/dialogue_box.gd" id="1_ima76"]
 [ext_resource type="Texture2D" uid="uid://bpveeqbt0vcre" path="res://assets/sprites/mc_closeup.png" id="1_m1rd3"]
 [ext_resource type="FontFile" uid="uid://ci8txfvxy1kvo" path="res://fonts/PixelfySans.ttf" id="2_8xwe8"]
 [ext_resource type="Texture2D" uid="uid://dmk8pyv1gxk8b" path="res://assets/sprites/cocoa_closeup.png" id="3_702c1"]
@@ -88,7 +88,7 @@ animations = [{
 script = ExtResource("1_ima76")
 
 [node name="ColorRect8" type="ColorRect" parent="."]
-offset_left = 1.0
+offset_left = 60.0
 offset_top = 818.0
 offset_right = 1025.0
 offset_bottom = 1033.0
@@ -126,7 +126,7 @@ color = Color(0.306681, 0.368953, 0.414558, 1)
 position = Vector2(898.5, 834.75)
 scale = Vector2(1.72083, 1.62115)
 sprite_frames = SubResource("SpriteFrames_5dt2y")
-animation = &"Honey_Happy"
+animation = &"You_Happy"
 
 [node name="ColorRect10" type="ColorRect" parent="."]
 offset_left = 95.0

@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var jump_force = 300
 
 @onready var footsteps_sound = $FootstepsSound as AudioStreamPlayer2D
-@onready var  ap = $AnimationPlayer
+@onready var ap = $AnimationPlayer
 @onready var sprite = $Sprite2D
 
 func _ready():
@@ -66,4 +66,10 @@ func show_emote(emotion):
 		$Exclamation.visible = true
 		await get_tree().create_timer(2).timeout
 		$Exclamation.visible = false
+	else:
+		pass
 		
+func is_speaking(direction, emotion):
+	if emotion != "":
+		show_emote(emotion)
+	velocity.y = -200

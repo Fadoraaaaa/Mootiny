@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bn16pnjwue1je"]
 
-[ext_resource type="Script" path="res://alien_ufo.gd" id="1_hp4kt"]
+[ext_resource type="Script" path="res://scripts/alien_ufo.gd" id="1_hp4kt"]
 [ext_resource type="Texture2D" uid="uid://7l1kwg1745m2" path="res://assets/sprites/ufo.png" id="1_qg6fb"]
 [ext_resource type="Texture2D" uid="uid://0i1218dvpa0m" path="res://assets/sprites/ufo_beam.png" id="2_pokg0"]
 

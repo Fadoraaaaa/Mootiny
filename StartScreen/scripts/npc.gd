@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var gravity = 30
 @export var character_name = "Cocoa"
 @onready var sprite = $AnimatedSprite2D
+@export var jump_force = 300
 
 func _ready():
 	$Label.text = character_name
@@ -30,7 +31,6 @@ func _physics_process(_delta):
 	
 func flip_sprite_left():
 	direction = -1
-	print("direction changed to face left")
 	
 func flip_sprite_right():
 	direction = 1
@@ -45,3 +45,11 @@ func show_emote(emotion):
 		await get_tree().create_timer(2).timeout
 		$Exclamation.visible = false
 		
+func is_speaking(direction, emotion):
+	if direction == "right":
+		flip_sprite_right()
+	if direction == "left":
+		flip_sprite_left()
+	if emotion != "":
+		show_emote(emotion)
+	velocity.y = -200
