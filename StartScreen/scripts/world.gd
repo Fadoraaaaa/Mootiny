@@ -6,11 +6,16 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	$Dialog.visible = false
 	$AnimationPlayer.play("fade in")
+	$You.pause = true
 	await get_tree().create_timer(5).timeout
-	#level0cutscene()
+	
 	$AnimationPlayer.play("act 0")
+	await $Dialog.finished
+	$You.pause = false
+	print("dialog box done")
 	#await get_tree().create_timer(5).timeout
 	
 

@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var ap = $AnimationPlayer
 @onready var sprite = $Sprite2D
 
+var pause = false
+
 func _ready():
 	$Exclamation.visible = false
 	$Questionmark.visible = false
@@ -22,18 +24,18 @@ func _physics_process(_delta):
 		if velocity.y > 200:
 			velocity.y = 200
 	
-	if Input.is_action_just_pressed("jump"): # && is_on_floor():
-			velocity.y = -jump_force 
-			
 	if Input.is_action_just_pressed("menu"):
-		print("menu button pressed")
-		get_tree().change_scene_to_file("res://menu stuff/menu scenes/Menu.tscn")
+			print("menu button pressed")
+			get_tree().change_scene_to_file("res://menu stuff/menu scenes/Menu.tscn")
+			
+	if !pause:
+		if Input.is_action_just_pressed("jump"): # && is_on_floor():
+			velocity.y = -jump_force 
 
-	
 	var horizontal_direction = Input.get_axis("move_left","move_right")
-	velocity.x = speed * horizontal_direction
-	
-	
+	if !pause: 
+		velocity.x = speed * horizontal_direction	
+
 	if horizontal_direction != 0:
 		sprite.flip_h = (horizontal_direction == -1)
 	

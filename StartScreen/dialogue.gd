@@ -11,6 +11,8 @@ extends Node2D
 	["Text 3", "Cocoa_Happy", "Cocoa", "left", "surprise"]]
 var page = 0
 
+signal finished()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	page = 0
@@ -37,6 +39,7 @@ func _input(event):
 					get_parent().get_node(dialog[page][2]).is_speaking(dialog[page][3], dialog[page][4])
 			else:
 				visible = false
+				emit_signal("finished")
 		else:
 			label_text.visible_characters = label_text.get_total_character_count()
 
