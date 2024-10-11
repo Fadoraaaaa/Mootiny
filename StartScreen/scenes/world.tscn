@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="6_t2ysa"]
 [ext_resource type="FontFile" uid="uid://ci8txfvxy1kvo" path="res://fonts/PixelfySans.ttf" id="8_4efgo"]
 [ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="9_n8hi5"]
-[ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://dialog.tscn" id="10_w7nv1"]
+[ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="10_w7nv1"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5mtn7"]
 size = Vector2(1000, 100)

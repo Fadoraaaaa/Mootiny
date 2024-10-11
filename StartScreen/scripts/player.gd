@@ -9,15 +9,25 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 
 var pause = false
+var attack = false
 
 func _ready():
 	$Exclamation.visible = false
 	$Questionmark.visible = false
 
+func done_attacking():
+	attack = false
+	print("done attacking")
+
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 		print("quitting")
+	
+	if Input.is_action_just_pressed("kick"):
+		print("kicking")
+		ap.play("kick")
+		attack = true
 	
 	if !is_on_floor():
 		velocity.y += gravity
@@ -28,12 +38,12 @@ func _physics_process(_delta):
 			print("menu button pressed")
 			get_tree().change_scene_to_file("res://menu stuff/menu scenes/Menu.tscn")
 			
-	if !pause:
+	if !pause && !attack:
 		if Input.is_action_just_pressed("jump"): # && is_on_floor():
 			velocity.y = -jump_force 
 
 	var horizontal_direction = Input.get_axis("move_left","move_right")
-	if !pause: 
+	if !pause && !attack: 
 		velocity.x = speed * horizontal_direction	
 
 	if horizontal_direction != 0:
@@ -43,15 +53,20 @@ func _physics_process(_delta):
 	update_animation(horizontal_direction)
 	
 func update_animation(horizontal_direction):
-	if is_on_floor():
-		if horizontal_direction == 0:
-			ap.play("idle")
+	if (!attack):
+		if is_on_floor():
+			if horizontal_direction == 0:
+				ap.play("idle")
+				if footsteps_sound.playing:
+					footsteps_sound.stop()
+			else:
+				ap.play("run")
+				if !footsteps_sound.playing:
+					footsteps_sound.play()
 		else:
-			ap.play("run")
-			if !footsteps_sound.playing:
-				footsteps_sound.play()
-	else:
-		ap. play("jump")
+			ap. play("jump")
+			if footsteps_sound.playing:
+				footsteps_sound.stop()
 	
 func play_animation(animation_name):
 	ap.play(animation_name)
