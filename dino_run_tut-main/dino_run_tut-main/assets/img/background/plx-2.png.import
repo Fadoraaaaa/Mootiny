@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1a2edb171we5"
-path="res://.godot/imported/cocoa_idle.png-b96441d8169e4e2d032c3e064fdd2dd5.ctex"
+uid="uid://bs8dvkk1vgt5h"
+path="res://.godot/imported/plx-2.png-4ba1409d90d8a425045a2cce49ad9b02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cocoa_idle.png"
-dest_files=["res://.godot/imported/cocoa_idle.png-b96441d8169e4e2d032c3e064fdd2dd5.ctex"]
+source_file="res://assets/img/background/plx-2.png"
+dest_files=["res://.godot/imported/plx-2.png-4ba1409d90d8a425045a2cce49ad9b02.ctex"]
 
 [params]
 

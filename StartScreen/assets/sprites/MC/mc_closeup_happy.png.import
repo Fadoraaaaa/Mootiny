@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3ej2i2qqa07j"
-path="res://.godot/imported/mc_kicking.png-511dde56759620bcc23c2e1bc24eac0c.ctex"
+uid="uid://brou477w33lca"
+path="res://.godot/imported/mc_closeup_happy.png-5975840bff2e86be3d8c07f56e878137.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/mc_kicking.png"
-dest_files=["res://.godot/imported/mc_kicking.png-511dde56759620bcc23c2e1bc24eac0c.ctex"]
+source_file="res://assets/sprites/MC/mc_closeup_happy.png"
+dest_files=["res://.godot/imported/mc_closeup_happy.png-5975840bff2e86be3d8c07f56e878137.ctex"]
 
 [params]
 

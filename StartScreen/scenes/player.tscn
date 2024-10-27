@@ -1,15 +1,13 @@
 [gd_scene load_steps=15 format=3 uid="uid://jn778v63oasw"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7g5cj"]
-[ext_resource type="Texture2D" uid="uid://b7hvxwabh17hv" path="res://assets/sprites/mc_walk.png" id="2_mjoc0"]
-[ext_resource type="Texture2D" uid="uid://bf1p3e2a65akm" path="res://assets/sprites/mc_jump.png" id="3_2voxh"]
-[ext_resource type="Texture2D" uid="uid://d3ej2i2qqa07j" path="res://assets/sprites/mc_kicking.png" id="3_s6gfd"]
+[ext_resource type="Texture2D" uid="uid://b138wds3lptgy" path="res://assets/sprites/MC/mc_idle.png" id="2_lusii"]
+[ext_resource type="Texture2D" uid="uid://b7hvxwabh17hv" path="res://assets/sprites/MC/mc_walk.png" id="2_mjoc0"]
+[ext_resource type="Texture2D" uid="uid://bf1p3e2a65akm" path="res://assets/sprites/MC/mc_jump.png" id="3_2voxh"]
+[ext_resource type="Texture2D" uid="uid://d3ej2i2qqa07j" path="res://assets/sprites/MC/mc_kicking.png" id="3_s6gfd"]
 [ext_resource type="AudioStream" uid="uid://p21vcwtqu1gm" path="res://assets/sound/sfx/Legion footsteps.wav" id="5_s4to5"]
 [ext_resource type="Texture2D" uid="uid://cc8bawglkbwtg" path="res://assets/textures/exclamation.png" id="5_wwx00"]
 [ext_resource type="Texture2D" uid="uid://3s1s0hs5xpbw" path="res://assets/textures/questionmark.png" id="6_bv0ae"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_dmy5e"]
-load_path = "res://.godot/imported/sprite_0.png-33ce53b6ada1da9bc98e978330643a5e.ctex"
 
 [sub_resource type="Animation" id="Animation_xc42v"]
 length = 0.001
@@ -23,7 +21,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [SubResource("CompressedTexture2D_dmy5e")]
+"values": [ExtResource("2_lusii")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -99,7 +97,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [SubResource("CompressedTexture2D_dmy5e")]
+"values": [ExtResource("2_lusii")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -300,7 +298,7 @@ jump_force = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-8, -39)
-texture = SubResource("CompressedTexture2D_dmy5e")
+texture = ExtResource("2_lusii")
 hframes = 2
 frame = 1
 

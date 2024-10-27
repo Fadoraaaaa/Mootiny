@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf1p3e2a65akm"
-path="res://.godot/imported/mc_jump.png-891f885830116f3672c8766d0ae2df25.ctex"
+uid="uid://b1a2edb171we5"
+path="res://.godot/imported/cocoa_idle.png-7153730c8ed2993cef70f051809bf708.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/mc_jump.png"
-dest_files=["res://.godot/imported/mc_jump.png-891f885830116f3672c8766d0ae2df25.ctex"]
+source_file="res://assets/sprites/cocoa/cocoa_idle.png"
+dest_files=["res://.godot/imported/cocoa_idle.png-7153730c8ed2993cef70f051809bf708.ctex"]
 
 [params]
 

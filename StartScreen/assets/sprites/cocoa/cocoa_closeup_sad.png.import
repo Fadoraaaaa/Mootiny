@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vy144rcdcao5"
-path="res://.godot/imported/honey_idle.png-f6aa0289111828140b6850e01e92241c.ctex"
+uid="uid://bvxpcky554oj3"
+path="res://.godot/imported/cocoa_closeup_sad.png-910351b6cbfe67405c67116607758363.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/honey_idle.png"
-dest_files=["res://.godot/imported/honey_idle.png-f6aa0289111828140b6850e01e92241c.ctex"]
+source_file="res://assets/sprites/cocoa/cocoa_closeup_sad.png"
+dest_files=["res://.godot/imported/cocoa_closeup_sad.png-910351b6cbfe67405c67116607758363.ctex"]
 
 [params]
 

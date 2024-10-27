@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://65c7wi6nxgdo"
-path="res://.godot/imported/cocoa_closeup_happy.png-5599e7e7dfd3f2a21e7e71e390aa6b49.ctex"
+uid="uid://c2y3w4ij2n3sa"
+path="res://.godot/imported/plx-4.png-6d46e1eae525a687bcc7294c04bd64af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cocoa_closeup_happy.png"
-dest_files=["res://.godot/imported/cocoa_closeup_happy.png-5599e7e7dfd3f2a21e7e71e390aa6b49.ctex"]
+source_file="res://assets/img/background/plx-4.png"
+dest_files=["res://.godot/imported/plx-4.png-6d46e1eae525a687bcc7294c04bd64af.ctex"]
 
 [params]
 

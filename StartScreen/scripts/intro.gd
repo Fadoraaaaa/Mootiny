@@ -9,4 +9,3 @@ func _ready():
 	$AnimationPlayer.play("Fade out")
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://menu stuff/menu scenes/Menu.tscn")
-

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b138wds3lptgy"
-path="res://.godot/imported/mc_idle.png-15b4d63ecc6b709e8c6fc3179d0ba9f4.ctex"
+uid="uid://dyasm1fruq87r"
+path="res://.godot/imported/Bird.png-2f7f028637803a2906ea8b2cbb03daa8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/mc_idle.png"
-dest_files=["res://.godot/imported/mc_idle.png-15b4d63ecc6b709e8c6fc3179d0ba9f4.ctex"]
+source_file="res://assets/img/obstacles/Bird.png"
+dest_files=["res://.godot/imported/Bird.png-2f7f028637803a2906ea8b2cbb03daa8.ctex"]
 
 [params]
 

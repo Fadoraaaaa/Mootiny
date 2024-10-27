@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmk8pyv1gxk8b"
-path="res://.godot/imported/cocoa_closeup.png-5d8a6e4ec27227d8f725574f51e953da.ctex"
+uid="uid://eohrc07dt7k7"
+path="res://.godot/imported/mc_closeup_sad.png.png-6d892b9b976377c87d24629d096d6a29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/cocoa_closeup.png"
-dest_files=["res://.godot/imported/cocoa_closeup.png-5d8a6e4ec27227d8f725574f51e953da.ctex"]
+source_file="res://assets/sprites/MC/mc_closeup_sad.png.png"
+dest_files=["res://.godot/imported/mc_closeup_sad.png.png-6d892b9b976377c87d24629d096d6a29.ctex"]
 
 [params]
 

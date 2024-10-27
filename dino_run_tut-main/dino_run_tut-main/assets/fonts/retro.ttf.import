@@ -2,20 +2,19 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ci8txfvxy1kvo"
-path="res://.godot/imported/PixelfySans.ttf-209e96c143937f66d8d3c716145a0f55.fontdata"
+uid="uid://s15272omc2m3"
+path="res://.godot/imported/retro.ttf-6c4eef591b0f083d8dc23ae0fa8c49d9.fontdata"
 
 [deps]
 
-source_file="res://fonts/PixelfySans.ttf"
-dest_files=["res://.godot/imported/PixelfySans.ttf-209e96c143937f66d8d3c716145a0f55.fontdata"]
+source_file="res://assets/fonts/retro.ttf"
+dest_files=["res://.godot/imported/retro.ttf-6c4eef591b0f083d8dc23ae0fa8c49d9.fontdata"]
 
 [params]
 
 Rendering=null
 antialiasing=1
 generate_mipmaps=false
-disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
 msdf_pixel_range=8
 msdf_size=48
