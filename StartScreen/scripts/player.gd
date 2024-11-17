@@ -64,7 +64,7 @@ func update_animation(horizontal_direction):
 				if !footsteps_sound.playing:
 					footsteps_sound.play()
 		else:
-			ap. play("jump")
+			ap.play("jump")
 			if footsteps_sound.playing:
 				footsteps_sound.stop()
 	
@@ -90,3 +90,11 @@ func is_speaking(direction, emotion):
 	if emotion != "":
 		show_emote(emotion)
 	velocity.y = -200
+	if direction == "right":
+		var horizontal_direction = 1
+		sprite.flip_h = (horizontal_direction == -1)
+	if direction == "left":
+		var horizontal_direction = -1
+		sprite.flip_h = (horizontal_direction == -1)
+	
+	

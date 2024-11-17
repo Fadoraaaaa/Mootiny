@@ -6,9 +6,10 @@ extends Node2D
 
 @export var dialog = [
 	#[text, sprite name, character name, character direction, character emotion]
-	["Text #1", "Unknown", "Unknown", "", ""], 
-	["Text #2", "You", "You", "right", "curious"], 
-	["Text 3", "Cocoa_Happy", "Cocoa", "left", "surprise"]]
+	["Text #1", "Unknown", "Unknown", "", ""]]
+	
+#EX: ["Text #2", "You", "You", "right", "curious"], 
+#EX:	 ["Text 3", "Cocoa_Happy", "Cocoa", "left", "surprise"]
 var page = 0
 
 signal finished()

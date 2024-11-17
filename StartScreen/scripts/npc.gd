@@ -10,6 +10,7 @@ func _ready():
 	$Label.text = character_name
 	$Questionmark.visible = false
 	$Exclamation.visible = false
+	visible = true
 
 
 func _physics_process(_delta):
@@ -17,6 +18,8 @@ func _physics_process(_delta):
 		velocity.y += gravity
 		if velocity.y > 200:
 			velocity.y = 200
+		if position.y > 1800:
+			position.y = 1800
 	
 	if direction != 0:
 		sprite.flip_h = (direction == -1)

@@ -1,12 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnakgkiabqblk"]
+[gd_scene load_steps=21 format=3 uid="uid://dnakgkiabqblk"]
 
 [ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="1_qbsxo"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_smdob"]
 [ext_resource type="AudioStream" uid="uid://cdm6l8jrbqymf" path="res://assets/sound/music/Overworld Serene.wav" id="2_fyus3"]
-[ext_resource type="Texture2D" uid="uid://du16rkv25iosi" path="res://assets/textures/restofbackground.png" id="2_sv3jt"]
-[ext_resource type="Texture2D" uid="uid://be82xgfpnsrei" path="res://assets/textures/grass.png" id="4_uluvg"]
+[ext_resource type="Texture2D" uid="uid://dvysufqtq07j5" path="res://assets/textures/restofbackgroundv2.png.png" id="2_hoxhf"]
 [ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="6_t2ysa"]
-[ext_resource type="FontFile" uid="uid://ci8txfvxy1kvo" path="res://fonts/PixelfySans.ttf" id="8_4efgo"]
+[ext_resource type="Texture2D" uid="uid://iwd68i47a8re" path="res://assets/textures/grass.png" id="7_ubrti"]
 [ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="9_n8hi5"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="10_w7nv1"]
 
@@ -14,163 +13,29 @@
 size = Vector2(1000, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4ea5"]
-size = Vector2(1680.75, 56.75)
+size = Vector2(1676.38, 262.375)
 
 [sub_resource type="Animation" id="Animation_xisdo"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Text:text")
+tracks/0/path = NodePath("ColorRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["Hey Cocoa, have you heard of the latest
-barn gossip?"]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Text:visible_ratio")
+tracks/1/path = NodePath("ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("You:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(319, 746)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("You")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.02),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": ["idle"],
-"method": &"play_animation"
-}]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cocoa:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(625, 760)]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Cocoa")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"values": []
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Honey:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(487, 760)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("ColorRect:color")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Restofbackground:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(511, 431.891)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("OneHourLater:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("OneHourLater:visible")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("AlienUFO:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("Dialog:visible")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -199,205 +64,330 @@ tracks/1/path = NodePath("Dialog")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.6),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [[["(lifting head from grass) Hey Honey, have you heard of the latest barn gossip?", "You", "You", "right", ""], ["(chewing thoughtfully) Mmm, spill it! What's the moo!", "Honey", "Honey", "left", "curious"], ["Well, apparently Farmer Brown's bringing in a new bull next week. They say the big fella is fit for a rodeo bull!", "You", "You", "right", ""], ["(raising an eyebrow, or the cow equivalent) A new bull, huh? About time. Our last one was a bit of a snoozer.", "Cocoa_Happy", "Cocoa", "left", "curious"], ["...", "Honey", "Honey", "right", ""], ["You know what I heard? Old Bessie swears she saw a UFO last night!!!!!", "Honey", "Honey", "left", ""], ["Hahahaha good one!", "You_Happy", "You", "right", ""], ["I bet she just saw a frisbee!", "Cocoa_Happy", "Cocoa", "left", ""], ["Well, if they come looking for intelligent life, they certain won't find it here...", "Honey", "Honey", "left", ""]]],
+"args": [[["(lifting head from grass) Hey Honey, have you heard of the latest barn gossip?", "You", "You", "left", ""], ["(chewing thoughtfully) Mmm, spill it! What's the moo!", "Honey", "Honey", "right", "curious"], ["Well, apparently Farmer Brown's bringing in a new bull next week. They say the big fella is fit for a rodeo bull!", "You", "You", "left", ""], ["(raising an eyebrow, or the cow equivalent) A new bull, huh? About time. Our last one was a bit of a snoozer.", "Cocoa_Happy", "Cocoa", "right", "curious"], ["...", "Honey", "Honey", "left", ""], ["You know what I heard? Old Bessie swears she saw a UFO last night!!!!!", "Honey", "Honey", "right", ""], ["Hahahaha good one!", "You_Happy", "You", "left", ""], ["I bet she just saw a frisbee!", "Cocoa_Happy", "Cocoa", "right", ""], ["Well, if they come looking for intelligent life, they certainly won't find it here...", "Honey", "Honey", "right", ""]]],
 "method": &"change_dialog"
 }]
-}
-
-[sub_resource type="Animation" id="Animation_6tc1m"]
-resource_name = "act 0_1"
-length = 92.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Text:text")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5, 5.02, 10, 10.02, 18, 18.02, 24, 24.02, 31, 36, 36.02, 37.5, 38.72, 68.0003, 68.02, 72, 72.2, 75, 75.2, 85, 85.2, 92),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": ["Hey Cocoa, have you heard of the latest
-barn gossip?", "Hey Cocoa, have you heard of the latest
-barn gossip?", "(chewing thoughtfully) Mmm, spill it!
-What's the moo?", "(chewing thoughtfully) Mmm, spill it!
-What's the moo?", "Well, apparently Farmer Brown's bringing 
-in a new bull next week. They say he's got 
-more horsepower than a rodeo bull!", "Well, apparently Farmer Brown's bringing 
-in a new bull next week. They say he's got 
-more horsepower than a rodeo bull!", "A new bull, huh? About time. Our last one 
-was a bit of a snoozer.", "A new bull, huh? About time. Our last one 
-was a bit of a snoozer.", ".....", "You know what I heard? Old Bessie swears 
-she saw a UFO last night!!!", "You know what I heard? Old Bessie swears 
-she saw a UFO last night!!!", "(laughing) You're funny!!", "(laughing) You're funny!!", "I'm serious!", "(laughing) Haha, a UFO? What, like an 
-Unidentified Farming Object?", "(laughing) Yeah, good one, Honey!", "(laughing) Yeah, good one, Honey!", "I'm serious!", "I'm serious!", "Yeah yeah, maybe it was just a flying 
-saucer full of hay. You know how Old 
-Bessie's eyesight is nowadays.", "Yeah yeah, maybe it was just a flying 
-saucer full of hay. You know how Old 
-Bessie's eyesight is nowadays.", "Well, if they come looking for intelligent 
-life, they certainly won't find it here.", "Well, if they come looking for intelligent 
-life, they certainly won't find it here."]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Text:visible_ratio")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.98, 5, 5.02, 7, 10, 10.0201, 15, 18, 18.02, 20, 24, 24.02, 25.5, 27.9, 31, 34, 36, 36.02, 37.5, 38.7, 38.72, 68, 68.02, 70, 72, 72.2, 73.1553, 75, 75.2, 82.5899, 85, 85.2, 89.3829, 92),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("You:position")
+tracks/2/path = NodePath("ColorRect:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.57, 0.66, 1.02791, 10.2197, 10.5256, 10.8315, 36.3, 36.7, 37.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(319, 760), Vector2(319, 730), Vector2(319, 760), Vector2(319, 760), Vector2(319, 760), Vector2(319, 730), Vector2(319, 760), Vector2(319, 760), Vector2(319, 730), Vector2(319, 760)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/3/type = "method"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("You")
+tracks/3/path = NodePath("ColorRect:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.98, 27),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [""],
-"method": &"play_animation"
-}, {
-"args": ["idle"],
-"method": &"play_animation"
-}, {
-"args": ["curious"],
-"method": &"show_emote"
-}]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Cocoa:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 2.02, 2.11, 2.18, 5.53942, 5.84533, 6.18182, 15.7421, 16.2043, 16.7144, 18.0508, 18.3261, 18.6932, 68.5564, 68.7705, 69.107, 75.2088, 75.4841, 75.7288),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(625, 760), Vector2(625, 760), Vector2(625, 730), Vector2(625, 760), Vector2(625, 760), Vector2(625, 730), Vector2(625, 760), Vector2(625, 760), Vector2(625, 720), Vector2(625, 760), Vector2(625, 760), Vector2(625, 730), Vector2(625, 760), Vector2(625, 760), Vector2(625, 730), Vector2(625, 760), Vector2(625, 760), Vector2(625, 730), Vector2(625, 760)]
-}
-tracks/5/type = "method"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Cocoa")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.99, 2.01743, 15.8, 27),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"flip_sprite_left"
-}, {
-"args": ["curious"],
-"method": &"show_emote"
-}, {
-"args": ["surprise"],
-"method": &"show_emote"
-}, {
-"args": ["curious"],
-"method": &"show_emote"
-}]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Honey:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 15.7581, 16.1884, 16.6028, 28, 28.2, 28.4, 28.8, 29, 29.2, 72.4781, 72.6616, 72.9063, 85.5299, 85.6828, 85.9582),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(487, 760), Vector2(487, 760), Vector2(487, 720), Vector2(487, 760), Vector2(487, 760), Vector2(487, 730), Vector2(487, 760), Vector2(487, 760), Vector2(487, 730), Vector2(487, 760), Vector2(487, 760), Vector2(487, 730), Vector2(487, 760), Vector2(487, 760), Vector2(487, 730), Vector2(487, 760)]
-}
-tracks/7/type = "method"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Honey")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(6, 10.7, 15.8, 28.2, 29),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"flip_sprite_right"
-}, {
-"args": [],
-"method": &"flip_sprite_left"
-}, {
-"args": ["surprise"],
-"method": &"show_emote"
-}, {
-"args": [],
-"method": &"flip_sprite_right"
-}, {
-"args": [],
-"method": &"flip_sprite_left"
-}]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("OneHourLater:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0, 92),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false, false]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("AlienUFO:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0, 92),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, false]
+"values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_qvrid"]
-resource_name = "act 0_2"
-length = 50.0
-tracks/0/type = "value"
+[sub_resource type="Animation" id="Animation_1585c"]
+resource_name = "act 1_1"
+length = 1.1
+tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("OneHourLater:modulate")
+tracks/0/path = NodePath("AlienUFO")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4),
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["buzz"],
+"method": &"play_sound"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.533333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dialog")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["Uh, guys? What is that sound?", "You", "You", "left", "curious"], ["(squinting) is that a bird? A really big bird?", "Honey", "Honey", "right", "curious"], ["(panicking) Birds don't hum like that! Holy cow! Its...its coming over here!", "Cocoa", "Cocoa", "right", "surprise"]]],
+"method": &"change_dialog"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2nh2p"]
+resource_name = "act 1_2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AlienUFO:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AlienUFO:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-788, -800), Vector2(-788, -200)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dialog")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["Unbullievable!", "You", "You", "left", "surprise"]]],
+"method": &"change_dialog"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dialog:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.43333),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_r34hc"]
+resource_name = "act 1_3"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AlienUFO")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"show_beam"
+}, {
+"args": ["swirl"],
+"method": &"play_sound"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["AAAAAAAAAAAAAAA", "Honey_Sad", "Honey", "right", "surprise"], ["AAAAAAAAAAAAAAAAAAAAAAA", "Cocoa_Sad", "Cocoa", "right", "surprise"]]],
+"method": &"change_dialog"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dialog:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_nnq77"]
+resource_name = "act 1_4"
+length = 3.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cocoa:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 3.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Vector2(145, 760), Vector2(145, 350), Vector2(-100, 760)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Honey:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3, 3.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(294, 760), Vector2(294, 400), Vector2(-100, 756)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cocoa:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.36667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Honey:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dialog")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["NO!!!!! Honey! Cocoa!", "You", "You", "left", "surprise"]]],
+"method": &"change_dialog"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dialog:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AlienUFO")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.0666667, 0.5, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": ["whoosh"],
+"method": &"play_sound"
+}, {
+"args": ["whoosh"],
+"method": &"stop_sound"
+}, {
+"args": ["swirl"],
+"method": &"stop_sound"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lrde5"]
+resource_name = "act 1_5"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[[&"I have to run!!", "You", "You", "right", ""]]],
+"method": &"change_dialog"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Cocoa:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(350, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Honey:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(350, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="Animation" id="Animation_edpmd"]
@@ -448,8 +438,11 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_xisdo"),
 "act 0": SubResource("Animation_ejlub"),
-"act 0_1": SubResource("Animation_6tc1m"),
-"act 0_2": SubResource("Animation_qvrid"),
+"act 1_1": SubResource("Animation_1585c"),
+"act 1_2": SubResource("Animation_2nh2p"),
+"act 1_3": SubResource("Animation_r34hc"),
+"act 1_4": SubResource("Animation_nnq77"),
+"act 1_5": SubResource("Animation_lrde5"),
 "fade in": SubResource("Animation_edpmd"),
 "fade out": SubResource("Animation_3tu64")
 }
@@ -458,34 +451,40 @@ _data = {
 script = ExtResource("1_smdob")
 
 [node name="Restofbackground" type="Sprite2D" parent="."]
-position = Vector2(511, 431.891)
-texture = ExtResource("2_sv3jt")
+position = Vector2(511, 459)
+scale = Vector2(7.84615, 7.07692)
+texture = ExtResource("2_hoxhf")
 
 [node name="You" parent="." instance=ExtResource("1_qbsxo")]
-position = Vector2(319, 746)
+position = Vector2(577, 763)
 scale = Vector2(0.8, 0.8)
 jump_force = 600
 
 [node name="Cocoa" parent="." instance=ExtResource("6_t2ysa")]
-position = Vector2(625, 760)
+visibility_layer = 7
+position = Vector2(145, 760)
 scale = Vector2(0.8, 0.8)
 
 [node name="Honey" parent="." instance=ExtResource("6_t2ysa")]
-position = Vector2(487, 760)
+position = Vector2(294, 760)
 scale = Vector2(0.8, 0.8)
-direction = -1
 character_name = "Honey"
+
+[node name="AlienUFO" parent="." instance=ExtResource("9_n8hi5")]
+position = Vector2(-788, -800)
+scale = Vector2(2, 2)
 
 [node name="Platform" type="StaticBody2D" parent="."]
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
-modulate = Color(0.110919, 0.542366, 0.39129, 1)
-position = Vector2(841, 785)
-scale = Vector2(1.679, 0.55)
+modulate = Color(0.00784314, 0, 0.164706, 1)
+position = Vector2(835.25, 894.25)
+scale = Vector2(1.6905, 2.615)
 mesh = SubResource("QuadMesh_5mtn7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
-position = Vector2(842, 789)
+visible = false
+position = Vector2(839.813, 891.813)
 shape = SubResource("RectangleShape2D_m4ea5")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
@@ -494,44 +493,21 @@ volume_db = -14.0
 bus = &"Music"
 
 [node name="Grass" type="Sprite2D" parent="."]
-position = Vector2(511, 411)
-texture = ExtResource("4_uluvg")
+position = Vector2(513, 442)
+scale = Vector2(7.92308, 7.16923)
+texture = ExtResource("7_ubrti")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_iucdi")
 }
 
-[node name="Text" type="Label" parent="."]
+[node name="Dialog" parent="." instance=ExtResource("10_w7nv1")]
 visible = false
-offset_left = 124.0
-offset_top = 872.0
-offset_right = 746.0
-offset_bottom = 979.0
-theme_override_fonts/font = ExtResource("8_4efgo")
-theme_override_font_sizes/font_size = 30
-text = "Hey Cocoa, have you heard of the latest
-barn gossip?"
-visible_characters = 0
-visible_ratio = 0.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1040.0
+offset_left = -4.0
+offset_top = -24.0
+offset_right = 1036.0
 offset_bottom = 1027.0
-color = Color(0, 0, 0, 0)
-
-[node name="OneHourLater" type="Label" parent="."]
-visible = false
-offset_left = 255.0
-offset_top = 305.0
-offset_right = 824.0
-offset_bottom = 399.0
-theme_override_fonts/font = ExtResource("8_4efgo")
-theme_override_font_sizes/font_size = 70
-text = "One hour later..."
-
-[node name="AlienUFO" parent="." instance=ExtResource("9_n8hi5")]
-visible = false
-position = Vector2(-246, 212)
-
-[node name="Dialog" parent="." instance=ExtResource("10_w7nv1")]
+color = Color(0, 0, 0, 1)
