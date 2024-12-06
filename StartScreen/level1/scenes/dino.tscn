@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bhtein0chknfn"]
+[gd_scene load_steps=16 format=3 uid="uid://bhtein0chknfn"]
 
 [ext_resource type="Script" path="res://level1/scripts/dino.gd" id="1_1stpw"]
 [ext_resource type="Texture2D" uid="uid://b138wds3lptgy" path="res://assets/sprites/MC/mc_idle.png" id="2_f545s"]
 [ext_resource type="Texture2D" uid="uid://bf1p3e2a65akm" path="res://assets/sprites/MC/mc_jump.png" id="3_22ipy"]
 [ext_resource type="Texture2D" uid="uid://b7hvxwabh17hv" path="res://assets/sprites/MC/mc_walk.png" id="4_xhwm2"]
+[ext_resource type="AudioStream" uid="uid://p21vcwtqu1gm" path="res://assets/sound/sfx/footsteps.wav" id="5_emi6t"]
+[ext_resource type="AudioStream" uid="uid://dd27ic80qkq7k" path="res://assets/sound/sfx/collision.wav" id="6_n4r2i"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7omuu"]
 atlas = ExtResource("2_f545s")
@@ -75,9 +77,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whux2"]
 size = Vector2(10, 9.375)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1b5m"]
-size = Vector2(10, 9.375)
-
 [node name="Dino" type="CharacterBody2D"]
 z_index = 1
 scale = Vector2(8, 8)
@@ -91,10 +90,22 @@ sprite_frames = SubResource("SpriteFrames_6wmvf")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="Red" type="ColorRect" parent="AnimatedSprite2D"]
+visible = false
+offset_left = -39.0
+offset_top = -21.0
+offset_right = 33.0
+offset_bottom = 34.0
+color = Color(1, 0.160784, 0.203922, 0.513726)
+
 [node name="RunCol" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-1, 2.1875)
 shape = SubResource("RectangleShape2D_whux2")
 
-[node name="DuckCol" type="CollisionShape2D" parent="."]
-position = Vector2(-1.125, 2.0625)
-shape = SubResource("RectangleShape2D_t1b5m")
+[node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_emi6t")
+volume_db = -11.143
+
+[node name="Collision" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_n4r2i")

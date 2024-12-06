@@ -45,8 +45,10 @@ func show_emote(emotion):
 		$Questionmark.visible = false
 	if emotion == "surprise":
 		$Exclamation.visible = true
+		$EmotionIndicator.play()
 		await get_tree().create_timer(2).timeout
 		$Exclamation.visible = false
+	
 		
 func is_speaking(direction, emotion):
 	if direction == "right":

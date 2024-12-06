@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dyasm1fruq87r"
-path="res://.godot/imported/Bird.png-e88e14677df2cb4181f5f210af9a2fc9.ctex"
+uid="uid://bvi7c5qaavaks"
+path="res://.godot/imported/ufo-1.png (3).png-71cd840bf04c2a823e47e739e132b0e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level1/assets/obstacles/Bird.png"
-dest_files=["res://.godot/imported/Bird.png-e88e14677df2cb4181f5f210af9a2fc9.ctex"]
+source_file="res://assets/sprites/ufo-1.png (3).png"
+dest_files=["res://.godot/imported/ufo-1.png (3).png-71cd840bf04c2a823e47e739e132b0e4.ctex"]
 
 [params]
 

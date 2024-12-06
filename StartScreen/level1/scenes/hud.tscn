@@ -1,15 +1,17 @@
 [gd_scene load_steps=2 format=3 uid="uid://lyf4a3sklk1o"]
 
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/fonts/retro.ttf" id="1_xwrdd"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="1_xwrdd"]
 
 [node name="HUD" type="CanvasLayer"]
 
 [node name="ScoreLabel" type="Label" parent="."]
-offset_right = 183.0
-offset_bottom = 54.0
+offset_left = 75.0
+offset_top = 888.0
+offset_right = 331.0
+offset_bottom = 942.0
 theme_override_fonts/font = ExtResource("1_xwrdd")
 theme_override_font_sizes/font_size = 40
-text = "SCORE: "
+text = "DISTANCE:"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -27,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_xwrdd")
 theme_override_font_sizes/font_size = 40
-text = "PRESS SPACE TO PLAY"
+text = "PRESS SPACE TO GO"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -35,11 +37,13 @@ vertical_alignment = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -318.0
-offset_bottom = 54.0
+offset_left = -431.0
+offset_top = 888.0
+offset_right = -113.0
+offset_bottom = 942.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("1_xwrdd")
 theme_override_font_sizes/font_size = 40
-text = "HIGH SCORE: "
+text = "BEST:"
 horizontal_alignment = 1
 vertical_alignment = 1

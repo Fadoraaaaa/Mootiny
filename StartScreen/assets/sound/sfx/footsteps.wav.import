@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://p21vcwtqu1gm"
-path="res://.godot/imported/Legion footsteps.wav-517bc7e6fc9802ad5fec459ca024b8f6.sample"
+path="res://.godot/imported/footsteps.wav-4c68a032538dff228f8763cbdfa1433c.sample"
 
 [deps]
 
-source_file="res://assets/sound/sfx/Legion footsteps.wav"
-dest_files=["res://.godot/imported/Legion footsteps.wav-517bc7e6fc9802ad5fec459ca024b8f6.sample"]
+source_file="res://assets/sound/sfx/footsteps.wav"
+dest_files=["res://.godot/imported/footsteps.wav-4c68a032538dff228f8763cbdfa1433c.sample"]
 
 [params]
 

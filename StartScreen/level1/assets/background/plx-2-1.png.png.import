@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdwc4uog5wlh8"
-path="res://.godot/imported/barrel.png-97bce11a9ae263e9b740909177521cf5.ctex"
+uid="uid://clqqjpbkygq7y"
+path="res://.godot/imported/plx-2-1.png.png-a6f9956c5a80a7f623fff5e4d697ccff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level1/assets/obstacles/barrel.png"
-dest_files=["res://.godot/imported/barrel.png-97bce11a9ae263e9b740909177521cf5.ctex"]
+source_file="res://level1/assets/background/plx-2-1.png.png"
+dest_files=["res://.godot/imported/plx-2-1.png.png-a6f9956c5a80a7f623fff5e4d697ccff.ctex"]
 
 [params]
 

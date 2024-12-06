@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dnakgkiabqblk"]
+[gd_scene load_steps=27 format=3 uid="uid://dnakgkiabqblk"]
 
 [ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="1_qbsxo"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_smdob"]
@@ -6,7 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://dvysufqtq07j5" path="res://assets/textures/restofbackgroundv2.png.png" id="2_hoxhf"]
 [ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="6_t2ysa"]
 [ext_resource type="Texture2D" uid="uid://iwd68i47a8re" path="res://assets/textures/grass.png" id="7_ubrti"]
+[ext_resource type="Script" path="res://scripts/exit_scene.gd" id="9_1eojw"]
 [ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="9_n8hi5"]
+[ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="10_4e7rm"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="10_w7nv1"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5mtn7"]
@@ -41,6 +43,102 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UFO:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(287, -400)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("You:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(577, 763)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cocoa:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(145, 760)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Honey:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(294, 760)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Restofbackground:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(511, 430)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Cocoa:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Honey:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.001),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Dialog:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ejlub"]
 resource_name = "act 0"
@@ -67,7 +165,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [[["(lifting head from grass) Hey Honey, have you heard of the latest barn gossip?", "You", "You", "left", ""], ["(chewing thoughtfully) Mmm, spill it! What's the moo!", "Honey", "Honey", "right", "curious"], ["Well, apparently Farmer Brown's bringing in a new bull next week. They say the big fella is fit for a rodeo bull!", "You", "You", "left", ""], ["(raising an eyebrow, or the cow equivalent) A new bull, huh? About time. Our last one was a bit of a snoozer.", "Cocoa_Happy", "Cocoa", "right", "curious"], ["...", "Honey", "Honey", "left", ""], ["You know what I heard? Old Bessie swears she saw a UFO last night!!!!!", "Honey", "Honey", "right", ""], ["Hahahaha good one!", "You_Happy", "You", "left", ""], ["I bet she just saw a frisbee!", "Cocoa_Happy", "Cocoa", "right", ""], ["Well, if they come looking for intelligent life, they certainly won't find it here...", "Honey", "Honey", "right", ""]]],
+"args": [[["(lifting head from grass) Hey Honey, have you heard of the latest barn gossip?", "You", "You", "left", ""], ["(chewing thoughtfully) Mmm, spill it! What's the moo!", "Honey", "Honey", "right", "curious"], ["Well, apparently Farmer Brown's bringing in a new bull next week.", "You", "You", "left", ""], ["(raising an eyebrow, or the cow equivalent) A new bull, huh? About time.", "Cocoa_Happy", "Cocoa", "right", "curious"], ["...", "Honey", "Honey", "left", ""], ["You know what I heard? Old Bessie swears she saw a UFO last night!!!!!", "Honey", "Honey", "right", ""], ["Hahahaha good one!", "You_Happy", "You", "left", ""], ["I bet she just saw a frisbee!", "Cocoa_Happy", "Cocoa", "right", ""], ["Well, if they come looking for intelligent life, they certainly won't find it here...", "Honey", "Honey", "right", ""]]],
 "method": &"change_dialog"
 }]
 }
@@ -102,7 +200,7 @@ length = 1.1
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AlienUFO")
+tracks/0/path = NodePath("UFO")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -142,11 +240,11 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_2nh2p"]
 resource_name = "act 1_2"
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AlienUFO:visible")
+tracks/0/path = NodePath("UFO:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -158,40 +256,57 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AlienUFO:position")
+tracks/1/path = NodePath("UFO:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1.96667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-788, -800), Vector2(-788, -200)]
+"values": [Vector2(287, -400), Vector2(287, 200)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Dialog")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.4),
+"times": PackedFloat32Array(2),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [[["Unbullievable!", "You", "You", "left", "surprise"]]],
-"method": &"change_dialog"
+"args": [],
+"method": &"animation_over"
 }]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Dialog:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1.43333),
+
+[sub_resource type="Animation" id="Animation_w31lc"]
+resource_name = "act 1_25"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["Unbullievable!!", "You", "You", "left", "surprise"]]],
+"method": &"change_dialog"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_r34hc"]
@@ -200,7 +315,7 @@ length = 5.0
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AlienUFO")
+tracks/0/path = NodePath("UFO")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -243,7 +358,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_nnq77"]
 resource_name = "act 1_4"
-length = 3.1
+length = 2.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -251,7 +366,7 @@ tracks/0/path = NodePath("Cocoa:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3, 3.1),
+"times": PackedFloat32Array(0, 2.33333, 2.46667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(145, 760), Vector2(145, 350), Vector2(-100, 760)]
@@ -263,7 +378,7 @@ tracks/1/path = NodePath("Honey:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 3, 3.1),
+"times": PackedFloat32Array(0, 2.33333, 2.46667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(294, 760), Vector2(294, 400), Vector2(-100, 756)]
@@ -321,7 +436,7 @@ tracks/5/keys = {
 tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AlienUFO")
+tracks/6/path = NodePath("UFO")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -336,6 +451,20 @@ tracks/6/keys = {
 }, {
 "args": ["swirl"],
 "method": &"stop_sound"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
 }]
 }
 
@@ -434,24 +563,90 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_enh5a"]
+resource_name = "leaving_scene"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UFO:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.03333, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(287, 200), Vector2(1475, 200)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.53333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("UFO")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide_beam"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_muo16"]
+resource_name = "player_ beamed"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("You:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iucdi"]
 _data = {
 "RESET": SubResource("Animation_xisdo"),
 "act 0": SubResource("Animation_ejlub"),
 "act 1_1": SubResource("Animation_1585c"),
 "act 1_2": SubResource("Animation_2nh2p"),
+"act 1_25": SubResource("Animation_w31lc"),
 "act 1_3": SubResource("Animation_r34hc"),
 "act 1_4": SubResource("Animation_nnq77"),
 "act 1_5": SubResource("Animation_lrde5"),
 "fade in": SubResource("Animation_edpmd"),
-"fade out": SubResource("Animation_3tu64")
+"fade out": SubResource("Animation_3tu64"),
+"leaving_scene": SubResource("Animation_enh5a"),
+"player_ beamed": SubResource("Animation_muo16")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58io7"]
+size = Vector2(374, 794.5)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_smdob")
 
 [node name="Restofbackground" type="Sprite2D" parent="."]
-position = Vector2(511, 459)
+position = Vector2(511, 430)
 scale = Vector2(7.84615, 7.07692)
 texture = ExtResource("2_hoxhf")
 
@@ -470,8 +665,8 @@ position = Vector2(294, 760)
 scale = Vector2(0.8, 0.8)
 character_name = "Honey"
 
-[node name="AlienUFO" parent="." instance=ExtResource("9_n8hi5")]
-position = Vector2(-788, -800)
+[node name="UFO" parent="." instance=ExtResource("9_n8hi5")]
+position = Vector2(287, -400)
 scale = Vector2(2, 2)
 
 [node name="Platform" type="StaticBody2D" parent="."]
@@ -503,11 +698,24 @@ libraries = {
 }
 
 [node name="Dialog" parent="." instance=ExtResource("10_w7nv1")]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -4.0
-offset_top = -24.0
-offset_right = 1036.0
-offset_bottom = 1027.0
+offset_left = -14.0
+offset_top = -27.0
+offset_right = 1026.0
+offset_bottom = 1024.0
 color = Color(0, 0, 0, 1)
+
+[node name="ExitScene" type="Area2D" parent="."]
+script = ExtResource("9_1eojw")
+whereto = "res://level1/scenes/main.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExitScene"]
+position = Vector2(1268, 372)
+shape = SubResource("RectangleShape2D_58io7")
+
+[node name="Deathscreen" parent="." instance=ExtResource("10_4e7rm")]
+
+[connection signal="beam_player" from="UFO" to="." method="_on_ufo_beam_player"]
+[connection signal="body_entered" from="ExitScene" to="ExitScene" method="_on_body_entered"]
+[connection signal="body_exited" from="ExitScene" to="ExitScene" method="_on_body_exited"]

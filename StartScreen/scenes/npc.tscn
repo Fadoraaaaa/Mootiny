@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmkbx4xm8x5gj"]
+[gd_scene load_steps=16 format=3 uid="uid://dmkbx4xm8x5gj"]
 
 [ext_resource type="Texture2D" uid="uid://b1a2edb171we5" path="res://assets/sprites/cocoa/cocoa_idle.png" id="1_i25c7"]
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_yig3m"]
 [ext_resource type="Texture2D" uid="uid://vy144rcdcao5" path="res://assets/sprites/honey/honey_idle.png" id="3_1fldq"]
 [ext_resource type="Texture2D" uid="uid://did5r1m54g48g" path="res://assets/sprites/holy_cow_idle.png" id="3_lnb3f"]
-[ext_resource type="FontFile" uid="uid://ci8txfvxy1kvo" path="res://fonts/PixelfySans.ttf" id="4_vgomf"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="5_1qn2o"]
 [ext_resource type="Texture2D" uid="uid://3s1s0hs5xpbw" path="res://assets/textures/questionmark.png" id="5_d2xyr"]
 [ext_resource type="Texture2D" uid="uid://cc8bawglkbwtg" path="res://assets/textures/exclamation.png" id="6_flmcy"]
+[ext_resource type="AudioStream" uid="uid://djxygndl5wfw0" path="res://assets/sound/sfx/emotion.wav" id="8_6pnyp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_udb4f"]
 atlas = ExtResource("1_i25c7")
@@ -101,7 +102,7 @@ offset_left = 32.0
 offset_top = -101.0
 offset_right = 101.0
 offset_bottom = -81.0
-theme_override_fonts/font = ExtResource("4_vgomf")
+theme_override_fonts/font = ExtResource("5_1qn2o")
 text = "Name"
 horizontal_alignment = 1
 
@@ -115,3 +116,7 @@ texture = ExtResource("5_d2xyr")
 visible = false
 position = Vector2(68, -145)
 texture = ExtResource("6_flmcy")
+
+[node name="EmotionIndicator" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_6pnyp")
+volume_db = -15.077

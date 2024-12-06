@@ -1,11 +1,33 @@
-[gd_scene load_steps=11 format=3 uid="uid://bn16pnjwue1je"]
+[gd_scene load_steps=14 format=3 uid="uid://bn16pnjwue1je"]
 
 [ext_resource type="Script" path="res://scripts/alien_ufo.gd" id="1_hp4kt"]
-[ext_resource type="Texture2D" uid="uid://cjcvush1tjhsv" path="res://assets/sprites/ufo.png" id="1_qg6fb"]
+[ext_resource type="Texture2D" uid="uid://bvi7c5qaavaks" path="res://assets/sprites/ufo.png" id="3_aql82"]
 [ext_resource type="AudioStream" uid="uid://d1cnjj2jguqhj" path="res://assets/sound/sfx/UFO_buzz.wav" id="3_r408j"]
 [ext_resource type="Texture2D" uid="uid://cic4ov8dguevc" path="res://assets/sprites/ufo_beam.png" id="4_g2dkd"]
 [ext_resource type="AudioStream" uid="uid://3h8uktx7yiqo" path="res://assets/sound/sfx/UFO_beam_swirl.wav" id="5_yb6pp"]
 [ext_resource type="AudioStream" uid="uid://c5q6t51gdcvgs" path="res://assets/sound/sfx/UFO_swoosh.wav" id="6_b5o76"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ilg1w"]
+atlas = ExtResource("3_aql82")
+region = Rect2(0, 0, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qreu2"]
+atlas = ExtResource("3_aql82")
+region = Rect2(130, 0, 130, 130)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1d1lp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ilg1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qreu2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_hj2v3"]
 length = 0.001
@@ -36,26 +58,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("UfoBeam:position")
+tracks/2/path = NodePath("UfoBeam:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(516, 544)]
+"update": 1,
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("UfoBeam:visible")
+tracks/3/path = NodePath("UfoBeam:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(-11.9999, 344)]
 }
 
 [sub_resource type="Animation" id="Animation_l716y"]
@@ -94,7 +116,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.962676),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(516, 383), Vector2(516, 544)]
+"values": [Vector2(-5, 191), Vector2(-10, 352)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -157,7 +179,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(516, 544), Vector2(516, 383)]
+"values": [Vector2(-5, 352), Vector2(-5, 191)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a1ifr"]
@@ -170,25 +192,34 @@ _data = {
 [node name="AlienUFO" type="CharacterBody2D"]
 script = ExtResource("1_hp4kt")
 
-[node name="Ufo" type="Sprite2D" parent="."]
-position = Vector2(517, 517)
-scale = Vector2(7, 7)
-texture = ExtResource("1_qg6fb")
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 328.094)
+scale = Vector2(7.04615, 7.12452)
+sprite_frames = SubResource("SpriteFrames_1d1lp")
+frame_progress = 0.62782
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(-16, 3)
+position = Vector2(-540, -191)
 scale = Vector2(1.05415, 1.12673)
-polygon = PackedVector2Array(327, 214, 453.446, 253.832, 596, 254, 709.576, 205.906, 597.638, 152.654, 552.104, 110.053, 485.699, 110.053, 438.268, 147.329)
+polygon = PackedVector2Array(328.227, 210.343, 446.806, 248.507, 586.254, 246.732, 703.885, 206.793, 589.1, 154.429, 547.36, 110.053, 480.008, 111.828, 441.114, 153.542)
 
 [node name="UfoBeam" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.858824)
-position = Vector2(516, 544)
+position = Vector2(-11.9999, 344)
 scale = Vector2(8.29231, 8.49231)
 texture = ExtResource("4_g2dkd")
 
+[node name="Area2D" type="Area2D" parent="UfoBeam"]
+position = Vector2(0.12085, -3.76825)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="UfoBeam/Area2D"]
+position = Vector2(2.00785, 7.88978)
+scale = Vector2(0.934223, 1)
+polygon = PackedVector2Array(-5.55553, -38.1523, -16.7707, 19.7825, 15.4278, 20.96, 1.07712, -37.6813)
+
 [node name="Buzz" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_r408j")
-volume_db = 12.448
+volume_db = 9.258
 
 [node name="Swirl" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_yb6pp")
@@ -196,9 +227,11 @@ volume_db = 24.0
 
 [node name="Whoosh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_b5o76")
-volume_db = 15.435
+volume_db = 19.209
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_a1ifr")
 }
+
+[connection signal="body_entered" from="UfoBeam/Area2D" to="." method="_on_area_2d_body_entered"]

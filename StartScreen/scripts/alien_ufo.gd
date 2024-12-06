@@ -4,9 +4,11 @@ extends CharacterBody2D
 @export var swirl = false
 @export var whoosh = false
 
+signal beam_player()
 
 func _ready():
 	$UfoBeam.visible = false
+	$Sprite.play()
 	
 func show_beam():
 	$AnimationPlayer.play("show_beam")
@@ -38,4 +40,9 @@ func stop_sound(sound):
 	if sound == "whoosh":
 		whoosh = false
 	
+	
+#beam has been entered
+func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
+	if $UfoBeam.visible:
+		emit_signal("beam_player")
 	

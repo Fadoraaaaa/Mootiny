@@ -81,6 +81,7 @@ func show_emote(emotion):
 		$Questionmark.visible = false
 	if emotion == "surprise":
 		$Exclamation.visible = true
+		$EmotionIndicator.play()
 		await get_tree().create_timer(2).timeout
 		$Exclamation.visible = false
 	else:
@@ -96,5 +97,4 @@ func is_speaking(direction, emotion):
 	if direction == "left":
 		var horizontal_direction = -1
 		sprite.flip_h = (horizontal_direction == -1)
-	
 	
