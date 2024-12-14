@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5cyk16qqhx3s"]
+[gd_scene load_steps=10 format=3 uid="uid://b5cyk16qqhx3s"]
 
 [ext_resource type="Script" path="res://menu stuff/menu scripts/Menu.gd" id="1_gyh52"]
 [ext_resource type="Texture2D" uid="uid://ci116oebadbe5" path="res://assets/textures/startscreen.png" id="2_e72kq"]
 [ext_resource type="AudioStream" uid="uid://cjlh8ni0qcf63" path="res://assets/sound/music/StartScreen Harmony.wav" id="3_toh0g"]
 [ext_resource type="PackedScene" uid="uid://cpaddhkdb7p3p" path="res://menu stuff/menu scenes/Options.tscn" id="4_eaqif"]
+[ext_resource type="AudioStream" uid="uid://ddp7rl32rp4mh" path="res://assets/sound/JENNA MODE/Meowmeowmeow.wav" id="5_l78j1"]
 
 [sub_resource type="Animation" id="Animation_itagb"]
 resource_name = "Fade in"
@@ -113,6 +114,10 @@ text = "Options"
 [node name="Options" parent="." instance=ExtResource("4_eaqif")]
 visible = false
 layout_mode = 1
+
+[node name="JennaMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_l78j1")
+bus = &"JENNA MODE"
 
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b1a2edb171we5" path="res://assets/sprites/cocoa/cocoa_idle.png" id="1_i25c7"]
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_yig3m"]
 [ext_resource type="Texture2D" uid="uid://vy144rcdcao5" path="res://assets/sprites/honey/honey_idle.png" id="3_1fldq"]
-[ext_resource type="Texture2D" uid="uid://did5r1m54g48g" path="res://assets/sprites/holy_cow_idle.png" id="3_lnb3f"]
+[ext_resource type="Texture2D" uid="uid://c2eooltsvx4vo" path="res://assets/sprites/holy_cow_idle.png" id="3_lnb3f"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="5_1qn2o"]
 [ext_resource type="Texture2D" uid="uid://3s1s0hs5xpbw" path="res://assets/textures/questionmark.png" id="5_d2xyr"]
 [ext_resource type="Texture2D" uid="uid://cc8bawglkbwtg" path="res://assets/textures/exclamation.png" id="6_flmcy"]
@@ -120,3 +120,4 @@ texture = ExtResource("6_flmcy")
 [node name="EmotionIndicator" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_6pnyp")
 volume_db = -15.077
+bus = &"Sfx"

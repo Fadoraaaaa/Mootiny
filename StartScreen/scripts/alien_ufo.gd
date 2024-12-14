@@ -17,12 +17,27 @@ func hide_beam():
 	$AnimationPlayer.play("stop_beam")
 
 func _process(delta):
-	if buzz and !$Buzz.playing:
-		$Buzz.play()
+	if buzz:
+		if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) < 0.0002:
+			if !$Buzz.playing:
+				$Buzz.play()
+		else:
+			if !$JENNA_Buzz.playing:
+				$JENNA_Buzz.play()
 	if swirl and !$Swirl.playing:
-		$Swirl.play()
+		if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) < 0.0002:
+			if !$Swirl.playing:
+				$Swirl.play()
+		else:
+			if !$JENNA_Swirl.playing:
+				$JENNA_Swirl.play()
 	if whoosh and !$Whoosh.playing:
-		$Whoosh.play()
+		if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) < 0.0002:
+			if !$Whoosh.playing:
+				$Whoosh.play()
+		else:
+			if !$JENNA_Whoosh.playing:
+				$JENNA_Whoosh.play()
 
 func play_sound(sound):
 	if sound == "buzz":

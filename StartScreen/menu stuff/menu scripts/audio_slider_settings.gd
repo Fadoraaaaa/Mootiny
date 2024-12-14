@@ -29,5 +29,12 @@ func set_slider_value() -> void:
 	set_audio_num_label_text()
 
 func on_value_changed(value : float) -> void:
-	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
-	set_audio_num_label_text()
+	var jenna_checked = get_parent().get_node("Audio_Check_Button/HBoxContainer/CheckButton").button_pressed
+	
+	if (bus_name == "Sfx") and jenna_checked:
+		print("jenna mode is ON")
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"), linear_to_db(value))
+	
+	else:
+		AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+		set_audio_num_label_text()

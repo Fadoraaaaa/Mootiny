@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c6yqlqamuat0g" path="res://assets/sprites/honey/honey_closeup.png" id="4_3ppoh"]
 [ext_resource type="Texture2D" uid="uid://bvxpcky554oj3" path="res://assets/sprites/cocoa/cocoa_closeup_sad.png" id="5_n4re6"]
 [ext_resource type="Texture2D" uid="uid://by57c2p512cfx" path="res://assets/sprites/honey/honey_closeup_happy.png" id="5_suirc"]
-[ext_resource type="Texture2D" uid="uid://dvjhacsgc402f" path="res://assets/sprites/unknown.png" id="6_00bfu"]
+[ext_resource type="Texture2D" uid="uid://de186v744888f" path="res://assets/sprites/unknown.png" id="6_00bfu"]
 [ext_resource type="Texture2D" uid="uid://bpveeqbt0vcre" path="res://assets/sprites/MC/mc_closeup.png" id="7_fu2v8"]
 [ext_resource type="Texture2D" uid="uid://dm7sswsr2gu66" path="res://assets/sprites/honey/honey_closeup_sad.png.png" id="8_b683p"]
 [ext_resource type="Texture2D" uid="uid://brou477w33lca" path="res://assets/sprites/MC/mc_closeup_happy.png" id="8_de311"]
@@ -194,5 +194,6 @@ text = "aaaaaa WHY IS THIS NOT CHANGING"
 [node name="Clack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_gh5jl")
 volume_db = -28.178
+bus = &"Sfx"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

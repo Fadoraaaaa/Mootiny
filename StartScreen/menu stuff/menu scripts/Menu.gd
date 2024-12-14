@@ -36,4 +36,6 @@ func _process(_delta):
 	
 	if $MusicStreamPlayer2D.playing == false:
 		$MusicStreamPlayer2D.play()
+	if $JennaMusic.playing == false:
+		$JennaMusic.play()
 	pass

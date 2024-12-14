@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://chgo3irxmq654"
+path="res://.godot/imported/UFO whoosh.wav-49a5f0812663c708491594d80144a492.sample"
+
+[deps]
+
+source_file="res://assets/sound/JENNA MODE/UFO whoosh.wav"
+dest_files=["res://.godot/imported/UFO whoosh.wav-49a5f0812663c708491594d80144a492.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

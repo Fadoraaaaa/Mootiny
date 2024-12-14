@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bn16pnjwue1je"]
+[gd_scene load_steps=17 format=3 uid="uid://bn16pnjwue1je"]
 
 [ext_resource type="Script" path="res://scripts/alien_ufo.gd" id="1_hp4kt"]
 [ext_resource type="Texture2D" uid="uid://c0ji2n0qlg2tp" path="res://assets/sprites/ufo.png" id="3_aql82"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c7cafes7o53b" path="res://assets/sprites/ufo_beam.png" id="4_g2dkd"]
 [ext_resource type="AudioStream" uid="uid://3h8uktx7yiqo" path="res://assets/sound/sfx/UFO_beam_swirl.wav" id="5_yb6pp"]
 [ext_resource type="AudioStream" uid="uid://c5q6t51gdcvgs" path="res://assets/sound/sfx/UFO_swoosh.wav" id="6_b5o76"]
+[ext_resource type="AudioStream" uid="uid://b6d0wggy1as67" path="res://assets/sound/JENNA MODE/UFO hum.wav" id="7_w60r3"]
+[ext_resource type="AudioStream" uid="uid://dx04sc7v1mqvt" path="res://assets/sound/JENNA MODE/UFO swirl.wav" id="8_v58v1"]
+[ext_resource type="AudioStream" uid="uid://chgo3irxmq654" path="res://assets/sound/JENNA MODE/UFO whoosh.wav" id="9_hwefr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilg1w"]
 atlas = ExtResource("3_aql82")
@@ -220,18 +223,34 @@ polygon = PackedVector2Array(-5.55553, -38.1523, -16.7707, 19.7825, 15.4278, 20.
 [node name="Buzz" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_r408j")
 volume_db = 9.258
+bus = &"Sfx"
 
 [node name="Swirl" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_yb6pp")
 volume_db = 24.0
+bus = &"Sfx"
 
 [node name="Whoosh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_b5o76")
 volume_db = 19.209
+bus = &"Sfx"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_a1ifr")
 }
+
+[node name="JENNA_Buzz" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_w60r3")
+bus = &"JENNA MODE"
+
+[node name="JENNA_Swirl" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_v58v1")
+volume_db = 24.0
+bus = &"JENNA MODE"
+
+[node name="JENNA_Whoosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_hwefr")
+bus = &"JENNA MODE"
 
 [connection signal="body_entered" from="UfoBeam/Area2D" to="." method="_on_area_2d_body_entered"]

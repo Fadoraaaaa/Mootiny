@@ -106,6 +106,8 @@ shape = SubResource("RectangleShape2D_whux2")
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_emi6t")
 volume_db = -11.143
+bus = &"Sfx"
 
 [node name="Collision" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_n4r2i")
+bus = &"Sfx"
