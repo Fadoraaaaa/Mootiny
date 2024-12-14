@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cwla58gh0shm2"
+path="res://.godot/imported/jenna clack.wav-a98b8c8ba0bfb4f6356a53e552eb3ff8.sample"
+
+[deps]
+
+source_file="res://assets/sound/JENNA MODE/jenna clack.wav"
+dest_files=["res://.godot/imported/jenna clack.wav-a98b8c8ba0bfb4f6356a53e552eb3ff8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

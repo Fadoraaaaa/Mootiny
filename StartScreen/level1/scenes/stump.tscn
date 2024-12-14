@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://btdxpemlmwebw"]
 
-[ext_resource type="Texture2D" uid="uid://dqe4ynoomseaf" path="res://level1/assets/obstacles/stump.png" id="1_wk1u0"]
+[ext_resource type="Texture2D" uid="uid://dqe4ynoomseaf" path="res://level1/assets/stump.png" id="1_wk1u0"]
 
 [node name="Stump" type="Area2D"]
 

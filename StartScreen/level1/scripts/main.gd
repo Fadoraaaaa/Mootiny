@@ -25,6 +25,7 @@ var game_running : bool
 var last_obs
 var hit_num = 0
 var collided
+var levelover
 
 signal anim_done()
 
@@ -46,6 +47,7 @@ func _ready():
 	$UFO.play_sound("buzz")
 	$UFO.get_node("UfoBeam/Area2D").body_entered.connect(beam_collide)
 	collided = false
+	$JENNATenseMusic.play()
 	
 
 func new_game():
@@ -86,6 +88,10 @@ func new_game():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if game_running:
+		print(str($Dino.position.y))
+		if !$JENNATenseMusic.playing:
+			$JENNATenseMusic.play()
+			
 		#speed up and adjust difficulty
 		speed = (START_SPEED + score / SPEED_MODIFIER) - hit_num
 		if speed > MAX_SPEED:
@@ -100,6 +106,7 @@ func _process(delta):
 		
 		#move dino and camera
 		$Dino.position.x += speed
+		$JENNATenseMusic.position.x += speed
 		$Camera2D.position.x = $Dino.position.x +126
 		$UFO.position.x += 5
 		
@@ -112,25 +119,38 @@ func _process(delta):
 		score += speed
 		show_score()
 		
+		if score/10 >= 3000 and $Dino.position.y <= 281:
+			levelover = true
+			game_running = false
+		
 		#update ground position
 		if $Camera2D.position.x - $Ground.position.x > screen_size.x * 1.5:
 			$Ground.position.x += screen_size.x
 			
 		if $Dino.is_on_floor():
-			if !$Dino.get_node("Footsteps").playing:
-				$Dino.get_node("Footsteps").play()
+			if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) > 0.0002:
+				if !$Dino.get_node("JENNAFootsteps").playing:
+					$Dino.get_node("JENNAFootsteps").play()
+			else:
+				if !$Dino.get_node("Footsteps").playing:
+					$Dino.get_node("Footsteps").play()
 		else:
 			$Dino.get_node("Footsteps").stop()
+			$Dino.get_node("JENNAFootsteps").stop()
 			
 		#remove obstacles that have gone off screen
 		for obs in obstacles:
 			if obs.position.x < ($Camera2D.position.x - screen_size.x):
 				remove_obs(obs)
 	else:
-		if Input.is_action_pressed("jump") and $UFO.visible and !$AnimationPlayer.is_playing() and !collided:
+		if Input.is_action_pressed("jump") and $UFO.visible and !$AnimationPlayer.is_playing() and !collided and !levelover:
 			game_running = true
 			$HUD.get_node("StartLabel").hide()
-
+		if levelover:
+			print("escape level is over")
+			for obs in obstacles:
+				remove_obs(obs)
+			print("need to add an animation here")
 func generate_obs():
 	#generate ground obstacles
 	if obstacles.is_empty() or last_obs.position.x < score + randi_range(300, 500):
@@ -160,14 +180,16 @@ func remove_obs(obs):
 func hit_obs(body):
 	if body.name == "Dino":
 		hit_num += 1
-		$Dino.get_node("Collision").play()
+		if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) > 0.0002:
+			$Dino.get_node("JENNACollision").play()
+		else: 
+			$Dino.get_node("Collision").play()
 		$Dino.get_node("AnimatedSprite2D/Red").visible = true
 		var tween = create_tween()
 		tween.tween_callback(
 			func invisRed():
 				$Dino.get_node("AnimatedSprite2D/Red").visible = false
 		).set_delay(0.25)
-		#game_over()
 
 func show_score():
 	$HUD.get_node("ScoreLabel").text = "DISTANCE: " + str(score / SCORE_MODIFIER)

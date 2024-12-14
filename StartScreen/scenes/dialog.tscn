@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dnv0wy0kcoar0"]
+[gd_scene load_steps=26 format=3 uid="uid://dnv0wy0kcoar0"]
 
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_tusfr"]
 [ext_resource type="Texture2D" uid="uid://dmk8pyv1gxk8b" path="res://assets/sprites/cocoa/cocoa_closeup.png" id="2_2sfld"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://brou477w33lca" path="res://assets/sprites/MC/mc_closeup_happy.png" id="8_de311"]
 [ext_resource type="Texture2D" uid="uid://eohrc07dt7k7" path="res://assets/sprites/MC/mc_closeup_sad.png.png" id="12_o6q4y"]
 [ext_resource type="AudioStream" uid="uid://pgfgw0oadq27" path="res://assets/sound/sfx/keyboardclacks.wav" id="13_gh5jl"]
+[ext_resource type="AudioStream" uid="uid://cwla58gh0shm2" path="res://assets/sound/JENNA MODE/jenna clack.wav" id="14_ixbt1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mj4w"]
 atlas = ExtResource("2_2sfld")
@@ -193,7 +194,12 @@ text = "aaaaaa WHY IS THIS NOT CHANGING"
 
 [node name="Clack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_gh5jl")
-volume_db = -28.178
+volume_db = -5.0
 bus = &"Sfx"
+
+[node name="JENNAClack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_ixbt1")
+volume_db = 5.0
+bus = &"JENNA MODE"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

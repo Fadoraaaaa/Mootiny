@@ -53,6 +53,10 @@ func _physics_process(_delta):
 	update_animation(horizontal_direction)
 	
 func update_animation(horizontal_direction):
+	
+	if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) > 0.0002:
+		footsteps_sound = $JENNAFootsteps as AudioStreamPlayer2D
+	
 	if (!attack):
 		if is_on_floor():
 			if horizontal_direction == 0:

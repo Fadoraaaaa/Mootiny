@@ -38,8 +38,11 @@ func _input(event):
 				label_text.visible_characters = 0
 				if dialog[page][3] != "":
 					get_parent().get_node(dialog[page][2]).is_speaking(dialog[page][3], dialog[page][4])
-				if !$Clack.playing:
-					$Clack.play()
+					if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) < 0.0002:
+						$Clack.play()
+					else:
+						$JENNAClack.play()
+				
 			else:
 				if visible: 
 					$Clack.play()

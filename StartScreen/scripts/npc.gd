@@ -45,7 +45,10 @@ func show_emote(emotion):
 		$Questionmark.visible = false
 	if emotion == "surprise":
 		$Exclamation.visible = true
-		$EmotionIndicator.play()
+		if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) < 0.0002:
+			$EmotionIndicator.play()
+		else:
+			$JENNAEmotionIndicator.play()
 		await get_tree().create_timer(2).timeout
 		$Exclamation.visible = false
 	

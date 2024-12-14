@@ -91,6 +91,7 @@ func _on_ufo_beam_player() -> void:
 	if !dead:
 		var tween = create_tween()
 		var target_pos = $UFO.position
+		$UFO.play_sound("swirl")
 		tween.tween_property($You, "position", target_pos, 4)
 		await tween.finished
 		$Deathscreen.death()

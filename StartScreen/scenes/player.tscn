@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://jn778v63oasw"]
+[gd_scene load_steps=18 format=3 uid="uid://jn778v63oasw"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7g5cj"]
 [ext_resource type="Texture2D" uid="uid://b138wds3lptgy" path="res://assets/sprites/MC/mc_idle.png" id="2_lusii"]
@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cc8bawglkbwtg" path="res://assets/textures/exclamation.png" id="5_wwx00"]
 [ext_resource type="Texture2D" uid="uid://3s1s0hs5xpbw" path="res://assets/textures/questionmark.png" id="6_bv0ae"]
 [ext_resource type="AudioStream" uid="uid://djxygndl5wfw0" path="res://assets/sound/sfx/emotion.wav" id="9_hoi6t"]
-[ext_resource type="AudioStream" uid="uid://dtdvh7lypeh8n" path="res://assets/sound/JENNA MODE/Bing!.wav" id="10_arsap"]
+[ext_resource type="AudioStream" uid="uid://dtdvh7lypeh8n" path="res://assets/sound/JENNA MODE/jenna_bing.wav" id="10_arsap"]
+[ext_resource type="AudioStream" uid="uid://cgj6l0si2g0jr" path="res://assets/sound/JENNA MODE/jenna footsteps.wav" id="11_dqqy1"]
 
 [sub_resource type="Animation" id="Animation_xc42v"]
 length = 0.001
@@ -334,4 +335,9 @@ bus = &"Sfx"
 
 [node name="JENNAEmotionIndicator" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_arsap")
+bus = &"JENNA MODE"
+
+[node name="JENNAFootsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_dqqy1")
+volume_db = 10.0
 bus = &"JENNA MODE"

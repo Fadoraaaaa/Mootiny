@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ta0webu32dxh"]
 
-[ext_resource type="Texture2D" uid="uid://ddw0v4i0dvrys" path="res://level1/assets/obstacles/rock.png" id="1_c2ky6"]
+[ext_resource type="Texture2D" uid="uid://ddw0v4i0dvrys" path="res://level1/assets/rock.png" id="1_c2ky6"]
 
 [node name="Rock" type="Area2D"]
 

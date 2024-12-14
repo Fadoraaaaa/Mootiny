@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://c7cafes7o53b" path="res://assets/sprites/ufo_beam.png" id="4_g2dkd"]
 [ext_resource type="AudioStream" uid="uid://3h8uktx7yiqo" path="res://assets/sound/sfx/UFO_beam_swirl.wav" id="5_yb6pp"]
 [ext_resource type="AudioStream" uid="uid://c5q6t51gdcvgs" path="res://assets/sound/sfx/UFO_swoosh.wav" id="6_b5o76"]
-[ext_resource type="AudioStream" uid="uid://b6d0wggy1as67" path="res://assets/sound/JENNA MODE/UFO hum.wav" id="7_w60r3"]
-[ext_resource type="AudioStream" uid="uid://dx04sc7v1mqvt" path="res://assets/sound/JENNA MODE/UFO swirl.wav" id="8_v58v1"]
-[ext_resource type="AudioStream" uid="uid://chgo3irxmq654" path="res://assets/sound/JENNA MODE/UFO whoosh.wav" id="9_hwefr"]
+[ext_resource type="AudioStream" uid="uid://b6d0wggy1as67" path="res://assets/sound/JENNA MODE/jenna UFO hum.wav" id="7_w60r3"]
+[ext_resource type="AudioStream" uid="uid://dx04sc7v1mqvt" path="res://assets/sound/JENNA MODE/jenna UFO swirl.wav" id="8_v58v1"]
+[ext_resource type="AudioStream" uid="uid://chgo3irxmq654" path="res://assets/sound/JENNA MODE/jenna UFO whoosh.wav" id="9_hwefr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilg1w"]
 atlas = ExtResource("3_aql82")
@@ -251,6 +251,7 @@ bus = &"JENNA MODE"
 
 [node name="JENNA_Whoosh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_hwefr")
+volume_db = 20.0
 bus = &"JENNA MODE"
 
 [connection signal="body_entered" from="UfoBeam/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bhtein0chknfn"]
+[gd_scene load_steps=18 format=3 uid="uid://bhtein0chknfn"]
 
 [ext_resource type="Script" path="res://level1/scripts/dino.gd" id="1_1stpw"]
 [ext_resource type="Texture2D" uid="uid://b138wds3lptgy" path="res://assets/sprites/MC/mc_idle.png" id="2_f545s"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://cjk5nfct3on4u" path="res://assets/sprites/MC/mc_walk.png" id="4_xhwm2"]
 [ext_resource type="AudioStream" uid="uid://p21vcwtqu1gm" path="res://assets/sound/sfx/footsteps.wav" id="5_emi6t"]
 [ext_resource type="AudioStream" uid="uid://dd27ic80qkq7k" path="res://assets/sound/sfx/collision.wav" id="6_n4r2i"]
+[ext_resource type="AudioStream" uid="uid://cgj6l0si2g0jr" path="res://assets/sound/JENNA MODE/jenna footsteps.wav" id="7_bjuu5"]
+[ext_resource type="AudioStream" uid="uid://dae2dow8r4i7w" path="res://assets/sound/JENNA MODE/jenna collision.wav" id="8_pwix2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7omuu"]
 atlas = ExtResource("2_f545s")
@@ -111,3 +113,13 @@ bus = &"Sfx"
 [node name="Collision" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_n4r2i")
 bus = &"Sfx"
+
+[node name="JENNAFootsteps" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_bjuu5")
+volume_db = 10.0
+bus = &"JENNA MODE"
+
+[node name="JENNACollision" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_pwix2")
+volume_db = 10.0
+bus = &"JENNA MODE"
