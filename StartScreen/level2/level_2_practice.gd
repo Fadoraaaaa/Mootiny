@@ -1,8 +1,10 @@
-extends CanvasLayer
+extends Node2D
 
-
+@onready var anim = $AnimationPlayer as AnimationPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	anim.play("save_moogician")
+	
 	pass # Replace with function body.
 
 

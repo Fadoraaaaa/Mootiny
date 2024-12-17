@@ -84,11 +84,11 @@ func new_game():
 	var action_keycode = OS.get_keycode_string(action_events[0].physical_keycode)
 	$HUD.get_node("StartLabel").text = "PRESS " + action_keycode + " TO JUMP"
 	$GameOver.hide()
+	#$Deathscreen.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if game_running:
-		print(str($Dino.position.y))
 		if !$JENNATenseMusic.playing:
 			$JENNATenseMusic.play()
 			
@@ -147,7 +147,6 @@ func _process(delta):
 			game_running = true
 			$HUD.get_node("StartLabel").hide()
 		if levelover:
-			print("escape level is over")
 			for obs in obstacles:
 				remove_obs(obs)
 			print("need to add an animation here")
@@ -209,6 +208,7 @@ func game_over():
 	get_tree().paused = true
 	game_running = false
 	$GameOver.show()
+	#$Deathscreen.death()
 	print("game over")
 
 func beam_collide(body):

@@ -15,6 +15,7 @@ var death_messages = ["",
 "Hand the controller to somebody else please",
 "That's it, you aren't even worth death messages",
 "...again"]
+@export var reset_path = ""
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,5 +31,10 @@ func _process(delta: float) -> void:
 		text.text = death_messages[-1]
 
 func death():
+	show()
 	death_count += 1
 	$AnimationPlayer.play("death")
+	
+
+func show_gameover():
+	get_parent().get_node("GameOver").show()

@@ -4,14 +4,33 @@ extends Node2D
 
 signal anim_done()
 var dead
+var ready_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	new_game()
+	await $ExitScene.exiting_level
+	$AnimationPlayer.play("leaving_scene")
+	$You.pause = true
+	await anim_done
+	get_tree().change_scene_to_file("res://level1/scenes/main.tscn")
+
+func new_game():
 	dead = false
+	ready_over = false
+	$GameOver.hide()
+	$GameOver.get_node("Button").pressed.connect(new_game)
 	#setting up beginning
 	$Dialog.visible = false
-	$UFO.position.y = -800
-	$UFO.position.x = -788
+	$You.position = Vector2i(577, 763)
+	$UFO.position = Vector2i(-788, -800)
+	$Honey.position = Vector2i(294, 760)
+	$Honey.modulate = Color8(255, 255, 255, 255)
+	$Cocoa.position = Vector2i(145, 760)
+	$Cocoa.modulate = Color8(255, 255, 255, 255)
+	
+	$Deathscreen.hide()
+	$UFO.hide_beam()
 	
 	#playing act 0
 	$You.pause = true
@@ -21,7 +40,8 @@ func _ready():
 	print("playing act 0")
 	await $Dialog.finished
 	print("act 0 is done")
-
+	
+	
 	#MY GOD! ITS A BIRD! ITS A PLAN! NO! IT'S-IT's---- (ur mom lol jk)
 	$AnimationPlayer.play("act 1_1")
 	await $Dialog.finished
@@ -36,8 +56,10 @@ func _ready():
 	
 	#UFO envelops friends
 	$AnimationPlayer.play("act 1_3")
+	$UFO.show_beam()
 	await $Dialog.finished
 	print("act 1_3 is done")
+	
 	
 	#UFO swipes ur friends--they're gone now. Reduced to atoms
 	$AnimationPlayer.play("act 1_4")
@@ -51,19 +73,9 @@ func _ready():
 	print("act 1_5 is done")
 	
 	$You.pause = false
-	
+	ready_over = true
 	#OH MY THE UFO IS GONNA CHASE YOU!!! :O
-	await $ExitScene.exiting_level
-	$AnimationPlayer.play("leaving_scene")
-	$You.pause = true
-	await anim_done
-	get_tree().change_scene_to_file("res://level1/scenes/main.tscn")
-
-
-	#play some frantic beep beep burp! Burburbaba
-	#player chases after MC to the right
 	
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if !music.playing:
@@ -88,7 +100,7 @@ func animation_over():
 	emit_signal("anim_done")
 
 func _on_ufo_beam_player() -> void:
-	if !dead:
+	if !dead and ready_over:
 		var tween = create_tween()
 		var target_pos = $UFO.position
 		$UFO.play_sound("swirl")

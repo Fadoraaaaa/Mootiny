@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dnv0wy0kcoar0"]
+[gd_scene load_steps=28 format=3 uid="uid://dnv0wy0kcoar0"]
 
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_tusfr"]
 [ext_resource type="Texture2D" uid="uid://dmk8pyv1gxk8b" path="res://assets/sprites/cocoa/cocoa_closeup.png" id="2_2sfld"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bpveeqbt0vcre" path="res://assets/sprites/MC/mc_closeup.png" id="7_fu2v8"]
 [ext_resource type="Texture2D" uid="uid://dm7sswsr2gu66" path="res://assets/sprites/honey/honey_closeup_sad.png.png" id="8_b683p"]
 [ext_resource type="Texture2D" uid="uid://brou477w33lca" path="res://assets/sprites/MC/mc_closeup_happy.png" id="8_de311"]
+[ext_resource type="Texture2D" uid="uid://cclf88afojcd7" path="res://assets/sprites/npcs/moogician_closeup.png" id="9_btpo1"]
 [ext_resource type="Texture2D" uid="uid://eohrc07dt7k7" path="res://assets/sprites/MC/mc_closeup_sad.png.png" id="12_o6q4y"]
 [ext_resource type="AudioStream" uid="uid://pgfgw0oadq27" path="res://assets/sound/sfx/keyboardclacks.wav" id="13_gh5jl"]
 [ext_resource type="AudioStream" uid="uid://cwla58gh0shm2" path="res://assets/sound/JENNA MODE/jenna clack.wav" id="14_ixbt1"]
@@ -38,6 +39,10 @@ region = Rect2(0, 0, 240, 260)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cwl63"]
 atlas = ExtResource("8_b683p")
 region = Rect2(0, 0, 240, 260)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyuyp"]
+atlas = ExtResource("9_btpo1")
+region = Rect2(0, 0, 275, 275)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rpvpw"]
 atlas = ExtResource("6_00bfu")
@@ -103,6 +108,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Honey_Sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyuyp")
+}],
+"loop": true,
+"name": &"Moogician",
 "speed": 5.0
 }, {
 "frames": [{
@@ -176,10 +189,10 @@ theme_override_font_sizes/font_size = 26
 text = "Character Name"
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(898.5, 834.75)
-scale = Vector2(1.72083, 1.62115)
+position = Vector2(896, 829)
+scale = Vector2(1.61132, 1.62115)
 sprite_frames = SubResource("SpriteFrames_s1ny8")
-animation = &"You_Sad"
+animation = &"Moogician"
 autoplay = "Unknown"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bpbo1lwxwf6xa"]
+
+[ext_resource type="Script" path="res://level2/level_2_practice.gd" id="1_0r3hv"]
+[ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="2_pgfiv"]
+[ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="3_draxd"]
+
+[sub_resource type="Animation" id="Animation_fjqej"]
+resource_name = "save_moogician"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["AAAAAA SAVE ME SAVE ME SAVE ME SAVE ME AAAAAAAA", "Moogician", "Moogician", "left", "surprise"]]],
+"method": &"change_dialog"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_agwhr"]
+_data = {
+"save_moogician": SubResource("Animation_fjqej")
+}
+
+[sub_resource type="QuadMesh" id="QuadMesh_ee7ho"]
+size = Vector2(1000, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jdb15"]
+size = Vector2(1676.38, 262.375)
+
+[node name="level2practice" type="Node2D"]
+script = ExtResource("1_0r3hv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_agwhr")
+}
+
+[node name="Platform" type="StaticBody2D" parent="."]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
+modulate = Color(0.00784314, 0, 0.164706, 1)
+position = Vector2(835.25, 894.25)
+scale = Vector2(1.6905, 2.615)
+mesh = SubResource("QuadMesh_ee7ho")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+visible = false
+position = Vector2(839.813, 891.813)
+shape = SubResource("RectangleShape2D_jdb15")
+
+[node name="Dialog" parent="." instance=ExtResource("2_pgfiv")]
+
+[node name="Moogician" parent="." instance=ExtResource("3_draxd")]
+position = Vector2(662, 764)
+character_name = "Moogician"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmkbx4xm8x5gj"]
+[gd_scene load_steps=20 format=3 uid="uid://dmkbx4xm8x5gj"]
 
 [ext_resource type="Texture2D" uid="uid://b1a2edb171we5" path="res://assets/sprites/cocoa/cocoa_idle.png" id="1_i25c7"]
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_yig3m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c2eooltsvx4vo" path="res://assets/sprites/holy_cow_idle.png" id="3_lnb3f"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="5_1qn2o"]
 [ext_resource type="Texture2D" uid="uid://3s1s0hs5xpbw" path="res://assets/textures/questionmark.png" id="5_d2xyr"]
+[ext_resource type="Texture2D" uid="uid://w6ppd7rjs8dk" path="res://assets/sprites/npcs/moogician_idle.png" id="5_pi8fs"]
 [ext_resource type="Texture2D" uid="uid://cc8bawglkbwtg" path="res://assets/textures/exclamation.png" id="6_flmcy"]
 [ext_resource type="AudioStream" uid="uid://djxygndl5wfw0" path="res://assets/sound/sfx/emotion.wav" id="8_6pnyp"]
 [ext_resource type="AudioStream" uid="uid://dtdvh7lypeh8n" path="res://assets/sound/JENNA MODE/jenna_bing.wav" id="9_8cyrs"]
@@ -34,6 +35,14 @@ region = Rect2(0, 0, 135, 78)
 atlas = ExtResource("3_1fldq")
 region = Rect2(135, 0, 135, 78)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6bjb"]
+atlas = ExtResource("5_pi8fs")
+region = Rect2(0, 0, 112, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqja5"]
+atlas = ExtResource("5_pi8fs")
+region = Rect2(112, 0, 112, 85)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_h0g3n"]
 animations = [{
 "frames": [{
@@ -44,7 +53,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_barlc")
 }],
 "loop": true,
-"name": &"cocoa_idle",
+"name": &"Cocoa",
 "speed": 5.0
 }, {
 "frames": [{
@@ -55,7 +64,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_kte4w")
 }],
 "loop": true,
-"name": &"holy_cow_idle",
+"name": &"HolyCow",
 "speed": 5.0
 }, {
 "frames": [{
@@ -66,7 +75,18 @@ animations = [{
 "texture": SubResource("AtlasTexture_4r05u")
 }],
 "loop": true,
-"name": &"honey_idle",
+"name": &"Honey",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6bjb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqja5")
+}],
+"loop": true,
+"name": &"Moogician",
 "speed": 5.0
 }]
 
@@ -76,8 +96,8 @@ script = ExtResource("1_yig3m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(68, -40)
 sprite_frames = SubResource("SpriteFrames_h0g3n")
-animation = &"holy_cow_idle"
-frame_progress = 0.132353
+animation = &"Moogician"
+frame_progress = 0.260682
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

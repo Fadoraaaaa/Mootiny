@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dnakgkiabqblk"]
+[gd_scene load_steps=28 format=3 uid="uid://dnakgkiabqblk"]
 
 [ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="1_qbsxo"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_smdob"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="9_n8hi5"]
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="10_4e7rm"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="10_w7nv1"]
+[ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="11_hlaox"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5mtn7"]
 size = Vector2(1000, 100)
@@ -319,12 +320,9 @@ tracks/0/path = NodePath("UFO")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.133333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"show_beam"
-}, {
 "args": ["swirl"],
 "method": &"play_sound"
 }]
@@ -336,7 +334,7 @@ tracks/1/path = NodePath("Dialog")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.166667),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [[["AAAAAAAAAAAAAAA", "Honey_Sad", "Honey", "right", "surprise"], ["AAAAAAAAAAAAAAAAAAAAAAA", "Cocoa_Sad", "Cocoa", "right", "surprise"]]],
@@ -350,7 +348,7 @@ tracks/2/path = NodePath("Dialog:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.166667),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -715,6 +713,10 @@ position = Vector2(1268, 372)
 shape = SubResource("RectangleShape2D_58io7")
 
 [node name="Deathscreen" parent="." instance=ExtResource("10_4e7rm")]
+
+[node name="GameOver" parent="." instance=ExtResource("11_hlaox")]
+offset = Vector2(0, 150)
+transform = Transform2D(1, 0, 0, 1, 0, 150)
 
 [connection signal="beam_player" from="UFO" to="." method="_on_ufo_beam_player"]
 [connection signal="body_entered" from="ExitScene" to="ExitScene" method="_on_body_entered"]

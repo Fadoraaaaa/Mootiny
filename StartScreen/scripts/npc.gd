@@ -24,12 +24,7 @@ func _physics_process(_delta):
 	if direction != 0:
 		sprite.flip_h = (direction == -1)
 		
-	if character_name == "Cocoa":
-		sprite.play("cocoa_idle")
-	elif character_name == "Honey":
-		sprite.play("honey_idle")
-	elif character_name == "HolyCow":
-		sprite.play("holy_cow_idle")
+	sprite.play(character_name)
 	move_and_slide()
 	
 func flip_sprite_left():
