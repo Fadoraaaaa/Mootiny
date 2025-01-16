@@ -112,6 +112,7 @@ bus = &"Sfx"
 
 [node name="Collision" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_n4r2i")
+volume_db = 13.924
 bus = &"Sfx"
 
 [node name="JENNAFootsteps" type="AudioStreamPlayer2D" parent="."]

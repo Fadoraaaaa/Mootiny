@@ -7,13 +7,14 @@ extends CharacterBody2D
 @onready var footsteps_sound = $FootstepsSound as AudioStreamPlayer2D
 @onready var ap = $AnimationPlayer
 @onready var sprite = $Sprite2D
-
+var horizontal_direction
 var pause = false
 var attack = false
 
 func _ready():
 	$Exclamation.visible = false
 	$Questionmark.visible = false
+	horizontal_direction = 0
 
 func done_attacking():
 	attack = false
@@ -42,7 +43,7 @@ func _physics_process(_delta):
 		if Input.is_action_just_pressed("jump"): # && is_on_floor():
 			velocity.y = -jump_force 
 
-	var horizontal_direction = Input.get_axis("move_left","move_right")
+	horizontal_direction = Input.get_axis("move_left","move_right")
 	if !pause && !attack: 
 		velocity.x = speed * horizontal_direction	
 

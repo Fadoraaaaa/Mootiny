@@ -149,7 +149,8 @@ func _process(delta):
 		if levelover:
 			for obs in obstacles:
 				remove_obs(obs)
-			print("need to add an animation here")
+			await get_tree().create_timer(2).timeout
+			get_tree().change_scene_to_file("res://level2/level_2_practice.tscn")
 func generate_obs():
 	#generate ground obstacles
 	if obstacles.is_empty() or last_obs.position.x < score + randi_range(300, 500):

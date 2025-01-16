@@ -207,7 +207,7 @@ text = "aaaaaa WHY IS THIS NOT CHANGING"
 
 [node name="Clack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("13_gh5jl")
-volume_db = -5.0
+volume_db = 8.619
 bus = &"Sfx"
 
 [node name="JENNAClack" type="AudioStreamPlayer2D" parent="."]
