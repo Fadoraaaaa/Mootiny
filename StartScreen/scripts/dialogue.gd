@@ -60,4 +60,4 @@ func get_page():
 	return page
 
 func _on_timer_timeout():
-	label_text.visible_characters += 1
+	label_text.visible_characters += 10

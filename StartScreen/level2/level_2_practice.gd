@@ -4,25 +4,29 @@ extends Node2D
 var screen_size : Vector2i
 signal anim_done()
 signal hiding()
+var direction
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	screen_size = get_window().size
+	$You.pause = true
 	$Ground.position = Vector2i(-320, 220)
 	$Bush1.get_node("Area2D").body_entered.connect(bush_hiding)
 	$Bush1.get_node("Area2D").body_exited.connect(bush_left)
 	$Bush2.get_node("Area2D").body_entered.connect(bush_hiding)
 	$Bush2.get_node("Area2D").body_exited.connect(bush_left)
+	$UFO.position = Vector2i(1207, 381)
 	$UFO.show_beam()
 	anim.play("scene_1")
 	await $Dialog.finished
 	anim.play("scene_2")
 	await anim_done
+	$Timer.start()
 	$Dialog.visible = true
 	anim.play("scene_3")
 	await $Dialog.finished
 	anim.play("scene_4")
-	
+	$You.pause = false
 	
 	
 	pass # Replace with function body.
@@ -40,13 +44,35 @@ func _process(delta: float) -> void:
 	pass
 	
 func bush_hiding(body: CharacterBody2D):
-	print("bush has been entered - IN THE LEVEL")
 	$Bush2.get_node("Rustle").play()
 	$UFO.set_hiding(true)
 
 func bush_left(body: CharacterBody2D):
-	print("bush has been LEFT - IN THE LEVEL")
 	$UFO.set_hiding(false)
 
 func animation_over():
 	emit_signal("anim_done")
+
+
+func _on_timer_timeout() -> void:
+	if $UFO.position.x >= 1207:
+		direction = -1
+	if $UFO.position.x <= -200:
+		direction = 1
+	if direction < 0:
+		$UFO.position.x -= 4
+	if direction > 0:
+		$UFO.position.x += 4
+	
+	pass # Replace with function body.
+
+
+func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
+	$You.pause = true
+	$You.velocity.x = 0
+	$Dialog.position.x = $You.position.x - 540
+	$Dialog.visible = true
+	anim.play("scene_5")
+	await $Dialog.finished
+	
+	pass # Replace with function body.
