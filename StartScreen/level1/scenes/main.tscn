@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bju4jxwr7a0pg"]
+[gd_scene load_steps=19 format=3 uid="uid://bju4jxwr7a0pg"]
 
 [ext_resource type="Script" path="res://level1/scripts/main.gd" id="1_d36gk"]
 [ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="1_qy3kl"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dq2obeht71po" path="res://assets/sprites/MC/cow_face.png.png" id="9_ujxiy"]
 [ext_resource type="AudioStream" uid="uid://ccl38fhknsogp" path="res://assets/sound/JENNA MODE/Tense SARAH Music.wav" id="11_ph731"]
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="12_sxjjd"]
+[ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="13_p20h5"]
 
 [sub_resource type="Animation" id="Animation_jpa4j"]
 length = 0.001
@@ -207,6 +208,8 @@ position = Vector2(450, 285)
 [node name="UFO" parent="." instance=ExtResource("7_i8imr")]
 position = Vector2(143, -167)
 scale = Vector2(2, 2)
+
+[node name="bush" parent="." instance=ExtResource("13_p20h5")]
 
 [node name="Ground" parent="." instance=ExtResource("2_qu4oq")]
 position = Vector2(0, -200)

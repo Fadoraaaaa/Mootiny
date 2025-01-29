@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://qot0dbdb6w34"]
+
+[ext_resource type="Texture2D" uid="uid://bomjadvhka5mv" path="res://assets/textures/bush.png.png" id="1_ls3xp"]
+[ext_resource type="AudioStream" uid="uid://d0d4wvucxtgc3" path="res://assets/sound/sfx/bush_rustle.wav" id="2_08qml"]
+
+[node name="bush" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(7, 7)
+texture = ExtResource("1_ls3xp")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-50, 31, -48, -24, 37, -24, 44, 32)
+
+[node name="Rustle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_08qml")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

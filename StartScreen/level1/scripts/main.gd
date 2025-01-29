@@ -48,6 +48,7 @@ func _ready():
 	$UFO.get_node("UfoBeam/Area2D").body_entered.connect(beam_collide)
 	collided = false
 	$JENNATenseMusic.play()
+	$bush.get_node("Area2D").body_entered.connect(bush_hiding)
 	
 
 func new_game():
@@ -75,6 +76,7 @@ func new_game():
 	$ProgressBar.position.x = 107
 	$CowFace.position.x = 107
 	$MiniUFO.position.x = $ProgressBar.position.x
+	$bush.position = Vector2i(30000, 305)
 	
 	
 	#reset hud and game over screen
@@ -119,8 +121,8 @@ func _process(delta):
 		score += speed
 		show_score()
 		
-		if score/10 >= 3000 and $Dino.position.y <= 281:
-			levelover = true
+		if $Dino.position.x >= ($bush.position.x - 50):
+			speed = 0
 			game_running = false
 		
 		#update ground position
@@ -146,25 +148,26 @@ func _process(delta):
 		if Input.is_action_pressed("jump") and $UFO.visible and !$AnimationPlayer.is_playing() and !collided and !levelover:
 			game_running = true
 			$HUD.get_node("StartLabel").hide()
-		if levelover:
-			for obs in obstacles:
-				remove_obs(obs)
-			await get_tree().create_timer(2).timeout
-			get_tree().change_scene_to_file("res://level2/level_2_practice.tscn")
+		#if levelover:
+			#for obs in obstacles:
+			#	remove_obs(obs)
+			#await get_tree().create_timer(2).timeout
+			#get_tree().change_scene_to_file("res://level2/level_2_practice.tscn")
 func generate_obs():
 	#generate ground obstacles
-	if obstacles.is_empty() or last_obs.position.x < score + randi_range(300, 500):
-		var obs_type = obstacle_types[randi() % obstacle_types.size()]
-		var obs
-		var max_obs = difficulty + 1
-		for i in range(randi() % max_obs + 1):
-			obs = obs_type.instantiate()
-			var obs_height = obs.get_node("Sprite2D").texture.get_height()
-			var obs_scale = obs.get_node("Sprite2D").scale
-			var obs_x : int = screen_size.x + score + 200 + (i * 100)
-			var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) - 200
-			last_obs = obs
-			add_obs(obs, obs_x, obs_y-350)
+	if ($Dino.position.x < 28000):
+		if obstacles.is_empty() or last_obs.position.x < score + randi_range(300, 500):
+			var obs_type = obstacle_types[randi() % obstacle_types.size()]
+			var obs
+			var max_obs = difficulty + 1
+			for i in range(randi() % max_obs + 1):
+				obs = obs_type.instantiate()
+				var obs_height = obs.get_node("Sprite2D").texture.get_height()
+				var obs_scale = obs.get_node("Sprite2D").scale
+				var obs_x : int = screen_size.x + score + 200 + (i * 100)
+				var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) - 200
+				last_obs = obs
+				add_obs(obs, obs_x, obs_y-350)
 
 func add_obs(obs, x, y):
 	obs.position = Vector2i(x, y)
@@ -227,3 +230,17 @@ func beam_collide(body):
 	
 func animation_over():
 	emit_signal("anim_done")
+	
+func bush_hiding(body: CharacterBody2D):
+	#levelover = true
+	for obs in obstacles:
+		remove_obs(obs)
+	$UFO.set_hiding(true)
+	$UFO.position.x = $Dino.position.x - 2000
+	var tween = get_tree().create_tween()
+	var target_pos = Vector2($Dino.position.x + 2000, $UFO.position.y)
+	tween.tween_property($UFO, "position", target_pos, 2)
+	await tween.finished
+	
+	await get_tree().create_timer(2).timeout
+	get_tree().change_scene_to_file("res://level2/level_2_practice.tscn")

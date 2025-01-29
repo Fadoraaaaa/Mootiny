@@ -1,42 +1,13 @@
 [gd_scene load_steps=17 format=3 uid="uid://bpbo1lwxwf6xa"]
 
 [ext_resource type="Script" path="res://level2/level_2_practice.gd" id="1_0r3hv"]
-[ext_resource type="Texture2D" uid="uid://iwd68i47a8re" path="res://assets/textures/grass.png" id="2_762w3"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="2_pgfiv"]
 [ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="3_draxd"]
 [ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="4_gj5oa"]
-[ext_resource type="Texture2D" uid="uid://bomjadvhka5mv" path="res://assets/textures/bush.png.png" id="5_dwqbb"]
+[ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="5_1vga5"]
+[ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://level1/scenes/ground.tscn" id="7_4pgam"]
 [ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="7_ljng2"]
-
-[sub_resource type="Animation" id="Animation_fjqej"]
-resource_name = "save_moogician"
-length = 3.0
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Dialog")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [[["AAAAAA SAVE ME SAVE ME SAVE ME SAVE ME AAAAAAAA", "Moogician", "Moogician", "left", "surprise"], ["...what?", "You", "You", "right", "curious"], ["AAAAAA SAVE ME GOSH DARNIT GET OVER HERE", "Moogician", "Moogician", "left", "surprise"], ["Fine! But I have to avoid the UFOs  on my way to you...", "You", "You", "right", ""]]],
-"method": &"change_dialog"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(516, 514), Vector2(1543, 514)]
-}
+[ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="8_jsat8"]
 
 [sub_resource type="Animation" id="Animation_ecdf7"]
 length = 0.001
@@ -89,7 +60,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [[["AAAAAA SAVE ME SAVE ME SAVE ME SAVE ME AAAAAAAA", "Unknown", "Unknown", "", ""], ["...what?", "You", "You", "right", "curious"]]],
+"args": [[["Phew! The UFO didn't spot me in the bush!", "You", "You", "right", ""], ["AAAAAA SAVE ME SAVE ME SAVE ME SAVE ME AAAAAAAA", "Unknown", "Unknown", "", ""], ["...what?", "You", "You", "right", "curious"]]],
 "method": &"change_dialog"
 }]
 }
@@ -103,7 +74,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(-300, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -130,7 +101,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1032, 0)]
+"values": [Vector2(732, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -191,18 +162,18 @@ tracks/0/keys = {
 "values": [Vector2(1032, 0), Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_17u7f"]
+resource_name = "scene_0"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_agwhr"]
 _data = {
 "RESET": SubResource("Animation_ecdf7"),
-"save_moogician": SubResource("Animation_fjqej"),
+"scene_0": SubResource("Animation_17u7f"),
 "scene_1": SubResource("Animation_folmn"),
 "scene_2": SubResource("Animation_0q7v7"),
 "scene_3": SubResource("Animation_gw4s7"),
 "scene_4": SubResource("Animation_lb6j5")
 }
-
-[sub_resource type="QuadMesh" id="QuadMesh_ykwmn"]
-size = Vector2(1000, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa24u"]
 size = Vector2(1676.38, 262.375)
@@ -223,34 +194,33 @@ scale = Vector2(0.9, 0.9)
 jump_force = 600
 
 [node name="Moogician" parent="." instance=ExtResource("3_draxd")]
-position = Vector2(1527, 767)
+position = Vector2(1384, 769)
 character_name = "Moogician"
-
-[node name="Bush" type="Sprite2D" parent="."]
-position = Vector2(1176, 726)
-scale = Vector2(7, 7.78125)
-texture = ExtResource("5_dwqbb")
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(6.10352e-05, 3.05176e-05)
-
-[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
-modulate = Color(0.00784314, 0, 0.164706, 1)
-position = Vector2(659.5, 894.25)
-scale = Vector2(5.211, 2.615)
-mesh = SubResource("QuadMesh_ykwmn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
 visible = false
 position = Vector2(839.813, 891.813)
 shape = SubResource("RectangleShape2D_xa24u")
 
-[node name="Grass" type="Sprite2D" parent="."]
-position = Vector2(513, 442)
-scale = Vector2(7.92308, 7.16923)
-texture = ExtResource("2_762w3")
+[node name="Bush2" parent="." instance=ExtResource("5_1vga5")]
+position = Vector2(1175, 732)
+
+[node name="Bush1" parent="." instance=ExtResource("5_1vga5")]
+position = Vector2(193, 735)
+
+[node name="UFO" parent="." instance=ExtResource("8_jsat8")]
+position = Vector2(1162, 381)
+scale = Vector2(0.7, 0.7)
+
+[node name="Ground" parent="." instance=ExtResource("7_4pgam")]
+position = Vector2(5, 226)
 
 [node name="Dialog" parent="." instance=ExtResource("2_pgfiv")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(516, 514)
+
+[node name="Timer" type="Timer" parent="."]

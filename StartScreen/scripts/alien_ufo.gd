@@ -6,8 +6,11 @@ extends CharacterBody2D
 
 signal beam_player()
 
+var hiding = false
+
 func _ready():
 	$UfoBeam.visible = false
+	hiding = false
 	$Sprite.play()
 	
 func show_beam():
@@ -15,6 +18,9 @@ func show_beam():
 
 func hide_beam():
 	$AnimationPlayer.play("stop_beam")
+	
+func set_hiding(bool):
+	hiding = bool
 
 func _process(delta):
 	if buzz:
@@ -58,6 +64,7 @@ func stop_sound(sound):
 	
 #beam has been entered
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
-	if $UfoBeam.visible:
+	if $UfoBeam.visible and !hiding:
+		print("signalling to beam player")
 		emit_signal("beam_player")
 	
