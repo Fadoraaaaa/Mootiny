@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var buzz = false
 @export var swirl = false
 @export var whoosh = false
+@export var baby = false
 
 signal beam_player()
 
@@ -11,7 +12,10 @@ var hiding = false
 func _ready():
 	$UfoBeam.visible = false
 	hiding = false
-	$Sprite.play()
+	if !baby:
+		$Sprite.play("default")
+	if baby:
+		$Sprite.play("baby")
 	
 func show_beam():
 	$AnimationPlayer.play("show_beam")

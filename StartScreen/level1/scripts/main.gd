@@ -49,6 +49,9 @@ func _ready():
 	collided = false
 	$JENNATenseMusic.play()
 	$bush.get_node("Area2D").body_entered.connect(bush_hiding)
+	$Deathscreen.get_node("AnimationPlayer").play("death")
+	$Deathscreen.hide()
+	$GameOver.hide()
 	
 
 func new_game():
@@ -86,7 +89,7 @@ func new_game():
 	var action_keycode = OS.get_keycode_string(action_events[0].physical_keycode)
 	$HUD.get_node("StartLabel").text = "PRESS " + action_keycode + " TO JUMP"
 	$GameOver.hide()
-	#$Deathscreen.hide()
+	$Deathscreen.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -145,14 +148,11 @@ func _process(delta):
 			if obs.position.x < ($Camera2D.position.x - screen_size.x):
 				remove_obs(obs)
 	else:
+		
 		if Input.is_action_pressed("jump") and $UFO.visible and !$AnimationPlayer.is_playing() and !collided and !levelover:
 			game_running = true
 			$HUD.get_node("StartLabel").hide()
-		#if levelover:
-			#for obs in obstacles:
-			#	remove_obs(obs)
-			#await get_tree().create_timer(2).timeout
-			#get_tree().change_scene_to_file("res://level2/level_2_practice.tscn")
+
 func generate_obs():
 	#generate ground obstacles
 	if ($Dino.position.x < 28000):
@@ -211,9 +211,11 @@ func game_over():
 	check_high_score()
 	get_tree().paused = true
 	game_running = false
+	$Deathscreen.position = Vector2($Camera2D.position.x - 510, $Deathscreen.position.y)
+	$Deathscreen.show()
+	$Deathscreen.add_to_death_count()
+	$Deathscreen.get_node("Death_Sound").play()
 	$GameOver.show()
-	#$Deathscreen.death()
-	print("game over")
 
 func beam_collide(body):
 	if body.name == "Dino":

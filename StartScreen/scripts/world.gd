@@ -78,8 +78,10 @@ func new_game():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if !music.playing:
+	if !music.playing and !dead:
 		music.play()
+	if dead:
+		music.stop()
 	pass
 	
 func fade_out_and_in():
@@ -108,5 +110,7 @@ func _on_ufo_beam_player() -> void:
 		await tween.finished
 		$Deathscreen.death()
 		dead = true
+		$UFO.stop_sound("swirl")
+		$UFO.stop_sound("buzz")
 	else:
 		pass

@@ -5,9 +5,12 @@ extends CharacterBody2D
 @export var character_name = "Cocoa"
 @onready var sprite = $AnimatedSprite2D
 @export var jump_force = 300
+@export var color_rect_size = 70
 
 func _ready():
 	$Label.text = character_name
+	$ColorRect2.size.x = color_rect_size
+	$ColorRect.size.x = color_rect_size + 10
 	$Questionmark.visible = false
 	$Exclamation.visible = false
 	visible = true

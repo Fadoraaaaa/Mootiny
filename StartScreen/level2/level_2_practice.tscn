@@ -48,6 +48,9 @@ tracks/2/keys = {
 "values": [Vector2(0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_17u7f"]
+resource_name = "scene_0"
+
 [sub_resource type="Animation" id="Animation_folmn"]
 resource_name = "scene_1"
 tracks/0/type = "method"
@@ -162,9 +165,6 @@ tracks/0/keys = {
 "values": [Vector2(1032, 0), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_17u7f"]
-resource_name = "scene_0"
-
 [sub_resource type="Animation" id="Animation_vnrow"]
 resource_name = "scene_5"
 tracks/0/type = "method"
@@ -177,7 +177,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [[["Great! You made it! Now what do we do about those UFOs...?", "Moogician", "Moogician", "left", "curious"], ["Can't you do something with your moogic?", "You", "You", "right", "curious"], ["AHA! You have a great set of vocal cords on you...here!", "Moogican", "Moogician", "left", "surprise"]]],
+"args": [[["Great! You made it! Now what do we do about those UFOs...?", "Moogician", "Moogician", "left", "curious"], ["Can't you do something with your moogic?", "You", "You", "right", "curious"], ["AHA! You have a great set of vocal cords on you...here!", "Moogician", "Moogician", "left", "surprise"]]],
 "method": &"change_dialog"
 }]
 }
@@ -217,6 +217,7 @@ jump_force = 600
 [node name="Moogician" parent="." instance=ExtResource("3_draxd")]
 position = Vector2(1413, 768)
 character_name = "Moogician"
+color_rect_size = 93
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2(6.10352e-05, 3.05176e-05)
@@ -235,6 +236,7 @@ position = Vector2(193, 735)
 [node name="UFO" parent="." instance=ExtResource("8_jsat8")]
 position = Vector2(508, 388)
 scale = Vector2(0.7, 0.7)
+baby = true
 
 [node name="Ground" parent="." instance=ExtResource("7_4pgam")]
 position = Vector2(5, 226)

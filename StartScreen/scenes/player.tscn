@@ -300,7 +300,8 @@ script = ExtResource("1_7g5cj")
 jump_force = 400
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-8, -39)
+position = Vector2(-9.25, -39)
+scale = Vector2(0.981481, 1)
 texture = ExtResource("2_lusii")
 hframes = 2
 frame = 1
