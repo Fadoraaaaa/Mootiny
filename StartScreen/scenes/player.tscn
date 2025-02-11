@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://jn778v63oasw"]
+[gd_scene load_steps=19 format=3 uid="uid://jn778v63oasw"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7g5cj"]
 [ext_resource type="Texture2D" uid="uid://b138wds3lptgy" path="res://assets/sprites/MC/mc_idle.png" id="2_lusii"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://djxygndl5wfw0" path="res://assets/sound/sfx/emotion.wav" id="9_hoi6t"]
 [ext_resource type="AudioStream" uid="uid://dtdvh7lypeh8n" path="res://assets/sound/JENNA MODE/jenna_bing.wav" id="10_arsap"]
 [ext_resource type="AudioStream" uid="uid://cgj6l0si2g0jr" path="res://assets/sound/JENNA MODE/jenna footsteps.wav" id="11_dqqy1"]
+[ext_resource type="PackedScene" uid="uid://d1y15vdrvtuul" path="res://level2/EntityHealthbar.tscn" id="12_mpv3o"]
 
 [sub_resource type="Animation" id="Animation_xc42v"]
 length = 0.001
@@ -313,7 +314,7 @@ libraries = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(150, -10)
-polygon = PackedVector2Array(-120, -69, -195, -67, -196, 11, -123, 11)
+polygon = PackedVector2Array(-123, -60, -196, -61, -196, 11, -123, 11)
 
 [node name="FootstepsSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_s4to5")
@@ -342,3 +343,10 @@ bus = &"JENNA MODE"
 stream = ExtResource("11_dqqy1")
 volume_db = 10.0
 bus = &"JENNA MODE"
+
+[node name="EntityHealthbar" parent="." instance=ExtResource("12_mpv3o")]
+offset_left = -55.0
+offset_top = -113.0
+offset_right = -15.0
+offset_bottom = -73.0
+scale = Vector2(3, 2.144)

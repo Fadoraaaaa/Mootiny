@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://daudt3axbnxei"]
+
+[ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="1_cg51b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxdlw"]
+size = Vector2(1676.38, 262.375)
+
+[node name="attack_practice" type="Node2D"]
+
+[node name="Platform" type="StaticBody2D" parent="."]
+position = Vector2(6.10352e-05, 3.05176e-05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(839.813, 891.813)
+shape = SubResource("RectangleShape2D_sxdlw")
+
+[node name="You" parent="." instance=ExtResource("1_cg51b")]
+position = Vector2(192, 768)
+scale = Vector2(0.9, 0.9)
+jump_force = 600
