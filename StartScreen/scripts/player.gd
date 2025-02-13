@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var DAGGER: PackedScene = preload("res://level2/PlayerDagger.tscn")
+
+
 @export var speed = 300
 @export var gravity = 30
 @export var jump_force = 300
@@ -18,6 +21,7 @@ signal died
 
 const INDICATOR_DAMAGE = preload("res://level2/DamageIndicator.tscn")
 
+@onready var attackTimer = $AttackTimer
 
 @export var hp_max: int = 100: set = set_hp_max
 @export var hp: int = hp_max: get = get_hp, set = set_hp
@@ -34,7 +38,7 @@ var vel: Vector2 = Vector2.ZERO
 
 @onready var collShape = $CollisionShape2D
 @onready var animPlayer = $AnimationPlayer
-#@onready var hurtbox = $Hurtbox
+@onready var hurtbox = $Hurtbox
 @onready var healthBar = $EntityHealthbar
 
 func get_hp():
@@ -57,6 +61,42 @@ func set_hp_max(value):
 		emit_signal("hp_max_changed", hp_max)
 		healthBar.max_value = hp_max
 		self.hp = hp
+
+func die():
+	spawn_effect(EFFECT_DIED)
+	queue_free()
+
+func receive_damage(base_damage: int):
+	var actual_damage = base_damage
+	actual_damage -= defense
+	
+	self.hp -= actual_damage
+	return actual_damage
+
+func receive_knockback(damage_source_pos: Vector2, received_damage: int):
+	if receives_knockback:
+		var knockback_direction = damage_source_pos.direction_to(self.global_position)
+		var knockback_strength = received_damage * knockback_modifier
+		var knockback = knockback_direction * knockback_strength
+		
+		global_position += knockback
+
+#func on Hurtbox area entered
+
+#func on Entity Base died
+
+func spawn_effect(EFFECT: PackedScene, effect_position: Vector2 = global_position):
+	if EFFECT:
+		var effect = EFFECT.instantiate()
+		get_tree().current_scene.add_child(effect)
+		effect.global_position = effect_position
+		return effect
+
+func spawn_dmgIndicator(damage: int):
+	var indicator = spawn_effect(INDICATOR_DAMAGE)
+	if indicator:
+		indicator.label.text = str(damage)
+
 
 func _ready():
 	$Exclamation.visible = false
@@ -98,9 +138,25 @@ func _physics_process(_delta):
 	if horizontal_direction != 0:
 		sprite.flip_h = (horizontal_direction == -1)
 	
+	if Input.is_action_just_pressed("click") and attackTimer.is_stopped():
+		var dagger_direction = self.global_position.direction_to(get_global_mouse_position())
+		throw_dagger(dagger_direction)
+	
+	
+	
 	move_and_slide()
 	update_animation(horizontal_direction)
-	
+
+func throw_dagger(dagger_direction: Vector2):
+	if DAGGER:
+		var dagger = DAGGER.instantiate()
+		get_tree().current_scene.add_child(dagger)
+		dagger.global_position = Vector2(self.global_position.x, self.global_position.y - 30)
+		var dagger_rotation = dagger_direction.angle()
+		dagger.rotation = dagger_rotation
+		
+		attackTimer.start()
+
 func update_animation(horizontal_direction):
 	
 	if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) > 0.0002:
@@ -154,3 +210,10 @@ func is_speaking(direction, emotion):
 		var horizontal_direction = -1
 		sprite.flip_h = (horizontal_direction == -1)
 	
+
+func _on_hurtbox_area_entered(hitbox):
+	var actual_damage = receive_damage(hitbox.damage)
+
+
+func _on_died() -> void:
+	die()
