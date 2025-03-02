@@ -1,10 +1,12 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpbo1lwxwf6xa"]
+[gd_scene load_steps=22 format=3 uid="uid://bpbo1lwxwf6xa"]
 
 [ext_resource type="Script" path="res://level2/level_2_practice.gd" id="1_0r3hv"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="2_pgfiv"]
 [ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="3_draxd"]
+[ext_resource type="PackedScene" uid="uid://ckx4aehxac0ot" path="res://effects/HitEffect.tscn" id="4_gdavw"]
 [ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="4_gj5oa"]
 [ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="5_1vga5"]
+[ext_resource type="PackedScene" uid="uid://dvvfmp7gxpg8n" path="res://effects/DeathEffect.tscn" id="5_5vckw"]
 [ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://level1/scenes/ground.tscn" id="7_4pgam"]
 [ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="7_ljng2"]
 [ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="8_jsat8"]
@@ -182,6 +184,9 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_fs85c"]
+resource_name = "scene_6"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_agwhr"]
 _data = {
 "RESET": SubResource("Animation_ecdf7"),
@@ -190,7 +195,8 @@ _data = {
 "scene_2": SubResource("Animation_0q7v7"),
 "scene_3": SubResource("Animation_gw4s7"),
 "scene_4": SubResource("Animation_lb6j5"),
-"scene_5": SubResource("Animation_vnrow")
+"scene_5": SubResource("Animation_vnrow"),
+"scene_6": SubResource("Animation_fs85c")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa24u"]
@@ -213,6 +219,8 @@ libraries = {
 position = Vector2(192, 768)
 scale = Vector2(0.9, 0.9)
 jump_force = 600
+EFFECT_HIT = ExtResource("4_gdavw")
+EFFECT_DIED = ExtResource("5_5vckw")
 
 [node name="Moogician" parent="." instance=ExtResource("3_draxd")]
 position = Vector2(1413, 768)

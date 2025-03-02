@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bck5n3282d1hs"]
+[gd_scene load_steps=6 format=3 uid="uid://bck5n3282d1hs"]
 
 [ext_resource type="PackedScene" uid="uid://b7wxa66jcmnx2" path="res://level2/Hitbox.tscn" id="1"]
 [ext_resource type="Script" path="res://level2/PlayerDagger.gd" id="3"]
 [ext_resource type="Texture2D" uid="uid://qy8yykheqtl7" path="res://assets/sprites/sonic_moo.png" id="3_6qarw"]
+[ext_resource type="AudioStream" uid="uid://bfp2ht4e8f3wc" path="res://assets/sound/sfx/sonic_moo.wav" id="4_25p8o"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8, 6)
@@ -23,6 +24,13 @@ scale = Vector2(5, 5)
 shape = SubResource("1")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="2"]
+position = Vector2(2, -1)
+scale = Vector2(4.475, 4.175)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource("4_25p8o")
+volume_db = -8.769
+bus = &"Sfx"
 
 [connection signal="area_entered" from="." to="." method="_on_PlayerDagger_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_PlayerDagger_body_entered"]

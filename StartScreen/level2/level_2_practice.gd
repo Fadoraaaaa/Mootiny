@@ -15,6 +15,7 @@ func _ready() -> void:
 	$Bush1.get_node("Area2D").body_exited.connect(bush_left)
 	$Bush2.get_node("Area2D").body_entered.connect(bush_hiding)
 	$Bush2.get_node("Area2D").body_exited.connect(bush_left)
+	$UFO.get_node("UfoBeam/Area2D").body_entered.connect(beam_collide)
 	$UFO.position = Vector2i(1207, 381)
 	$UFO.show_beam()
 	anim.play("scene_1")
@@ -30,6 +31,17 @@ func _ready() -> void:
 	
 	
 	pass # Replace with function body.
+
+func beam_collide(body):
+	if body.name == "You" and $UFO.visible and !$UFO.hiding:
+		print("trying to tween")
+		$Timer.stop()
+		var tween = create_tween()
+		var target_pos = $UFO.position
+		tween.tween_property($You, "position", target_pos, 4)
+		await tween.finished
+		$You.visible = false
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -68,11 +80,15 @@ func _on_timer_timeout() -> void:
 
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
-	$You.pause = true
-	$You.velocity.x = 0
-	$Dialog.position.x = $You.position.x - 540
-	$Dialog.visible = true
-	anim.play("scene_5")
-	await $Dialog.finished
+	if !$Timer.is_stopped():
+		$You.pause = true
+		$You.velocity.x = 0
+		$Dialog.position.x = $You.position.x - 540
+		$Dialog.visible = true
+		anim.play("scene_5")
+		await $Dialog.finished
+		$You.pause = false
+	else:
+		print("you already killed the UFO")
 	
 	pass # Replace with function body.

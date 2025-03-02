@@ -36,7 +36,7 @@ var vel: Vector2 = Vector2.ZERO
 @export var EFFECT_HIT: PackedScene = null
 @export var EFFECT_DIED: PackedScene = null
 
-@onready var collShape = $CollisionShape2D
+@onready var collShape = $CollisionPolygon2D
 @onready var animPlayer = $AnimationPlayer
 @onready var hurtbox = $Hurtbox
 @onready var healthBar = $EntityHealthbar
@@ -102,6 +102,7 @@ func _ready():
 	$Exclamation.visible = false
 	$Questionmark.visible = false
 	horizontal_direction = 0
+	healthBar.visible = false
 
 func _physics_process(_delta):
 	#lets you quit the game
@@ -128,7 +129,7 @@ func _physics_process(_delta):
 	
 	#allows you to jump
 	if !pause && !attack:
-		if Input.is_action_just_pressed("jump") && is_on_floor():
+		if Input.is_action_just_pressed("jump"): #&& is_on_floor():
 			velocity.y = -jump_force 
 
 	#allows you to move left and right and flip sprite accordingly
@@ -138,7 +139,7 @@ func _physics_process(_delta):
 	if horizontal_direction != 0:
 		sprite.flip_h = (horizontal_direction == -1)
 	
-	if Input.is_action_just_pressed("click") and attackTimer.is_stopped():
+	if Input.is_action_just_pressed("sonic_moo") and attackTimer.is_stopped():
 		var dagger_direction = self.global_position.direction_to(get_global_mouse_position())
 		throw_dagger(dagger_direction)
 	
@@ -147,7 +148,12 @@ func _physics_process(_delta):
 	move_and_slide()
 	update_animation(horizontal_direction)
 
+func show_health_bar():
+	healthBar.visible = true
+
+
 func throw_dagger(dagger_direction: Vector2):
+	show_health_bar()
 	if DAGGER:
 		var dagger = DAGGER.instantiate()
 		get_tree().current_scene.add_child(dagger)
@@ -211,9 +217,8 @@ func is_speaking(direction, emotion):
 		sprite.flip_h = (horizontal_direction == -1)
 	
 
-func _on_hurtbox_area_entered(hitbox):
-	var actual_damage = receive_damage(hitbox.damage)
-
+func _on_hurtbox_area_entered(body: CharacterBody2D):
+	var actual_damage = receive_damage(body.damage)
 
 func _on_died() -> void:
 	die()

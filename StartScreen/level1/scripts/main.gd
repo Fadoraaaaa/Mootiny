@@ -244,5 +244,11 @@ func bush_hiding(body: CharacterBody2D):
 	tween.tween_property($UFO, "position", target_pos, 2)
 	await tween.finished
 	
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
+	print("trying to move camera")
+	var tween2 =get_tree().create_tween()
+	target_pos = Vector2(30000, $Camera2D.position.y)
+	tween2.tween_property($Camera2D, "position", target_pos, 0.5)
+	await tween2.finished
+	await get_tree().create_timer(1).timeout
 	get_tree().change_scene_to_file("res://level2/level_2_practice.tscn")
