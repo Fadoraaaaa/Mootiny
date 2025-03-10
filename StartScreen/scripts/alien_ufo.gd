@@ -4,6 +4,10 @@ extends CharacterBody2D
 @export var swirl = false
 @export var whoosh = false
 @export var baby = false
+@export var path_finding = false
+@export var player: Node2D
+@onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
+const speed = 300
 
 signal beam_player()
 
@@ -23,7 +27,6 @@ const INDICATOR_DAMAGE = preload("res://level2/DamageIndicator.tscn")
 @export var receives_knockback: bool = true
 @export var knockback_modifier: float = 0.1
 
-@export var SPEED: int = 75
 var vel: Vector2 = Vector2.ZERO
 
 @export var EFFECT_HIT: PackedScene = null
@@ -82,10 +85,6 @@ func receive_knockback(damage_source_pos: Vector2, received_damage: int):
 		
 		global_position += knockback
 
-
-func _on_EntityBase_died():
-	die()
-
 func spawn_effect(EFFECT: PackedScene, effect_position: Vector2 = global_position):
 	if EFFECT:
 		var effect = EFFECT.instantiate()
@@ -117,7 +116,13 @@ func set_hiding(bool):
 	hiding = bool
 
 func _physics_process(delta):
+	if path_finding:
+		var dir = to_local(nav_agent.get_next_path_position()).normalized()
+		velocity = dir * speed
 	move_and_slide()
+
+func makepath() -> void:
+	nav_agent.target_position = Vector2(player.global_position.x, player.global_position.y-380)
 
 func _process(delta):
 	if buzz:
@@ -149,7 +154,7 @@ func play_sound(sound):
 		swirl = true
 	if sound == "whoosh":
 		whoosh = true
-	
+
 func stop_sound(sound):
 	if sound == "buzz":
 		buzz = false
@@ -176,3 +181,12 @@ func _on_hurtbox_area_entered(body):
 	spawn_effect(EFFECT_HIT)
 	spawn_dmgIndicator(actual_damage)
 	pass # Replace with function body.
+
+func set_path_find(is_path_finding):
+	path_finding = is_path_finding
+
+func _on_timer_timeout() -> void:
+	makepath()
+
+func get_speed():
+	return speed

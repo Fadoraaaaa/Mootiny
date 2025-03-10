@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da5ulidqbm8hx"
-path="res://.godot/imported/healthbar_full.png-a64a6ba8df89931fc62279d3ce46988d.ctex"
+uid="uid://c4pw3htdmyuqb"
+path="res://.godot/imported/ufo-1.png(3).png-6303e0e975e85cc37d0017a918fad3c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/UI/healthbar_full.png"
-dest_files=["res://.godot/imported/healthbar_full.png-a64a6ba8df89931fc62279d3ce46988d.ctex"]
+source_file="res://assets/sprites/ufo-1.png(3).png"
+dest_files=["res://.godot/imported/ufo-1.png(3).png-6303e0e975e85cc37d0017a918fad3c9.ctex"]
 
 [params]
 
