@@ -26,8 +26,10 @@ func new_game():
 	$UFO.position = Vector2i(-788, -800)
 	$Honey.position = Vector2i(294, 760)
 	$Honey.modulate = Color8(255, 255, 255, 255)
+	$Honey.visible = true
 	$Cocoa.position = Vector2i(145, 760)
 	$Cocoa.modulate = Color8(255, 255, 255, 255)
+	$Cocoa.visible = true
 	
 	$Deathscreen.hide()
 	$UFO.hide_beam()
@@ -63,14 +65,17 @@ func new_game():
 	
 	#UFO swipes ur friends--they're gone now. Reduced to atoms
 	$AnimationPlayer.play("act 1_4")
-	await $Dialog.finished
 	await anim_done
+	$AnimationPlayer.play("act 1_4.5")
+	await $Dialog.finished
 	print("act 1_4 is done")
+	
 	
 	#OH NO!!!! Now run away like the coward you are!
 	$AnimationPlayer.play("act 1_5")
 	await $Dialog.finished
 	print("act 1_5 is done")
+	
 	
 	$You.pause = false
 	ready_over = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpvjtg4kdmdni"
-path="res://.godot/imported/ufo-1.png(2).png-8ebeac16b7d2bef1260bffa7463378b0.ctex"
+uid="uid://cr2icj5swajpk"
+path="res://.godot/imported/castlev3.png-776442e5d3c83b882cf05c9b5fb09b1b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ufo-1.png(2).png"
-dest_files=["res://.godot/imported/ufo-1.png(2).png-8ebeac16b7d2bef1260bffa7463378b0.ctex"]
+source_file="res://assets/textures/castlev3.png"
+dest_files=["res://.godot/imported/castlev3.png-776442e5d3c83b882cf05c9b5fb09b1b.ctex"]
 
 [params]
 

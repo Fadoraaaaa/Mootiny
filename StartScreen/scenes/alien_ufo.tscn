@@ -1,7 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://bn16pnjwue1je"]
+[gd_scene load_steps=28 format=3 uid="uid://bn16pnjwue1je"]
 
 [ext_resource type="Script" path="res://scripts/alien_ufo.gd" id="1_hp4kt"]
-[ext_resource type="Texture2D" uid="uid://c5i1yd7uyqutb" path="res://assets/sprites/ufo-1.png(4).png" id="2_qrmcs"]
+[ext_resource type="Texture2D" uid="uid://c5i1yd7uyqutb" path="res://assets/sprites/baby_ufo.png" id="2_qrmcs"]
 [ext_resource type="PackedScene" uid="uid://ckx4aehxac0ot" path="res://effects/HitEffect.tscn" id="2_xknd0"]
 [ext_resource type="Texture2D" uid="uid://c0ji2n0qlg2tp" path="res://assets/sprites/ufo.png" id="3_aql82"]
 [ext_resource type="PackedScene" uid="uid://dvvfmp7gxpg8n" path="res://effects/DeathEffect.tscn" id="3_idbtg"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://crdrlfwwcexfi" path="res://level2/Hurtbox.tscn" id="11_8282e"]
 [ext_resource type="PackedScene" uid="uid://b7wxa66jcmnx2" path="res://level2/Hitbox.tscn" id="12_56oms"]
 [ext_resource type="PackedScene" uid="uid://d1y15vdrvtuul" path="res://level2/EntityHealthbar.tscn" id="13_xx88j"]
+[ext_resource type="AudioStream" uid="uid://d360pkd3hgbv5" path="res://assets/sound/sfx/metal thunk.wav" id="16_cj5qy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbtqw"]
 atlas = ExtResource("2_qrmcs")
@@ -235,7 +236,7 @@ EFFECT_DIED = ExtResource("3_idbtg")
 position = Vector2(-2, 328.094)
 scale = Vector2(7.04615, 7.12452)
 sprite_frames = SubResource("SpriteFrames_1d1lp")
-frame_progress = 0.0681775
+animation = &"baby"
 
 [node name="UfoBeam" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.858824)
@@ -311,11 +312,14 @@ scale = Vector2(6, 4.286)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="Metal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_cj5qy")
+volume_db = 3.631
 
 [connection signal="died" from="." to="." method="die"]
 [connection signal="body_entered" from="UfoBeam/Area2D" to="." method="_on_area_2d_body_entered"]

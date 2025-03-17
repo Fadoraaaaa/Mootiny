@@ -40,9 +40,13 @@ var vel: Vector2 = Vector2.ZERO
 @onready var animPlayer = $AnimationPlayer
 @onready var hurtbox = $Hurtbox
 @onready var healthBar = $EntityHealthbar
+@onready var hiding = false
 
 func get_hp():
 	return hp
+	
+func set_hiding(is_hiding):
+	hiding = is_hiding
 
 func set_hp(value):
 	if value != hp:
@@ -115,12 +119,6 @@ func _physics_process(_delta):
 			print("menu button pressed")
 			get_tree().change_scene_to_file("res://menu stuff/menu scenes/Menu.tscn")
 	
-	#lets you play the kick animation
-	if Input.is_action_just_pressed("kick"):
-		print("kicking")
-		ap.play("kick")
-		attack = true
-	
 	#makes it so that you fall back down when you jump
 	if !is_on_floor():
 		velocity.y += gravity
@@ -128,13 +126,13 @@ func _physics_process(_delta):
 			velocity.y = 200
 	
 	#allows you to jump
-	if !pause && !attack:
-		if Input.is_action_just_pressed("jump"): #&& is_on_floor():
+	if !pause:
+		if Input.is_action_just_pressed("jump") && is_on_floor():
 			velocity.y = -jump_force 
 
 	#allows you to move left and right and flip sprite accordingly
 	horizontal_direction = Input.get_axis("move_left","move_right")
-	if !pause && !attack: 
+	if !pause: 
 		velocity.x = speed * horizontal_direction	
 	if horizontal_direction != 0:
 		sprite.flip_h = (horizontal_direction == -1)
@@ -153,35 +151,34 @@ func show_health_bar():
 
 
 func throw_dagger(dagger_direction: Vector2):
-	show_health_bar()
-	if DAGGER:
-		var dagger = DAGGER.instantiate()
-		get_tree().current_scene.add_child(dagger)
-		dagger.global_position = Vector2(self.global_position.x, self.global_position.y - 30)
-		var dagger_rotation = dagger_direction.angle()
-		dagger.rotation = dagger_rotation
-		
-		attackTimer.start()
+	if !hiding and attack:
+		show_health_bar()
+		if DAGGER:
+			var dagger = DAGGER.instantiate()
+			get_tree().current_scene.add_child(dagger)
+			dagger.global_position = Vector2(self.global_position.x, self.global_position.y - 30)
+			var dagger_rotation = dagger_direction.angle()
+			dagger.rotation = dagger_rotation	
+			attackTimer.start()
 
 func update_animation(horizontal_direction):
 	
 	if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) > 0.0002:
 		footsteps_sound = $JENNAFootsteps as AudioStreamPlayer2D
 	
-	if (!attack):
-		if is_on_floor():
-			if horizontal_direction == 0:
-				ap.play("idle")
-				if footsteps_sound.playing:
-					footsteps_sound.stop()
-			else:
-				ap.play("run")
-				if !footsteps_sound.playing:
-					footsteps_sound.play()
-		else:
-			ap.play("jump")
+	if is_on_floor():
+		if horizontal_direction == 0:
+			ap.play("idle")
 			if footsteps_sound.playing:
 				footsteps_sound.stop()
+		else:
+			ap.play("run")
+			if !footsteps_sound.playing:
+				footsteps_sound.play()
+	else:
+		ap.play("jump")
+		if footsteps_sound.playing:
+			footsteps_sound.stop()
 	
 func play_animation(animation_name):
 	ap.play(animation_name)
@@ -222,3 +219,9 @@ func _on_hurtbox_area_entered(body: CharacterBody2D):
 
 func _on_died() -> void:
 	die()
+
+func allow_attacking(can_attack):
+	attack = can_attack
+	
+func get_attack():
+	return attack

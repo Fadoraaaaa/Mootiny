@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bpbo1lwxwf6xa"]
+[gd_scene load_steps=30 format=3 uid="uid://bpbo1lwxwf6xa"]
 
 [ext_resource type="Script" path="res://level2/level_2_practice.gd" id="1_0r3hv"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="2_pgfiv"]
@@ -10,6 +10,13 @@
 [ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://level1/scenes/ground.tscn" id="7_4pgam"]
 [ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="7_ljng2"]
 [ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="8_jsat8"]
+[ext_resource type="Texture2D" uid="uid://cr2icj5swajpk" path="res://assets/textures/castlev3.png" id="9_w7i15"]
+[ext_resource type="Texture2D" uid="uid://cq0rnrw6tn3g0" path="res://assets/textures/magic_vortex swirl.png" id="11_fa6iw"]
+[ext_resource type="Texture2D" uid="uid://bf1p3e2a65akm" path="res://assets/sprites/MC/mc_jump.png" id="12_cfbmw"]
+[ext_resource type="AudioStream" uid="uid://cbfge1xeckvk2" path="res://assets/sound/sfx/sparkles.wav" id="13_q73iy"]
+[ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="14_t4uj1"]
+[ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="15_4r76b"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="16_3des4"]
 
 [sub_resource type="Animation" id="Animation_ecdf7"]
 length = 0.001
@@ -48,6 +55,66 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BlackScreen:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("McJump:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2030, 715)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("McJump:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_17u7f"]
@@ -106,7 +173,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(732, 0)]
+"values": [Vector2(1700, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -118,7 +185,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.9),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(1032, 0)]
+"values": [Vector2(0, 0), Vector2(2000, 0)]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
@@ -164,7 +231,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.866667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1032, 0), Vector2(0, 0)]
+"values": [Vector2(2000, 0), Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_vnrow"]
@@ -185,7 +252,85 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_fs85c"]
-resource_name = "scene_6"
+resource_name = "swirly_magic"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.16667, 2.2, 2.23333, 2.26667, 2.3, 2.33333, 2.36667, 2.4, 2.43333, 2.46667, 2.5, 2.53333, 2.56667, 2.6, 2.63333, 2.66667, 2.7, 2.73333, 2.76667, 2.8, 2.83333, 2.86667, 2.9, 2.93333, 2.96667, 3, 3.03333, 3.06667, 3.1, 3.13333, 3.16667, 3.2, 3.23333, 3.26667, 3.3, 3.33333, 3.36667, 3.4, 3.43333, 3.46667, 3.53333, 3.56667, 3.6, 3.63333, 3.66667, 3.7, 3.73333, 3.76667, 3.8, 3.83333, 3.86667, 3.9, 3.93333, 3.96667, 4, 4.03333, 4.06667, 4.1, 4.13333, 4.16667, 4.22, 4.25333, 4.28667, 4.32, 4.35333, 4.38667, 4.42, 4.45333, 4.48667, 4.52, 4.55333, 4.58667, 4.62, 4.65333, 4.68667, 4.72, 4.75333, 4.78667, 4.82, 4.85333, 4.9, 4.93333, 4.96667, 5, 5.03333, 5.06667, 5.1, 5.13333, 5.16667, 5.2, 5.23333, 5.26667, 5.3, 5.33333, 5.36667, 5.4, 5.43333, 5.46667, 5.5, 5.53333, 5.59, 5.62333, 5.65667, 5.69, 5.72333, 5.75667, 5.79, 5.82333, 5.85667, 5.89, 5.92333, 5.95667, 5.99, 6.02333, 6.05667, 6.09, 6.12333, 6.15667, 6.19, 6.22333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackScreen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.7, 7.53333, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.73333, 2.6, 5.93333, 6.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.545045), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("McJump:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 1.76667, 2.63333, 9.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1980, 715), Vector2(1980, 715), Vector2(2000, 526), Vector2(1980, 715)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("McJump:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333, 9.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.86667, 9.23333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_magic_sound"
+}, {
+"args": [],
+"method": &"animation_over"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_agwhr"]
 _data = {
@@ -196,7 +341,7 @@ _data = {
 "scene_3": SubResource("Animation_gw4s7"),
 "scene_4": SubResource("Animation_lb6j5"),
 "scene_5": SubResource("Animation_vnrow"),
-"scene_6": SubResource("Animation_fs85c")
+"swirly_magic": SubResource("Animation_fs85c")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xa24u"]
@@ -206,9 +351,9 @@ size = Vector2(1676.38, 262.375)
 size = Vector2(54, 513.125)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f6fsp"]
-vertices = PackedVector2Array(2049.88, 819.023, -2717.71, 829.969, -2697.27, 103.102, 3.92969, 131, 2042.11, 136.969)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(4, 121, 2052, 127, 2060, 829, -2728, 840, -2707, 93)])
+vertices = PackedVector2Array(3267.47, 149.938, 3298.49, 774.094, -2717.7, 829.898, 3.92188, 131, -2697.27, 103.102)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4, 121, 3420, 126, 3412, 790, -2728, 840, -2707, 93)])
 
 [node name="level2practice" type="Node2D"]
 script = ExtResource("1_0r3hv")
@@ -228,7 +373,7 @@ EFFECT_HIT = ExtResource("4_gdavw")
 EFFECT_DIED = ExtResource("5_5vckw")
 
 [node name="Moogician" parent="." instance=ExtResource("3_draxd")]
-position = Vector2(2000, 768)
+position = Vector2(2075, 766)
 character_name = "Moogician"
 color_rect_size = 93
 
@@ -255,6 +400,11 @@ scale = Vector2(0.7, 0.7)
 baby = true
 player = NodePath("../You")
 
+[node name="Castlev3" type="Sprite2D" parent="."]
+position = Vector2(3169, 329)
+scale = Vector2(7, 7)
+texture = ExtResource("9_w7i15")
+
 [node name="Ground" parent="." instance=ExtResource("7_4pgam")]
 position = Vector2(5, 226)
 
@@ -277,6 +427,67 @@ shape = SubResource("RectangleShape2D_2p2vh")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_f6fsp")
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1210.0
+offset_top = -45.0
+offset_right = 2719.0
+offset_bottom = 1222.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1983, 557)
+scale = Vector2(2.85625, 2.755)
+texture = ExtResource("11_fa6iw")
+hframes = 5
+vframes = 4
+
+[node name="McJump" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2030, 715)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("12_cfbmw")
+
+[node name="Magic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2000, 0)
+stream = ExtResource("13_q73iy")
+volume_db = 13.246
+bus = &"Sfx"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 235.0
+offset_top = 232.0
+offset_right = 798.0
+offset_bottom = 384.0
+color = Color(0, 0, 0, 1)
+
+[node name="StartLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.5
+offset_top = -50.5
+offset_right = 264.5
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("16_3des4")
+theme_override_font_sizes/font_size = 40
+text = "LEAVE THE BUSH AND 
+PRESS L TO ATTACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Deathscreen" parent="." instance=ExtResource("14_t4uj1")]
+
+[node name="GameOver" parent="." instance=ExtResource("15_4r76b")]
+offset = Vector2(0, 150)
+transform = Transform2D(1, 0, 0, 1, 0, 150)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

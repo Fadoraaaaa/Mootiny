@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var path_finding = false
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
-const speed = 300
+const speed = 400
 
 signal beam_player()
 
@@ -37,6 +37,7 @@ var vel: Vector2 = Vector2.ZERO
 @onready var animPlayer = $AnimationPlayer
 @onready var hurtbox = $Hurtbox
 @onready var healthBar = $EntityHealthbar
+var dead = false
 
 
 func get_hp():
@@ -68,12 +69,13 @@ func set_hp_max(value):
 func die():
 	spawn_effect(EFFECT_DIED)
 	#queue_free()
+	dead = true
 	visible = false
 
 func receive_damage(base_damage: int):
 	var actual_damage = base_damage
 	actual_damage -= defense
-	
+	$Metal.play()
 	self.hp -= actual_damage
 	return actual_damage
 
@@ -186,7 +188,11 @@ func set_path_find(is_path_finding):
 	path_finding = is_path_finding
 
 func _on_timer_timeout() -> void:
-	makepath()
+	if path_finding:
+		makepath()
 
 func get_speed():
 	return speed
+
+func get_dead():
+	return dead

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4pw3htdmyuqb"
-path="res://.godot/imported/ufo-1.png(3).png-6303e0e975e85cc37d0017a918fad3c9.ctex"
+uid="uid://cq0rnrw6tn3g0"
+path="res://.godot/imported/magic_vortex swirl.png-81e46f5a17239946e6f0e9b97eaeba3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/ufo-1.png(3).png"
-dest_files=["res://.godot/imported/ufo-1.png(3).png-6303e0e975e85cc37d0017a918fad3c9.ctex"]
+source_file="res://assets/textures/magic_vortex swirl.png"
+dest_files=["res://.godot/imported/magic_vortex swirl.png-81e46f5a17239946e6f0e9b97eaeba3b.ctex"]
 
 [params]
 
