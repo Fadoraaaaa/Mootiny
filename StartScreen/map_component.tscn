@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://3wj6vgrnhacn"]
+
+[ext_resource type="Script" path="res://map_component.gd" id="1_kw4ms"]
+
+[node name="map_component" type="Node2D"]
+script = ExtResource("1_kw4ms")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(2, 2, 18, 2, 19, 20, 3, 21)
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

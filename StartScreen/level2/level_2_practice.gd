@@ -29,7 +29,7 @@ func set_level():
 	$Deathscreen.hide()
 	$UFO.set_path_find(false)
 	$ColorRect.hide()
-	$You.allow_attacking(false)
+	#$You.allow_attacking(false)
 	$Moogician.position = Vector2i(2000, 768)
 	$Ground.position = Vector2i(-320, 220)
 	$UFO.position = Vector2i(1207, 381)
@@ -65,7 +65,8 @@ func beam_collide(body):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Camera2D.position.x = $You.position.x
+	if $You.position.x < 3460:
+		$Camera2D.position.x = $You.position.x
 	$Deathscreen.position = Vector2($Camera2D.position.x - 510, $Deathscreen.position.y)
 	if abs($Camera2D.position.x - $Ground.position.x) > screen_size.x * 1.5:
 		if $You.horizontal_direction > 0:
@@ -77,6 +78,7 @@ func _process(delta: float) -> void:
 		$UFO.velocity.x = direction * $UFO.get_speed()
 	if direction > 0:
 		$UFO.velocity.x = direction * $UFO.get_speed()
+	print(str($You.position.x))
 	pass
 	
 func bush_hiding(body: CharacterBody2D):

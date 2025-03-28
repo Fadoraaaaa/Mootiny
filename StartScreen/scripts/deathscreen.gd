@@ -11,9 +11,10 @@ var death_messages = ["",
 "Why are you playing this?",
 "Wow",
 "Now that's just pathetic",
-"Who are you?",
+"Maybe you should try a Youtube tutorial",
+"...That tutorial didn't work huh",
 "Hand the controller to somebody else please",
-"That's it, you aren't even worth death messages",
+"That's it, you don't get death messages",
 "...again"]
 @export var reset_path = ""
 signal anim_done()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dnakgkiabqblk"]
+[gd_scene load_steps=31 format=3 uid="uid://dnakgkiabqblk"]
 
 [ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="1_qbsxo"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_smdob"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="10_4e7rm"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="10_w7nv1"]
 [ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="11_hlaox"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="12_wpfj5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5mtn7"]
 size = Vector2(1000, 100)
@@ -164,6 +165,18 @@ tracks/11/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ColorRect2:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_ejlub"]
 resource_name = "act 0"
@@ -217,6 +230,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cocoa:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(145, 760)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Honey:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(294, 760)]
 }
 
 [sub_resource type="Animation" id="Animation_1585c"]
@@ -464,6 +501,35 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ilh41"]
+resource_name = "act 1_4.5"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["NO!!!!! Honey! Cocoa!", "You", "You", "left", "surprise"]]],
+"method": &"change_dialog"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_lrde5"]
 resource_name = "act 1_5"
 tracks/0/type = "method"
@@ -605,6 +671,22 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_c14ho"]
+resource_name = "move_using_wasd"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
 [sub_resource type="Animation" id="Animation_muo16"]
 resource_name = "player_ beamed"
 length = 5.0
@@ -621,35 +703,6 @@ tracks/0/keys = {
 "values": []
 }
 
-[sub_resource type="Animation" id="Animation_ilh41"]
-resource_name = "act 1_4.5"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Dialog")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [[["NO!!!!! Honey! Cocoa!", "You", "You", "left", "surprise"]]],
-"method": &"change_dialog"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Dialog:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iucdi"]
 _data = {
 "RESET": SubResource("Animation_xisdo"),
@@ -664,6 +717,7 @@ _data = {
 "fade in": SubResource("Animation_edpmd"),
 "fade out": SubResource("Animation_3tu64"),
 "leaving_scene": SubResource("Animation_enh5a"),
+"move_using_wasd": SubResource("Animation_c14ho"),
 "player_ beamed": SubResource("Animation_muo16")
 }
 
@@ -749,6 +803,32 @@ shape = SubResource("RectangleShape2D_58io7")
 [node name="GameOver" parent="." instance=ExtResource("11_hlaox")]
 offset = Vector2(0, 150)
 transform = Transform2D(1, 0, 0, 1, 0, 150)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 163.0
+offset_top = 310.0
+offset_right = 859.0
+offset_bottom = 384.0
+color = Color(0, 0, 0, 1)
+
+[node name="StartLabel" type="Label" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -331.0
+offset_top = -35.5
+offset_right = 324.0
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_wpfj5")
+theme_override_font_sizes/font_size = 40
+text = "Move Using the WASD Keys"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="beam_player" from="UFO" to="." method="_on_ufo_beam_player"]
 [connection signal="body_entered" from="ExitScene" to="ExitScene" method="_on_body_entered"]

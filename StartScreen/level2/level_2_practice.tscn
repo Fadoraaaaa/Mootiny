@@ -351,9 +351,9 @@ size = Vector2(1676.38, 262.375)
 size = Vector2(54, 513.125)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f6fsp"]
-vertices = PackedVector2Array(3267.47, 149.938, 3298.49, 774.094, -2717.7, 829.898, 3.92188, 131, -2697.27, 103.102)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(4, 121, 3420, 126, 3412, 790, -2728, 840, -2707, 93)])
+vertices = PackedVector2Array(3956.23, 801.039, -2717.7, 829.953, -2697.27, 103.102, 3.96875, 131, 3972.75, 117.031)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4, 121, 3983, 107, 3966, 811, -2728, 840, -2707, 93)])
 
 [node name="level2practice" type="Node2D"]
 script = ExtResource("1_0r3hv")
@@ -364,6 +364,11 @@ script = ExtResource("1_0r3hv")
 libraries = {
 "": SubResource("AnimationLibrary_agwhr")
 }
+
+[node name="Castlev3" type="Sprite2D" parent="."]
+position = Vector2(3169, 329)
+scale = Vector2(7, 7)
+texture = ExtResource("9_w7i15")
 
 [node name="You" parent="." instance=ExtResource("4_gj5oa")]
 position = Vector2(192, 768)
@@ -399,11 +404,6 @@ position = Vector2(508, 388)
 scale = Vector2(0.7, 0.7)
 baby = true
 player = NodePath("../You")
-
-[node name="Castlev3" type="Sprite2D" parent="."]
-position = Vector2(3169, 329)
-scale = Vector2(7, 7)
-texture = ExtResource("9_w7i15")
 
 [node name="Ground" parent="." instance=ExtResource("7_4pgam")]
 position = Vector2(5, 226)

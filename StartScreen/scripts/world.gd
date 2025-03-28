@@ -30,6 +30,7 @@ func new_game():
 	$Cocoa.position = Vector2i(145, 760)
 	$Cocoa.modulate = Color8(255, 255, 255, 255)
 	$Cocoa.visible = true
+	$ColorRect2.visible = false
 	
 	$Deathscreen.hide()
 	$UFO.hide_beam()
@@ -73,11 +74,15 @@ func new_game():
 	
 	#OH NO!!!! Now run away like the coward you are!
 	$AnimationPlayer.play("act 1_5")
-	await $Dialog.finished
+	#await $Dialog.finished
 	print("act 1_5 is done")
 	
-	
 	$You.pause = false
+	#movement instructions
+	$AnimationPlayer.play("move_using_wasd")
+	
+	
+	
 	ready_over = true
 	#OH MY THE UFO IS GONNA CHASE YOU!!! :O
 	
@@ -115,6 +120,7 @@ func _on_ufo_beam_player() -> void:
 		await tween.finished
 		$Deathscreen.death()
 		dead = true
+		$You.position = Vector2i(-1000, 1000)
 		$UFO.stop_sound("swirl")
 		$UFO.stop_sound("buzz")
 	else:
