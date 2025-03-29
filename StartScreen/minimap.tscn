@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpymec431vssf"]
+
+[ext_resource type="Script" path="res://minimap.gd" id="1_2yhvw"]
+[ext_resource type="Texture2D" uid="uid://d272f3lvwdq2g" path="res://assets/textures/minimap.png" id="1_d0rt6"]
+
+[node name="minimap" type="Node2D"]
+script = ExtResource("1_2yhvw")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 917.0
+offset_top = 17.0
+offset_right = 1005.0
+offset_bottom = 103.0
+
+[node name="Minimap" type="Sprite2D" parent="."]
+position = Vector2(961, 60)
+scale = Vector2(3, 3)
+texture = ExtResource("1_d0rt6")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

@@ -9,13 +9,11 @@ var beginning_of_level = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.current_location = 3
 	screen_size = get_window().size
-	$Bush1.get_node("Area2D").body_entered.connect(bush_hiding)
-	$Bush1.get_node("Area2D").body_exited.connect(bush_left)
-	$Bush2.get_node("Area2D").body_entered.connect(bush_hiding)
-	$Bush2.get_node("Area2D").body_exited.connect(bush_left)
-	$Bush3.get_node("Area2D").body_entered.connect(bush_hiding)
-	$Bush3.get_node("Area2D").body_exited.connect(bush_left)
+	for i in range(1, 3+1):
+		get_node("Bush" + str(i) + "/Area2D").body_entered.connect(bush_hiding)
+		get_node("Bush" + str(i) + "/Area2D").body_exited.connect(bush_left)
 	$UFO.get_node("UfoBeam/Area2D").body_entered.connect(beam_collide)
 	$GameOver.get_node("Button").pressed.connect(set_level)
 	set_level()
@@ -52,19 +50,20 @@ func beam_collide(body):
 		$UFO.set_velocity(Vector2(0,0))
 		direction = 0
 		print("trying to tween")
-		$Timer.stop()
+		$Timer.stop()	
+		$You.pause = true
 		var tween = create_tween()
 		var target_pos = Vector2($UFO.position.x, $UFO.position.y + 50)
 		tween.tween_property($You, "position", target_pos, 4)
 		await tween.finished
 		$You.visible = false
-		$You.pause = true
 		print("attempting to restart")
 		$Deathscreen.death()
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	$minimap.position.x = $Camera2D.position.x - 500
 	if $You.position.x < 3460:
 		$Camera2D.position.x = $You.position.x
 	$Deathscreen.position = Vector2($Camera2D.position.x - 510, $Deathscreen.position.y)
@@ -78,7 +77,6 @@ func _process(delta: float) -> void:
 		$UFO.velocity.x = direction * $UFO.get_speed()
 	if direction > 0:
 		$UFO.velocity.x = direction * $UFO.get_speed()
-	print(str($You.position.x))
 	pass
 	
 func bush_hiding(body: CharacterBody2D):

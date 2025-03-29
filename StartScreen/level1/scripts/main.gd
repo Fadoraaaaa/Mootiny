@@ -32,6 +32,7 @@ signal anim_done()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_window().size
+	Global.current_location = 3
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height() -20
 	$GameOver.get_node("Button").pressed.connect(new_game)
 	$Dino.get_node("AnimatedSprite2D/Red").visible = false
@@ -93,6 +94,7 @@ func new_game():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$minimap.position = Vector2($Camera2D.position.x - 500, $Camera2D.position.y-450)
 	if game_running:
 		if !$JENNATenseMusic.playing:
 			$JENNATenseMusic.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bpbo1lwxwf6xa"]
+[gd_scene load_steps=31 format=3 uid="uid://bpbo1lwxwf6xa"]
 
 [ext_resource type="Script" path="res://level2/level_2_practice.gd" id="1_0r3hv"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="2_pgfiv"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="14_t4uj1"]
 [ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="15_4r76b"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="16_3des4"]
+[ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="18_y8rg6"]
 
 [sub_resource type="Animation" id="Animation_ecdf7"]
 length = 0.001
@@ -488,6 +489,8 @@ vertical_alignment = 1
 [node name="GameOver" parent="." instance=ExtResource("15_4r76b")]
 offset = Vector2(0, 150)
 transform = Transform2D(1, 0, 0, 1, 0, 150)
+
+[node name="minimap" parent="." instance=ExtResource("18_y8rg6")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

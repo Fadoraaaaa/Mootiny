@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dnakgkiabqblk"]
+[gd_scene load_steps=32 format=3 uid="uid://dnakgkiabqblk"]
 
 [ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="1_qbsxo"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_smdob"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scripts/exit_scene.gd" id="9_1eojw"]
 [ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="9_n8hi5"]
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="10_4e7rm"]
+[ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="10_7m2ip"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="10_w7nv1"]
 [ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="11_hlaox"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="12_wpfj5"]
@@ -798,6 +799,8 @@ whereto = "res://level1/scenes/main.tscn"
 position = Vector2(1268, 372)
 shape = SubResource("RectangleShape2D_58io7")
 
+[node name="minimap" parent="." instance=ExtResource("10_7m2ip")]
+
 [node name="Deathscreen" parent="." instance=ExtResource("10_4e7rm")]
 
 [node name="GameOver" parent="." instance=ExtResource("11_hlaox")]
@@ -818,10 +821,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -331.0
-offset_top = -35.5
+offset_left = -355.0
+offset_top = -25.0
 offset_right = 324.0
-offset_bottom = 54.5
+offset_bottom = 55.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("12_wpfj5")

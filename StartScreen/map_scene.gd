@@ -1,5 +1,8 @@
 extends Node2D
 
+var current_location = Global.current_location
+#1 = Halstein City, 2 = Wild West, 3 = Galloway Grove, 4 = Happy Hoof Ranch
+#5 = Camoolot, 6 = Mt. Aberdeen, 7 = Mt. Ayrshire, 8= Milky Way
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -11,7 +14,8 @@ func _ready() -> void:
 			map_component.mouse_has_entered.connect(mouse_entered.bind(node_name))
 			map_component.mouse_has_exited.connect(mouse_exited.bind(node_name))
 			mouse_exited(node_name)
-
+		if map_component:
+			$CowFace.position = get_node("map_component" + str(current_location)).position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

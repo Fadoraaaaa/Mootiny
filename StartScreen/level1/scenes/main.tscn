@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bju4jxwr7a0pg"]
+[gd_scene load_steps=20 format=3 uid="uid://bju4jxwr7a0pg"]
 
 [ext_resource type="Script" path="res://level1/scripts/main.gd" id="1_d36gk"]
 [ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="1_qy3kl"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://ccl38fhknsogp" path="res://assets/sound/JENNA MODE/Tense SARAH Music.wav" id="11_ph731"]
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="12_sxjjd"]
 [ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="13_p20h5"]
+[ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="14_t2jfc"]
 
 [sub_resource type="Animation" id="Animation_jpa4j"]
 length = 0.001
@@ -259,3 +260,5 @@ bus = &"JENNA MODE"
 
 [node name="Deathscreen" parent="." instance=ExtResource("12_sxjjd")]
 position = Vector2(62, -388)
+
+[node name="minimap" parent="." instance=ExtResource("14_t2jfc")]

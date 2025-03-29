@@ -1,9 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dmkbx4xm8x5gj"]
+[gd_scene load_steps=23 format=3 uid="uid://dmkbx4xm8x5gj"]
 
 [ext_resource type="Texture2D" uid="uid://b1a2edb171we5" path="res://assets/sprites/cocoa/cocoa_idle.png" id="1_i25c7"]
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_yig3m"]
 [ext_resource type="Texture2D" uid="uid://vy144rcdcao5" path="res://assets/sprites/honey/honey_idle.png" id="3_1fldq"]
 [ext_resource type="Texture2D" uid="uid://c2eooltsvx4vo" path="res://assets/sprites/holy_cow_idle.png" id="3_lnb3f"]
+[ext_resource type="Texture2D" uid="uid://ckenbiyu8cf2x" path="res://assets/sprites/npcs/cowstruction_worker.png" id="3_wkdic"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="5_1qn2o"]
 [ext_resource type="Texture2D" uid="uid://3s1s0hs5xpbw" path="res://assets/textures/questionmark.png" id="5_d2xyr"]
 [ext_resource type="Texture2D" uid="uid://w6ppd7rjs8dk" path="res://assets/sprites/npcs/moogician_idle.png" id="5_pi8fs"]
@@ -42,6 +43,14 @@ region = Rect2(0, 0, 112, 85)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sqja5"]
 atlas = ExtResource("5_pi8fs")
 region = Rect2(112, 0, 112, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tv5pd"]
+atlas = ExtResource("3_wkdic")
+region = Rect2(0, 0, 135, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hwib"]
+atlas = ExtResource("3_wkdic")
+region = Rect2(135, 0, 135, 78)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h0g3n"]
 animations = [{
@@ -88,6 +97,17 @@ animations = [{
 "loop": true,
 "name": &"Moogician",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tv5pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hwib")
+}],
+"loop": true,
+"name": &"Worker",
+"speed": 5.0
 }]
 
 [node name="NPC" type="CharacterBody2D"]
@@ -96,8 +116,7 @@ script = ExtResource("1_yig3m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(68, -40)
 sprite_frames = SubResource("SpriteFrames_h0g3n")
-animation = &"Moogician"
-frame_progress = 0.260682
+animation = &"Worker"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

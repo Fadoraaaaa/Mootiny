@@ -127,6 +127,10 @@ func _physics_process(_delta):
 			print("escape scene button pressed")
 			get_tree().change_scene_to_file("res://level2/level_2_practice.tscn")
 			
+	if Input.is_action_just_pressed("open_map"):
+			print("open map button pressed")
+			get_tree().change_scene_to_file("res://map_scene.tscn")
+			
 	
 	
 	#makes it so that you fall back down when you jump

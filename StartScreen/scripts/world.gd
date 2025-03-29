@@ -8,6 +8,7 @@ var ready_over
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Global.current_location = 4
 	new_game()
 	await $ExitScene.exiting_level
 	$AnimationPlayer.play("leaving_scene")

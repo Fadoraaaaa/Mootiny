@@ -1,0 +1,290 @@
+[gd_scene load_steps=34 format=3 uid="uid://puifclai05d7"]
+
+[ext_resource type="Script" path="res://under_construction.gd" id="1_pgn50"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="2_68lm6"]
+[ext_resource type="Texture2D" uid="uid://cjyov0kh7mkl7" path="res://assets/textures/loading_sprite_sheet.png" id="2_ah07r"]
+[ext_resource type="Texture2D" uid="uid://c3ctt1hmpval8" path="res://assets/textures/Screenshot 2025-03-28 154419-1.png.png" id="3_l8nds"]
+[ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="3_rg0gu"]
+[ext_resource type="Texture2D" uid="uid://iwd68i47a8re" path="res://assets/textures/grass.png" id="4_do8ah"]
+[ext_resource type="Texture2D" uid="uid://bomjadvhka5mv" path="res://assets/textures/bush.png.png" id="5_xk3in"]
+[ext_resource type="Texture2D" uid="uid://cgf4dbskqlw2i" path="res://assets/textures/construction_barricade.png" id="7_cj1lr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m64b1"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(0, 0, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_18uq7"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(320, 0, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82lbv"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(640, 0, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jdtp"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(960, 0, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dkv4b"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(1280, 0, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm64r"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(0, 400, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lcbpf"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(320, 400, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygq30"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(640, 400, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sj556"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(960, 400, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnojc"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(1280, 400, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w56rd"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(0, 800, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh4it"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(320, 800, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajegj"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(640, 800, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twsb6"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(960, 800, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04t8a"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(1280, 800, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap2ke"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(0, 1200, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eotf6"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(320, 1200, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rg2kr"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(640, 1200, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqnob"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(960, 1200, 320, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvbv7"]
+atlas = ExtResource("2_ah07r")
+region = Rect2(1280, 1200, 320, 400)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_08pfb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m64b1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_18uq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82lbv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jdtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dkv4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm64r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lcbpf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygq30")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sj556")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnojc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w56rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh4it")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajegj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twsb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04t8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap2ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eotf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rg2kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqnob")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvbv7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 18.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_ho6im"]
+offsets = PackedFloat32Array(0.237197, 0.97035, 1)
+colors = PackedColorArray(0.256952, 0.523949, 0.882314, 1, 0.52549, 0.980392, 0.996078, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_mrggw"]
+gradient = SubResource("Gradient_ho6im")
+
+[sub_resource type="QuadMesh" id="QuadMesh_mbyok"]
+size = Vector2(1000, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pc4j6"]
+size = Vector2(1024.38, 244)
+
+[node name="under_construction" type="Node2D"]
+script = ExtResource("1_pgn50")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_right = 1028.0
+offset_bottom = 990.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(495, 500)
+scale = Vector2(1.4125, 1.37)
+sprite_frames = SubResource("SpriteFrames_08pfb")
+autoplay = "default"
+frame_progress = 0.259917
+
+[node name="Screenshot2025-03-28154419-1_png" type="Sprite2D" parent="."]
+modulate = Color(0.670618, 0.839054, 0.995031, 1)
+self_modulate = Color(1, 1, 1, 0.756863)
+position = Vector2(518, 501)
+scale = Vector2(7.61029, 7.64615)
+texture = ExtResource("3_l8nds")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.803922)
+offset_left = 1024.0
+offset_top = 6.0
+offset_right = 2052.0
+offset_bottom = 1029.0
+rotation = 1.5708
+texture = SubResource("GradientTexture1D_mrggw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 1030.0
+offset_bottom = 992.0
+color = Color(0.270696, 0.563089, 0.677099, 0.623529)
+
+[node name="Button" type="Button" parent="."]
+offset_left = 34.0
+offset_top = 54.0
+offset_right = 366.0
+offset_bottom = 120.0
+theme_override_fonts/font = ExtResource("2_68lm6")
+theme_override_font_sizes/font_size = 40
+text = "Back to Map"
+
+[node name="NPC" parent="." instance=ExtResource("3_rg0gu")]
+position = Vector2(190, 776)
+character_name = "Worker"
+
+[node name="Grass" type="StaticBody2D" parent="."]
+position = Vector2(6.10352e-05, 3.05176e-05)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Grass"]
+modulate = Color(0.00784314, 0, 0.164706, 1)
+position = Vector2(915, 1068)
+scale = Vector2(2.06025, 2.615)
+mesh = SubResource("QuadMesh_mbyok")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grass"]
+position = Vector2(513.811, 901)
+shape = SubResource("RectangleShape2D_pc4j6")
+
+[node name="UnderCowstructionSign2" type="ColorRect" parent="."]
+offset_left = 98.0
+offset_top = 248.0
+offset_right = 958.0
+offset_bottom = 342.0
+color = Color(0, 0, 0, 1)
+
+[node name="UnderCowstructionSign" type="ColorRect" parent="."]
+offset_left = 106.0
+offset_top = 256.0
+offset_right = 948.0
+offset_bottom = 334.0
+color = Color(1, 0.541176, 0.203922, 1)
+
+[node name="Label" type="Label" parent="UnderCowstructionSign"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.0
+offset_top = -78.0
+offset_right = 129.0
+offset_bottom = 27.0002
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("2_68lm6")
+theme_override_font_sizes/font_size = 40
+text = "UNDER COWSTRUCTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Bush1" type="Sprite2D" parent="."]
+position = Vector2(30, 739)
+scale = Vector2(8, 8)
+texture = ExtResource("5_xk3in")
+
+[node name="Bush2" type="Sprite2D" parent="."]
+position = Vector2(912, 735)
+scale = Vector2(8, 8)
+texture = ExtResource("5_xk3in")
+
+[node name="Grass2" type="Sprite2D" parent="."]
+position = Vector2(536, 349)
+scale = Vector2(9.6, 9.6)
+texture = ExtResource("4_do8ah")
+
+[node name="ConstructionBarricade" type="Sprite2D" parent="."]
+position = Vector2(505, 731)
+scale = Vector2(1.40625, 1.41146)
+texture = ExtResource("7_cj1lr")
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
