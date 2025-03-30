@@ -31,7 +31,7 @@ signal anim_done()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	screen_size = get_window().size
+	screen_size = Vector2i(1025,1020)
 	Global.current_location = 3
 	ground_height = $Ground.get_node("Sprite2D").texture.get_height() -20
 	$GameOver.get_node("Button").pressed.connect(new_game)
@@ -48,7 +48,7 @@ func _ready():
 	$UFO.play_sound("buzz")
 	$UFO.get_node("UfoBeam/Area2D").body_entered.connect(beam_collide)
 	collided = false
-	$JENNATenseMusic.play()
+	$Camera2D/JENNATenseMusic.play()
 	$bush.get_node("Area2D").body_entered.connect(bush_hiding)
 	$Deathscreen.get_node("AnimationPlayer").play("death")
 	$Deathscreen.hide()
@@ -81,6 +81,7 @@ func new_game():
 	$CowFace.position.x = 107
 	$MiniUFO.position.x = $ProgressBar.position.x
 	$bush.position = Vector2i(30000, 305)
+	$Camera2D/AudioStreamPlayer2D.play()
 	
 	
 	#reset hud and game over screen
@@ -96,9 +97,10 @@ func new_game():
 func _process(delta):
 	$minimap.position = Vector2($Camera2D.position.x - 500, $Camera2D.position.y-450)
 	if game_running:
-		if !$JENNATenseMusic.playing:
-			$JENNATenseMusic.play()
-			
+		if !$Camera2D/JENNATenseMusic.playing:
+			$Camera2D/JENNATenseMusic.play()
+		if !$Camera2D/AudioStreamPlayer2D.playing:
+			$Camera2D/AudioStreamPlayer2D.play()
 		#speed up and adjust difficulty
 		speed = (START_SPEED + score / SPEED_MODIFIER) - hit_num
 		if speed > MAX_SPEED:
@@ -113,7 +115,6 @@ func _process(delta):
 		
 		#move dino and camera
 		$Dino.position.x += speed
-		$JENNATenseMusic.position.x += speed
 		$Camera2D.position.x = $Dino.position.x +126
 		$UFO.position.x += 5
 		

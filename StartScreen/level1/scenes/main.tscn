@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bju4jxwr7a0pg"]
+[gd_scene load_steps=21 format=3 uid="uid://bju4jxwr7a0pg"]
 
 [ext_resource type="Script" path="res://level1/scripts/main.gd" id="1_d36gk"]
 [ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="1_qy3kl"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="12_sxjjd"]
 [ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="13_p20h5"]
 [ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="14_t2jfc"]
+[ext_resource type="AudioStream" uid="uid://bg0uvil7dew16" path="res://assets/sound/music/Evasive Paths.mp3" id="15_3077p"]
 
 [sub_resource type="Animation" id="Animation_jpa4j"]
 length = 0.001
@@ -218,6 +219,18 @@ position = Vector2(0, -200)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 124)
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
+position = Vector2(-576, -124)
+stream = ExtResource("15_3077p")
+volume_db = -10.035
+bus = &"Music"
+
+[node name="JENNATenseMusic" type="AudioStreamPlayer2D" parent="Camera2D"]
+position = Vector2(-576, -124)
+stream = ExtResource("11_ph731")
+volume_db = 5.0
+bus = &"JENNA MODE"
+
 [node name="HUD" parent="." instance=ExtResource("5_cgpie")]
 visible = false
 
@@ -252,11 +265,6 @@ texture = ExtResource("9_plo03")
 position = Vector2(111, -342)
 scale = Vector2(2.875, 3.1)
 texture = ExtResource("9_ujxiy")
-
-[node name="JENNATenseMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_ph731")
-volume_db = 5.0
-bus = &"JENNA MODE"
 
 [node name="Deathscreen" parent="." instance=ExtResource("12_sxjjd")]
 position = Vector2(62, -388)

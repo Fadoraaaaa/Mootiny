@@ -117,20 +117,7 @@ func _physics_process(_delta):
 	#lets you go to the menu
 	if Input.is_action_just_pressed("menu"):
 			print("menu button pressed")
-			get_tree().change_scene_to_file("res://menu stuff/menu scenes/Menu.tscn")
-			
-	if Input.is_action_just_pressed("escape_scene"):
-			print("escape scene button pressed")
-			get_tree().change_scene_to_file("res://level1/scenes/main.tscn")
-			
-	if Input.is_action_just_pressed("action_tutorial"):
-			print("escape scene button pressed")
-			get_tree().change_scene_to_file("res://level2/level_2_practice.tscn")
-			
-	if Input.is_action_just_pressed("open_map"):
-			print("open map button pressed")
-			get_tree().change_scene_to_file("res://map_scene.tscn")
-			
+			get_tree().change_scene_to_file("res://menu stuff/menu scenes/Menu.tscn")			
 	
 	
 	#makes it so that you fall back down when you jump

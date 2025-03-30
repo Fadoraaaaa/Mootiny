@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2eooltsvx4vo"
-path="res://.godot/imported/holy_cow_idle.png-f60737b667788d1a7fd0199217e6655d.ctex"
+uid="uid://ciohjsq8n2sg4"
+path="res://.godot/imported/dairy_queen_sketch.png-3d5f4461b8376316fdef5ffa40d3889d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/holy_cow_idle.png"
-dest_files=["res://.godot/imported/holy_cow_idle.png-f60737b667788d1a7fd0199217e6655d.ctex"]
+source_file="res://assets/sprites/npcs/dairy_queen_sketch.png"
+dest_files=["res://.godot/imported/dairy_queen_sketch.png-3d5f4461b8376316fdef5ffa40d3889d.ctex"]
 
 [params]
 

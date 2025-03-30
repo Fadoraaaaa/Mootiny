@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d0s8d4hhloocd"]
+[gd_scene load_steps=6 format=3 uid="uid://d0s8d4hhloocd"]
 
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="2_5wkdh"]
 [ext_resource type="PackedScene" uid="uid://d3j5febq823vm" path="res://menu stuff/menu scenes/hotkey_rebind_button.tscn" id="2_miffa"]
 [ext_resource type="PackedScene" uid="uid://bo6t4af0ruhp3" path="res://menu stuff/menu scenes/audio_slider_settings.tscn" id="2_t7bkh"]
 [ext_resource type="PackedScene" uid="uid://nd05qbo1tide" path="res://menu stuff/menu scenes/audio_check_button.tscn" id="3_bs2dm"]
+[ext_resource type="Script" path="res://menu stuff/menu scenes/credits_button.gd" id="5_bmwa6"]
 
 [node name="SettingsTab" type="Control"]
 layout_mode = 3
@@ -200,22 +201,13 @@ layout_mode = 2
 theme_override_constants/separation = 100
 alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Credits/MarginContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="TabContainer/Credits/MarginContainer/VBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_5wkdh")
-theme_override_font_sizes/font_size = 28
-text = "Accessibility 1
-"
+theme_override_font_sizes/font_size = 40
+text = "Play Credits"
+script = ExtResource("5_bmwa6")
 
-[node name="Label2" type="Label" parent="TabContainer/Credits/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5wkdh")
-theme_override_font_sizes/font_size = 28
-text = "Accessibility 2"
-
-[node name="Label3" type="Label" parent="TabContainer/Credits/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_5wkdh")
-theme_override_font_sizes/font_size = 28
-text = "Accessibility 3
-"
+[connection signal="button_down" from="TabContainer/Credits/MarginContainer/VBoxContainer/CreditsButton" to="TabContainer/Credits/MarginContainer/VBoxContainer/CreditsButton" method="_on_button_down"]

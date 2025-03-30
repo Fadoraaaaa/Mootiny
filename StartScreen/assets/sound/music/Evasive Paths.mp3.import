@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bg0uvil7dew16"
+path="res://.godot/imported/Evasive Paths.mp3-b7f0ee2b0bf1e476c5e8b0b006b146f5.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/music/Evasive Paths.mp3"
+dest_files=["res://.godot/imported/Evasive Paths.mp3-b7f0ee2b0bf1e476c5e8b0b006b146f5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

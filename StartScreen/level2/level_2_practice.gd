@@ -6,6 +6,7 @@ signal anim_done()
 signal hiding()
 var direction = -1
 var beginning_of_level = true
+var death = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,6 +21,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 	
 func set_level():
+	get_node("Camera2D/AudioStreamPlayer2D").play()
+	death = false
 	$GameOver.hide()
 	$Dialog.visible = true
 	$You.pause = true
@@ -27,7 +30,6 @@ func set_level():
 	$Deathscreen.hide()
 	$UFO.set_path_find(false)
 	$ColorRect.hide()
-	#$You.allow_attacking(false)
 	$Moogician.position = Vector2i(2000, 768)
 	$Ground.position = Vector2i(-320, 220)
 	$UFO.position = Vector2i(1207, 381)
@@ -45,7 +47,8 @@ func set_level():
 	$You.pause = false
 
 func beam_collide(body):
-	if body.name == "You" and $UFO.visible and !$UFO.hiding:
+	if body.name == "You" and $UFO.visible and !$UFO.hiding and !death:
+		death = true
 		$UFO.set_path_find(false)
 		$UFO.set_velocity(Vector2(0,0))
 		direction = 0
@@ -56,15 +59,17 @@ func beam_collide(body):
 		var target_pos = Vector2($UFO.position.x, $UFO.position.y + 50)
 		tween.tween_property($You, "position", target_pos, 4)
 		await tween.finished
+		$You.velocity.x = 0
+		$Camera2D/AudioStreamPlayer2D.stop()
 		$You.visible = false
 		print("attempting to restart")
 		$Deathscreen.death()
+
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$minimap.position.x = $Camera2D.position.x - 500
-	if $You.position.x < 3460:
+	if $You.position.x < 3460: #make it so that you can't look past castle entrance
 		$Camera2D.position.x = $You.position.x
 	$Deathscreen.position = Vector2($Camera2D.position.x - 510, $Deathscreen.position.y)
 	if abs($Camera2D.position.x - $Ground.position.x) > screen_size.x * 1.5:
@@ -77,6 +82,8 @@ func _process(delta: float) -> void:
 		$UFO.velocity.x = direction * $UFO.get_speed()
 	if direction > 0:
 		$UFO.velocity.x = direction * $UFO.get_speed()
+	if !$Camera2D/AudioStreamPlayer2D.playing and !death:
+		$Camera2D/AudioStreamPlayer2D.play()
 	pass
 	
 func bush_hiding(body: CharacterBody2D):
@@ -112,6 +119,7 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body.name == "You":
 		if $UFO.get_dead(): #UFO IS DEAD
 			print("UFO is NOT alive")
+			anim.play("scene_6")
 		else: #UFO IS ALIVE
 			if !$You.get_attack(): #CANNOT ATTACK
 				print("UFO is STILL alive, and you CANNOT attack")

@@ -808,10 +808,10 @@ offset = Vector2(0, 150)
 transform = Transform2D(1, 0, 0, 1, 0, 150)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = 163.0
-offset_top = 310.0
-offset_right = 859.0
-offset_bottom = 384.0
+offset_left = 114.0
+offset_top = 333.0
+offset_right = 830.0
+offset_bottom = 413.0
 color = Color(0, 0, 0, 1)
 
 [node name="StartLabel" type="Label" parent="ColorRect2"]
@@ -821,10 +821,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -355.0
-offset_top = -25.0
-offset_right = 324.0
-offset_bottom = 55.0
+offset_left = -344.0
+offset_top = -40.0
+offset_right = 335.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("12_wpfj5")

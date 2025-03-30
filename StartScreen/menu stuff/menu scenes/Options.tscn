@@ -49,6 +49,7 @@ offset_right = 822.0
 offset_bottom = 655.0
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsTab/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("2_dk7vu")

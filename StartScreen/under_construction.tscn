@@ -263,7 +263,7 @@ grow_vertical = 2
 scale = Vector2(1.5, 1.5)
 theme_override_fonts/font = ExtResource("2_68lm6")
 theme_override_font_sizes/font_size = 40
-text = "UNDER COWSTRUCTION"
+text = "UDDER COWSTRUCTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
