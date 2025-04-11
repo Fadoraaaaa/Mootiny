@@ -5,6 +5,7 @@ extends Node2D
 signal anim_done()
 var dead
 var ready_over
+var leaving_scene = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,6 +13,7 @@ func _ready():
 	new_game()
 	await $ExitScene.exiting_level
 	$AnimationPlayer.play("leaving_scene")
+	leaving_scene = true
 	$You.pause = true
 	await anim_done
 	get_tree().change_scene_to_file("res://level1/scenes/main.tscn")
@@ -113,7 +115,7 @@ func animation_over():
 	emit_signal("anim_done")
 
 func _on_ufo_beam_player() -> void:
-	if !dead and ready_over:
+	if !dead and ready_over and !leaving_scene:
 		var tween = create_tween()
 		var target_pos = $UFO.position
 		$UFO.play_sound("swirl")

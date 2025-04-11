@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bwa2s0bpd82"]
 
 [ext_resource type="Script" path="res://credits.gd" id="1_5s37m"]
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="1_d2y74"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="1_d2y74"]
 [ext_resource type="Texture2D" uid="uid://ciohjsq8n2sg4" path="res://assets/sprites/npcs/dairy_queen_sketch.png" id="1_vudxi"]
 [ext_resource type="Texture2D" uid="uid://cdsow82inxx50" path="res://assets/sprites/npcs/holy_cow_sketch_bw.png" id="2_2e2hn"]
 [ext_resource type="Texture2D" uid="uid://b7gdqnsj07f2b" path="res://assets/sprites/npcs/moosician_bw.png" id="5_vds0b"]

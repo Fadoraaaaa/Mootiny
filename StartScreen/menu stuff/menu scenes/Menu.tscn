@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://tyhwpypfddtr" path="res://assets/textures/startscreen-3.png.png" id="3_hus4d"]
 [ext_resource type="AudioStream" uid="uid://cjlh8ni0qcf63" path="res://assets/sound/music/StartScreen Harmony.wav" id="3_toh0g"]
 [ext_resource type="PackedScene" uid="uid://cpaddhkdb7p3p" path="res://menu stuff/menu scenes/Options.tscn" id="4_eaqif"]
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="4_lbqve"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="4_lbqve"]
 [ext_resource type="AudioStream" uid="uid://ddp7rl32rp4mh" path="res://assets/sound/JENNA MODE/Meowmeowmeow.wav" id="5_l78j1"]
 
 [sub_resource type="Animation" id="Animation_itagb"]

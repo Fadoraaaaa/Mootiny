@@ -117,10 +117,10 @@ func show_beam():
 func hide_beam():
 	$AnimationPlayer.play("stop_beam")
 	
-func set_hiding(bool):
-	hiding = bool
+func set_hiding(is_true):
+	hiding = is_true
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if path_finding:
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = dir * speed
@@ -129,7 +129,7 @@ func _physics_process(delta):
 func makepath() -> void:
 	nav_agent.target_position = Vector2(player.global_position.x, player.global_position.y-380)
 
-func _process(delta):
+func _process(_delta):
 	if buzz:
 		if db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("JENNA MODE"))) < 0.0002:
 			if !$Buzz.playing:
@@ -170,8 +170,9 @@ func stop_sound(sound):
 	
 	
 #beam has been entered
-func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
+func _on_area_2d_body_entered(body) -> void:
 	if $UfoBeam.visible and visible and !hiding:
+		print("TRYING TO BEAM")
 		emit_signal("beam_player")
 	
 	

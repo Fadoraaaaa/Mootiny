@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="10_7m2ip"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="10_w7nv1"]
 [ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="11_hlaox"]
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="12_wpfj5"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="12_wpfj5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_5mtn7"]
 size = Vector2(1000, 100)
@@ -793,7 +793,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="ExitScene" type="Area2D" parent="."]
 script = ExtResource("9_1eojw")
-whereto = "res://level1/scenes/main.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitScene"]
 position = Vector2(1268, 372)

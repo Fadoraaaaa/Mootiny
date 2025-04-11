@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c2eooltsvx4vo" path="res://assets/sprites/npcs/holy_cow_idle.png" id="3_lnb3f"]
 [ext_resource type="Texture2D" uid="uid://cq83vg36c3ex7" path="res://assets/sprites/npcs/Dairy_Godmother.png" id="3_txwwv"]
 [ext_resource type="Texture2D" uid="uid://ckenbiyu8cf2x" path="res://assets/sprites/npcs/cowstruction_worker.png" id="3_wkdic"]
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="5_1qn2o"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="5_1qn2o"]
 [ext_resource type="Texture2D" uid="uid://bg4jyo6hqc5r6" path="res://assets/sprites/npcs/dairy_queen.png" id="5_7ywpa"]
 [ext_resource type="Texture2D" uid="uid://3s1s0hs5xpbw" path="res://assets/textures/questionmark.png" id="5_d2xyr"]
 [ext_resource type="Texture2D" uid="uid://w6ppd7rjs8dk" path="res://assets/sprites/npcs/moogician_idle.png" id="5_pi8fs"]

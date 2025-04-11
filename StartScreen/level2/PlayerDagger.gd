@@ -15,7 +15,7 @@ func _on_PlayerDagger_area_entered(area):
 	print("AHAHHHHGAHAHHAHHAGH")
 	destroy()
 
-func _on_PlayerDagger_body_entered(body):
+func _on_PlayerDagger_body_entered(_body):
 	destroy()
 
 

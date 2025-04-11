@@ -15,8 +15,8 @@ const MAX_DIFFICULTY : int = 2
 var score : int
 const SCORE_MODIFIER : int = 10
 var high_score : int
-var speed : float
-const START_SPEED : float = 6.0
+var speed : int
+const START_SPEED : int = 6
 const MAX_SPEED : int = 10
 const SPEED_MODIFIER : int = 5000
 var screen_size : Vector2i
@@ -95,7 +95,7 @@ func new_game():
 	$Deathscreen.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	$minimap.position = Vector2($Camera2D.position.x - 500, $Camera2D.position.y-450)
 	if game_running:
 		if !$Camera2D/JENNATenseMusic.playing:
@@ -237,7 +237,7 @@ func beam_collide(body):
 func animation_over():
 	emit_signal("anim_done")
 	
-func bush_hiding(body: CharacterBody2D):
+func bush_hiding(_body: CharacterBody2D):
 	#levelover = true
 	for obs in obstacles:
 		remove_obs(obs)

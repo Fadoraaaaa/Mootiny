@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://ci8txfvxy1kvo"
-path="res://.godot/imported/PixelfySans.ttf-209e96c143937f66d8d3c716145a0f55.fontdata"
+uid="uid://s15272omc2m3"
+path="res://.godot/imported/retro.ttf-230235e24f12f0ad4aad9167eac26daf.fontdata"
 
 [deps]
 
-source_file="res://fonts/PixelfySans.ttf"
-dest_files=["res://.godot/imported/PixelfySans.ttf-209e96c143937f66d8d3c716145a0f55.fontdata"]
+source_file="res://assets/retro.ttf"
+dest_files=["res://.godot/imported/retro.ttf-230235e24f12f0ad4aad9167eac26daf.fontdata"]
 
 [params]
 

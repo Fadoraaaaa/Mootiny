@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cn7mmujjy6xnq"]
 
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="1_5jm4y"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="1_5jm4y"]
 [ext_resource type="Script" path="res://scripts/deathscreen.gd" id="1_nvu3y"]
 [ext_resource type="AudioStream" uid="uid://5xros8rj1mat" path="res://assets/sound/sfx/death_sound.wav" id="3_xnlrk"]
 

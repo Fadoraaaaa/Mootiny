@@ -27,7 +27,7 @@ func _ready():
 	if dialog[page][3] != "":
 		get_parent().get_node(dialog[page][2]).is_speaking(dialog[page][3], dialog[page][4])
 	
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("click"):
 		if label_text.visible_characters > label_text.get_total_character_count():
 			if page < dialog.size()-1:

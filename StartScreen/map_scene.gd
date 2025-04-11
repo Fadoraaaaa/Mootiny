@@ -17,10 +17,6 @@ func _ready() -> void:
 		if map_component:
 			$CowFace.position = get_node("map_component" + str(current_location)).position
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
 func mouse_entered(node_name) -> void:
 	get_node(node_name + "/Polygon2D").modulate = Color8(255, 255, 255, 45)
 	get_node(node_name +"/Label").modulate = Color8(255, 255, 255, 255)

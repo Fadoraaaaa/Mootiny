@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_tusfr"]
 [ext_resource type="Texture2D" uid="uid://dmk8pyv1gxk8b" path="res://assets/sprites/cocoa/cocoa_closeup.png" id="2_2sfld"]
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="2_5dtfk"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="2_5dtfk"]
 [ext_resource type="Texture2D" uid="uid://65c7wi6nxgdo" path="res://assets/sprites/cocoa/cocoa_closeup_happy.png" id="3_mvrp5"]
 [ext_resource type="Texture2D" uid="uid://c6yqlqamuat0g" path="res://assets/sprites/honey/honey_closeup.png" id="4_3ppoh"]
 [ext_resource type="Texture2D" uid="uid://bvxpcky554oj3" path="res://assets/sprites/cocoa/cocoa_closeup_sad.png" id="5_n4re6"]

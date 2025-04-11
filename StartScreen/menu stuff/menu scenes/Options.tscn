@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpaddhkdb7p3p"]
+[gd_scene load_steps=4 format=3 uid="uid://cpaddhkdb7p3p"]
 
 [ext_resource type="Script" path="res://menu stuff/menu scripts/Options.gd" id="1_wtsa3"]
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="2_3gr26"]
-[ext_resource type="FontFile" uid="uid://ci8txfvxy1kvo" path="res://fonts/PixelfySans.ttf" id="2_dk7vu"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="2_3gr26"]
 [ext_resource type="PackedScene" uid="uid://d0s8d4hhloocd" path="res://menu stuff/menu scenes/SettingsTab.tscn" id="3_2gfij"]
 
 [node name="Options" type="Control"]
@@ -49,11 +48,10 @@ offset_right = 822.0
 offset_bottom = 655.0
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsTab/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("2_dk7vu")
-theme_override_font_sizes/font_size = 40
+theme_override_fonts/font = ExtResource("2_3gr26")
+theme_override_font_sizes/font_size = 35
 text = "EXIT"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsTab/VBoxContainer/ExitButton" to="." method="_on_button_pressed"]

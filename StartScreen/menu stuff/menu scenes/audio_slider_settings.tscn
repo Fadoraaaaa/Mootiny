@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bo6t4af0ruhp3"]
+[gd_scene load_steps=3 format=3 uid="uid://bo6t4af0ruhp3"]
 
 [ext_resource type="Script" path="res://menu stuff/menu scripts/audio_slider_settings.gd" id="1_tf3pc"]
-[ext_resource type="FontFile" uid="uid://ci8txfvxy1kvo" path="res://fonts/PixelfySans.ttf" id="1_wudmp"]
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="2_ewpcc"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="2_ewpcc"]
 
 [node name="Audio_Slider_Settings" type="Control"]
 layout_mode = 3
@@ -43,6 +42,6 @@ layout_mode = 2
 
 [node name="Audio_Num_Label" type="Label" parent="HBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_wudmp")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_ewpcc")
+theme_override_font_sizes/font_size = 26
 text = "99.2"

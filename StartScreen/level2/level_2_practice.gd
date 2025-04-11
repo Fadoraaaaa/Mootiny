@@ -10,7 +10,6 @@ var death = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	Global.current_location = 3
 	screen_size = get_window().size
 	for i in range(1, 3+1):
@@ -75,7 +74,7 @@ func beam_collide(body):
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if $You.position.x < 3460: #make it so that you can't look past castle entrance
 		$Camera2D.position.x = $You.position.x
 	$Deathscreen.position = Vector2($Camera2D.position.x - 510, $Deathscreen.position.y)

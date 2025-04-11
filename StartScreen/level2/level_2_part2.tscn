@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cq0rnrw6tn3g0" path="res://assets/textures/magic_vortex swirl.png" id="14_77ism"]
 [ext_resource type="Texture2D" uid="uid://bf1p3e2a65akm" path="res://assets/sprites/MC/mc_jump.png" id="15_iffby"]
 [ext_resource type="AudioStream" uid="uid://cbfge1xeckvk2" path="res://assets/sound/sfx/sparkles.wav" id="16_f8go7"]
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="17_h3ufj"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="17_h3ufj"]
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="18_5cs1i"]
 [ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="19_t51ra"]
 
@@ -485,7 +485,6 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(4, 121, 3983, 107, 3966, 811, -4367, 873, -3906, 121)])
 
 [node name="level2part2" type="Node2D"]
-visible = false
 script = ExtResource("1_cgokg")
 
 [node name="Bg" parent="." instance=ExtResource("2_aavbg")]
