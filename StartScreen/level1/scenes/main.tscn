@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bju4jxwr7a0pg"]
+[gd_scene load_steps=22 format=3 uid="uid://bju4jxwr7a0pg"]
 
 [ext_resource type="Script" path="res://level1/scripts/main.gd" id="1_d36gk"]
 [ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="1_qy3kl"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="13_p20h5"]
 [ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="14_t2jfc"]
 [ext_resource type="AudioStream" uid="uid://bg0uvil7dew16" path="res://assets/sound/music/Evasive Paths.mp3" id="15_3077p"]
+[ext_resource type="AudioStream" uid="uid://c3kvdqyr58sfq" path="res://assets/sound/sfx/danger.wav" id="16_ne8ga"]
 
 [sub_resource type="Animation" id="Animation_jpa4j"]
 length = 0.001
@@ -270,3 +271,8 @@ texture = ExtResource("9_ujxiy")
 position = Vector2(62, -388)
 
 [node name="minimap" parent="." instance=ExtResource("14_t2jfc")]
+
+[node name="Danger" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_ne8ga")
+volume_db = 4.727
+bus = &"Sfx"

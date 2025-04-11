@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bn16pnjwue1je"]
+[gd_scene load_steps=33 format=3 uid="uid://bn16pnjwue1je"]
 
 [ext_resource type="Script" path="res://scripts/alien_ufo.gd" id="1_hp4kt"]
 [ext_resource type="Texture2D" uid="uid://c5i1yd7uyqutb" path="res://assets/sprites/baby_ufo.png" id="2_qrmcs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dvvfmp7gxpg8n" path="res://effects/DeathEffect.tscn" id="3_idbtg"]
 [ext_resource type="AudioStream" uid="uid://d1cnjj2jguqhj" path="res://assets/sound/sfx/UFO_buzz.wav" id="3_r408j"]
 [ext_resource type="Texture2D" uid="uid://c7cafes7o53b" path="res://assets/sprites/ufo_beam.png" id="4_g2dkd"]
+[ext_resource type="Texture2D" uid="uid://blt3ed2ke4ft7" path="res://assets/sprites/baby_ufo_sad.png" id="5_ol6xd"]
 [ext_resource type="AudioStream" uid="uid://3h8uktx7yiqo" path="res://assets/sound/sfx/UFO_beam_swirl.wav" id="5_yb6pp"]
 [ext_resource type="AudioStream" uid="uid://c5q6t51gdcvgs" path="res://assets/sound/sfx/UFO_swoosh.wav" id="6_b5o76"]
 [ext_resource type="AudioStream" uid="uid://b6d0wggy1as67" path="res://assets/sound/JENNA MODE/jenna UFO hum.wav" id="7_w60r3"]
@@ -16,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://b7wxa66jcmnx2" path="res://level2/Hitbox.tscn" id="12_56oms"]
 [ext_resource type="PackedScene" uid="uid://d1y15vdrvtuul" path="res://level2/EntityHealthbar.tscn" id="13_xx88j"]
 [ext_resource type="AudioStream" uid="uid://d360pkd3hgbv5" path="res://assets/sound/sfx/metal thunk.wav" id="16_cj5qy"]
+[ext_resource type="Texture2D" uid="uid://cc8bawglkbwtg" path="res://assets/textures/exclamation.png" id="18_gujks"]
+[ext_resource type="AudioStream" uid="uid://djxygndl5wfw0" path="res://assets/sound/sfx/emotion.wav" id="19_acusf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tbtqw"]
 atlas = ExtResource("2_qrmcs")
@@ -23,6 +26,14 @@ region = Rect2(0, 0, 130, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l23kj"]
 atlas = ExtResource("2_qrmcs")
+region = Rect2(130, 0, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2lcn"]
+atlas = ExtResource("5_ol6xd")
+region = Rect2(0, 0, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8opmh"]
+atlas = ExtResource("5_ol6xd")
 region = Rect2(130, 0, 130, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ilg1w"]
@@ -44,6 +55,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"baby",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2lcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8opmh")
+}],
+"loop": true,
+"name": &"baby_sad",
 "speed": 5.0
 }, {
 "frames": [{
@@ -237,6 +259,8 @@ position = Vector2(-2, 328.094)
 scale = Vector2(7.04615, 7.12452)
 sprite_frames = SubResource("SpriteFrames_1d1lp")
 animation = &"baby"
+frame = 1
+frame_progress = 0.688863
 
 [node name="UfoBeam" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.858824)
@@ -320,6 +344,15 @@ autostart = true
 [node name="Metal" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("16_cj5qy")
 volume_db = 9.713
+
+[node name="Exclamation" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, -118)
+texture = ExtResource("18_gujks")
+
+[node name="EmotionIndicator" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_acusf")
+volume_db = 8.819
 
 [connection signal="died" from="." to="." method="die"]
 [connection signal="body_entered" from="UfoBeam/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -43,6 +43,7 @@ func _ready():
 	$AnimationPlayer.play("introtext")
 	await $Dialog.finished
 	$AnimationPlayer.play("intro2")
+	$Danger.play()
 	$UFO.show()
 	$UFO.show_beam()
 	$UFO.play_sound("buzz")
@@ -254,4 +255,4 @@ func bush_hiding(body: CharacterBody2D):
 	tween2.tween_property($Camera2D, "position", target_pos, 0.5)
 	await tween2.finished
 	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file("res://level2/level_2_practice.tscn")
+	get_tree().change_scene_to_file("res://level2/level_2_part1.tscn")

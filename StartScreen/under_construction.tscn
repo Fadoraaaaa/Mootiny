@@ -185,7 +185,7 @@ autoplay = "default"
 frame_progress = 0.259917
 
 [node name="Screenshot2025-03-28154419-1_png" type="Sprite2D" parent="."]
-modulate = Color(0.670618, 0.839054, 0.995031, 1)
+modulate = Color(0.443137, 0.839216, 0.945098, 1)
 self_modulate = Color(1, 1, 1, 0.756863)
 position = Vector2(518, 501)
 scale = Vector2(7.61029, 7.64615)

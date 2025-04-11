@@ -10,6 +10,7 @@ var death = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	Global.current_location = 3
 	screen_size = get_window().size
 	for i in range(1, 3+1):
@@ -30,11 +31,16 @@ func set_level():
 	$Deathscreen.hide()
 	$UFO.set_path_find(false)
 	$ColorRect.hide()
-	$Moogician.position = Vector2i(2000, 768)
-	$Ground.position = Vector2i(-320, 220)
-	$UFO.position = Vector2i(1207, 381)
 	$You.position = Vector2i(192,768)
+	$Moogician.position = Vector2i(2000, 768)
+	$Ground.position = Vector2i(-370, 220)
+	$UFO.position = Vector2i(1207, 381)
+	
 	$UFO.show_beam()
+	
+	direction = 0
+	$Timer.stop()
+	
 	anim.play("scene_1")
 	await $Dialog.finished
 	anim.play("scene_2")
@@ -50,6 +56,7 @@ func beam_collide(body):
 	if body.name == "You" and $UFO.visible and !$UFO.hiding and !death:
 		death = true
 		$UFO.set_path_find(false)
+		$You.allow_attacking(false)
 		$UFO.set_velocity(Vector2(0,0))
 		direction = 0
 		print("trying to tween")
@@ -105,7 +112,7 @@ func _on_timer_timeout() -> void:
 	if !$UFO.path_finding:
 		if $UFO.position.x >= 1940:
 			direction = -1
-		if $UFO.position.x <= -200:
+		if $UFO.position.x <= -250:
 			direction = 1
 		if $UFO.position.y < 376:
 			$UFO.velocity.y = 300
@@ -119,7 +126,11 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 	if body.name == "You":
 		if $UFO.get_dead(): #UFO IS DEAD
 			print("UFO is NOT alive")
+			$You.pause = true
+			$Dialog.visible = true
 			anim.play("scene_6")
+			await $Dialog.finished
+			$You.pause = false
 		else: #UFO IS ALIVE
 			if !$You.get_attack(): #CANNOT ATTACK
 				print("UFO is STILL alive, and you CANNOT attack")
@@ -146,10 +157,17 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 				$ColorRect.hide()	
 	pass # Replace with function body.
 
-
-func _on_ufo_died() -> void:
-	$Timer.stop()
-	print("UFO HAS DIEEDDDDDDD IN THE LEVEL 2 CODE")
-
 func play_magic_sound():
 	$Magic.play()
+
+
+func _on_castle_entrance_area_entered(area: Area2D) -> void:
+	if $UFO.get_dead():
+		print("ENTRANCE ENTERED")
+		$AnimationPlayer.play("exiting")
+		await anim_done
+		get_tree().change_scene_to_file("res://castle_levels/tile_map_practice.tscn")
+		
+	else:
+		print("UFO IS NOT DEAD YET")
+	pass # Replace with function body.

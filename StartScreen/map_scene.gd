@@ -24,6 +24,7 @@ func _process(delta: float) -> void:
 func mouse_entered(node_name) -> void:
 	get_node(node_name + "/Polygon2D").modulate = Color8(255, 255, 255, 45)
 	get_node(node_name +"/Label").modulate = Color8(255, 255, 255, 255)
+	$Chime.play()
 
 func mouse_exited(node_name) -> void:
 	get_node(node_name + "/Polygon2D").modulate = Color8(255, 255, 255, 0)

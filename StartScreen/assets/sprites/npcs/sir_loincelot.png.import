@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ig5gkrv5oig2"
-path="res://.godot/imported/cowboy_bw.png-57a5f852becbe86308ca2ed2cb3e00a6.ctex"
+uid="uid://dc43y7hd5pymc"
+path="res://.godot/imported/sir_loincelot.png-e92ce609e614948cb8a49d8db896f4a0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/npcs/cowboy_bw.png"
-dest_files=["res://.godot/imported/cowboy_bw.png-57a5f852becbe86308ca2ed2cb3e00a6.ctex"]
+source_file="res://assets/sprites/npcs/sir_loincelot.png"
+dest_files=["res://.godot/imported/sir_loincelot.png-e92ce609e614948cb8a49d8db896f4a0.ctex"]
 
 [params]
 

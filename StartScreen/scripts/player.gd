@@ -123,8 +123,8 @@ func _physics_process(_delta):
 	#makes it so that you fall back down when you jump
 	if !is_on_floor():
 		velocity.y += gravity
-		if velocity.y > 200:
-			velocity.y = 200
+		#if velocity.y > 200:
+			#velocity.y = 200
 	
 	#allows you to jump
 	if !pause:
@@ -135,6 +135,8 @@ func _physics_process(_delta):
 	horizontal_direction = Input.get_axis("move_left","move_right")
 	if !pause: 
 		velocity.x = speed * horizontal_direction	
+	else:
+		velocity.x = 0
 	if horizontal_direction != 0:
 		sprite.flip_h = (horizontal_direction == -1)
 	

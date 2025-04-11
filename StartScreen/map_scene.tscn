@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ch20k8w2nkc40"]
+[gd_scene load_steps=7 format=3 uid="uid://ch20k8w2nkc40"]
 
 [ext_resource type="Script" path="res://map_scene.gd" id="1_r5lvy"]
 [ext_resource type="Texture2D" uid="uid://bl5hby1tq7ped" path="res://assets/textures/map.png" id="1_uycc7"]
 [ext_resource type="PackedScene" uid="uid://3wj6vgrnhacn" path="res://map_component.tscn" id="3_0itl3"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="4_equb0"]
 [ext_resource type="Texture2D" uid="uid://dq2obeht71po" path="res://assets/sprites/MC/cow_face.png.png" id="5_j6sjn"]
+[ext_resource type="AudioStream" uid="uid://dlylypox32bqc" path="res://assets/sound/sfx/chime1.wav" id="6_6m1ea"]
 
 [node name="MapScene" type="Node2D"]
 scale = Vector2(7.8, 7.8)
@@ -131,7 +132,7 @@ vertical_alignment = 1
 
 [node name="map_component5" parent="." instance=ExtResource("3_0itl3")]
 position = Vector2(105.897, 116.41)
-scene_path = "res://under_construction.tscn"
+scene_path = "res://castle_levels/tile_map_practice.tscn"
 
 [node name="Polygon2D" type="Polygon2D" parent="map_component5"]
 position = Vector2(-10.5128, -8.84615)
@@ -283,3 +284,8 @@ vertical_alignment = 1
 [node name="CowFace" type="Sprite2D" parent="."]
 position = Vector2(72.4359, 115.769)
 texture = ExtResource("5_j6sjn")
+
+[node name="Chime" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6m1ea")
+volume_db = 3.782
+bus = &"Sfx"

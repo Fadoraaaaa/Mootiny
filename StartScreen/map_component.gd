@@ -27,6 +27,9 @@ func _on_area_2d_mouse_exited() -> void:
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("click"):
+		$Chime2.play()
+		$Polygon2D.modulate = Color8(95, 255, 90, 45)
+		await get_tree().create_timer(2).timeout
 		print("connecting map to scene: " + scene_path)
 		get_tree().change_scene_to_file(scene_path)
 	pass # Replace with function body.

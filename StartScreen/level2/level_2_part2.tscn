@@ -1,24 +1,25 @@
-[gd_scene load_steps=31 format=3 uid="uid://bpbo1lwxwf6xa"]
+[gd_scene load_steps=33 format=3 uid="uid://bpbo1lwxwf6xa"]
 
-[ext_resource type="Script" path="res://level2/level_2_practice.gd" id="1_0r3hv"]
-[ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="2_pgfiv"]
-[ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="3_draxd"]
-[ext_resource type="PackedScene" uid="uid://ckx4aehxac0ot" path="res://effects/HitEffect.tscn" id="4_gdavw"]
-[ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="4_gj5oa"]
-[ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="5_1vga5"]
-[ext_resource type="PackedScene" uid="uid://dvvfmp7gxpg8n" path="res://effects/DeathEffect.tscn" id="5_5vckw"]
-[ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://level1/scenes/ground.tscn" id="7_4pgam"]
-[ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="7_ljng2"]
-[ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="8_jsat8"]
-[ext_resource type="Texture2D" uid="uid://cr2icj5swajpk" path="res://assets/textures/castlev3.png" id="9_w7i15"]
-[ext_resource type="Texture2D" uid="uid://cq0rnrw6tn3g0" path="res://assets/textures/magic_vortex swirl.png" id="11_fa6iw"]
-[ext_resource type="Texture2D" uid="uid://bf1p3e2a65akm" path="res://assets/sprites/MC/mc_jump.png" id="12_cfbmw"]
-[ext_resource type="AudioStream" uid="uid://cbfge1xeckvk2" path="res://assets/sound/sfx/sparkles.wav" id="13_q73iy"]
-[ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="14_t4uj1"]
-[ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="15_4r76b"]
-[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="16_3des4"]
-[ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="18_y8rg6"]
-[ext_resource type="AudioStream" uid="uid://bg0uvil7dew16" path="res://assets/sound/music/Evasive Paths.mp3" id="19_jbepf"]
+[ext_resource type="Script" path="res://level2/level_2_practice.gd" id="1_cgokg"]
+[ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="2_aavbg"]
+[ext_resource type="Texture2D" uid="uid://cr2icj5swajpk" path="res://assets/textures/castlev3.png" id="3_qpvmp"]
+[ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="4_bjub0"]
+[ext_resource type="Texture2D" uid="uid://bku7dtcd14evp" path="res://assets/textures/castle_front_chunk.png" id="4_hp145"]
+[ext_resource type="PackedScene" uid="uid://ckx4aehxac0ot" path="res://effects/HitEffect.tscn" id="5_a2rug"]
+[ext_resource type="PackedScene" uid="uid://dvvfmp7gxpg8n" path="res://effects/DeathEffect.tscn" id="6_m3ywg"]
+[ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="7_607u2"]
+[ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="8_643mi"]
+[ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="9_0ndsd"]
+[ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://level1/scenes/ground.tscn" id="10_cucy5"]
+[ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="11_hwbxf"]
+[ext_resource type="AudioStream" uid="uid://bg0uvil7dew16" path="res://assets/sound/music/Evasive Paths.mp3" id="12_2nco2"]
+[ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="13_et2nl"]
+[ext_resource type="Texture2D" uid="uid://cq0rnrw6tn3g0" path="res://assets/textures/magic_vortex swirl.png" id="14_77ism"]
+[ext_resource type="Texture2D" uid="uid://bf1p3e2a65akm" path="res://assets/sprites/MC/mc_jump.png" id="15_iffby"]
+[ext_resource type="AudioStream" uid="uid://cbfge1xeckvk2" path="res://assets/sound/sfx/sparkles.wav" id="16_f8go7"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://fonts/retro.ttf" id="17_h3ufj"]
+[ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="18_5cs1i"]
+[ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="19_t51ra"]
 
 [sub_resource type="Animation" id="Animation_ecdf7"]
 length = 0.001
@@ -61,7 +62,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/path = NodePath("MagicSprite:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -85,7 +86,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Sprite2D:modulate")
+tracks/5/path = NodePath("MagicSprite:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -130,6 +131,48 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(-516, -514)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Dialog:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fcg5j"]
+resource_name = "exiting"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_folmn"]
 resource_name = "scene_1"
@@ -143,7 +186,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [[["Phew! The UFO didn't spot me in the bush!", "You", "You", "right", ""], ["AAAAAA SAVE ME SAVE ME SAVE ME SAVE ME AAAAAAAA", "Unknown", "Unknown", "", ""], ["...what?", "You", "You", "right", "curious"]]],
+"args": [[["Phew! The UFO didn't spot me in the bush! I wonder what that crash sound was...", "You", "You", "right", ""], ["AAAAAA SAVE ME SAVE ME SAVE ME SAVE ME AAAAAAAA", "Unknown", "Unknown", "", ""], ["...what?", "You", "You", "right", "curious"]]],
 "method": &"change_dialog"
 }]
 }
@@ -182,6 +225,30 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-516, -514)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BlackScreen:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dialog:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_0q7v7"]
@@ -298,13 +365,30 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_ry8gr"]
+resource_name = "scene_6"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["Moorvelous! Your sonic moo defeated the UFO! Thank you.", "Moogician", "Moogician", "left", ""], ["No problem! What happened here?", "You", "You", "right", ""], ["The UFOs have taken over the kingdom of Camoolot!!! Can you help rescue the civilians?", "Moogician", "Moogician", "left", "surprise"], ["I'll hoof them out of there in no time!", "You", "You", "right", ""]]],
+"method": &"change_dialog"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_fs85c"]
 resource_name = "swirly_magic"
 length = 10.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("MagicSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -328,7 +412,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:modulate")
+tracks/2/path = NodePath("MagicSprite:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -379,12 +463,10 @@ tracks/5/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_ry8gr"]
-resource_name = "scene_6"
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_agwhr"]
 _data = {
 "RESET": SubResource("Animation_ecdf7"),
+"exiting": SubResource("Animation_fcg5j"),
 "scene_1": SubResource("Animation_folmn"),
 "scene_2": SubResource("Animation_0q7v7"),
 "scene_3": SubResource("Animation_gw4s7"),
@@ -398,14 +480,15 @@ _data = {
 size = Vector2(54, 513.125)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_f6fsp"]
-vertices = PackedVector2Array(3956.23, 801.039, -2717.7, 829.953, -2697.27, 103.102, 3.96875, 131, 3972.75, 117.031)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(0, 3, 4)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(4, 121, 3983, 107, 3966, 811, -2728, 840, -2707, 93)])
+vertices = PackedVector2Array(3956.23, 801.07, -4349.05, 862.859, -3900.39, 131, 4.02344, 131, 3972.75, 117.031)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4, 121, 3983, 107, 3966, 811, -4367, 873, -3906, 121)])
 
-[node name="level2practice" type="Node2D"]
-script = ExtResource("1_0r3hv")
+[node name="level2part2" type="Node2D"]
+visible = false
+script = ExtResource("1_cgokg")
 
-[node name="Bg" parent="." instance=ExtResource("7_ljng2")]
+[node name="Bg" parent="." instance=ExtResource("2_aavbg")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -413,82 +496,89 @@ libraries = {
 }
 
 [node name="Castlev3" type="Sprite2D" parent="."]
-position = Vector2(3169, 329)
+position = Vector2(2360, -129)
 scale = Vector2(7, 7)
-texture = ExtResource("9_w7i15")
+texture = ExtResource("3_qpvmp")
+centered = false
 
-[node name="You" parent="." instance=ExtResource("4_gj5oa")]
+[node name="You" parent="." instance=ExtResource("4_bjub0")]
 position = Vector2(192, 768)
 scale = Vector2(0.9, 0.9)
 jump_force = 600
-EFFECT_HIT = ExtResource("4_gdavw")
-EFFECT_DIED = ExtResource("5_5vckw")
+EFFECT_HIT = ExtResource("5_a2rug")
+EFFECT_DIED = ExtResource("6_m3ywg")
 
-[node name="Moogician" parent="." instance=ExtResource("3_draxd")]
+[node name="CastleFrontChunk" type="Sprite2D" parent="."]
+position = Vector2(3166, 326)
+scale = Vector2(7, 7)
+texture = ExtResource("4_hp145")
+
+[node name="Moogician" parent="." instance=ExtResource("7_607u2")]
 position = Vector2(2075, 766)
 character_name = "Moogician"
 color_rect_size = 93
 
-[node name="Bush3" parent="." instance=ExtResource("5_1vga5")]
+[node name="Bush3" parent="." instance=ExtResource("8_643mi")]
 position = Vector2(1920, 725)
 
-[node name="Bush2" parent="." instance=ExtResource("5_1vga5")]
+[node name="Bush2" parent="." instance=ExtResource("8_643mi")]
 position = Vector2(1000, 730)
 
-[node name="Bush1" parent="." instance=ExtResource("5_1vga5")]
+[node name="Bush1" parent="." instance=ExtResource("8_643mi")]
 position = Vector2(193, 735)
 
-[node name="UFO" parent="." node_paths=PackedStringArray("player") instance=ExtResource("8_jsat8")]
+[node name="UFO" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_0ndsd")]
 position = Vector2(508, 388)
 scale = Vector2(0.7, 0.7)
 baby = true
 player = NodePath("../You")
 
-[node name="Ground" parent="." instance=ExtResource("7_4pgam")]
-position = Vector2(5, 226)
+[node name="Ground" parent="." instance=ExtResource("10_cucy5")]
+position = Vector2(-80, 226)
 
-[node name="Ground" parent="Ground" instance=ExtResource("7_4pgam")]
+[node name="Ground" parent="Ground" instance=ExtResource("10_cucy5")]
 position = Vector2(1925, -1)
 
-[node name="Dialog" parent="." instance=ExtResource("2_pgfiv")]
+[node name="Dialog" parent="." instance=ExtResource("11_hwbxf")]
+visible = false
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -609.0
+offset_top = -45.0
+offset_right = 4044.0
+offset_bottom = 1222.0
+color = Color(0, 0, 0, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(516, 514)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
 position = Vector2(-516, -514)
-stream = ExtResource("19_jbepf")
+stream = ExtResource("12_2nco2")
 volume_db = -19.973
 bus = &"Music"
 
-[node name="minimap" parent="Camera2D" instance=ExtResource("18_y8rg6")]
+[node name="minimap" parent="Camera2D" instance=ExtResource("13_et2nl")]
 position = Vector2(-516, -514)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.01
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="MoogicianText" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoogicianText"]
 position = Vector2(2030, 512.563)
 shape = SubResource("RectangleShape2D_2p2vh")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_f6fsp")
 
-[node name="BlackScreen" type="ColorRect" parent="."]
-modulate = Color(1, 1, 1, 0)
-offset_left = 1210.0
-offset_top = -45.0
-offset_right = 2719.0
-offset_bottom = 1222.0
-color = Color(0, 0, 0, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="MagicSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(1983, 557)
 scale = Vector2(2.85625, 2.755)
-texture = ExtResource("11_fa6iw")
+texture = ExtResource("14_77ism")
 hframes = 5
 vframes = 4
 
@@ -496,11 +586,11 @@ vframes = 4
 visible = false
 position = Vector2(2030, 715)
 scale = Vector2(0.9, 0.9)
-texture = ExtResource("12_cfbmw")
+texture = ExtResource("15_iffby")
 
 [node name="Magic" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(2000, 0)
-stream = ExtResource("13_q73iy")
+stream = ExtResource("16_f8go7")
 volume_db = 13.246
 bus = &"Sfx"
 
@@ -524,21 +614,28 @@ offset_right = 264.5
 offset_bottom = 54.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("16_3des4")
+theme_override_fonts/font = ExtResource("17_h3ufj")
 theme_override_font_sizes/font_size = 40
 text = "LEAVE THE BUSH AND 
 PRESS L TO ATTACK"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Deathscreen" parent="." instance=ExtResource("14_t4uj1")]
+[node name="Deathscreen" parent="." instance=ExtResource("18_5cs1i")]
 
-[node name="GameOver" parent="." instance=ExtResource("15_4r76b")]
+[node name="GameOver" parent="." instance=ExtResource("19_t51ra")]
 offset = Vector2(0, 150)
 transform = Transform2D(1, 0, 0, 1, 0, 150)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(3974, 38, 3991, 1144, 4267, 1148, 4229, 34)
+polygon = PackedVector2Array(3974, 38, 3985.27, 771.141, 2000, 777, 4267, 1148, 4229, 34)
+
+[node name="CastleEntrance" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CastleEntrance"]
+polygon = PackedVector2Array(3654, 756, 3657, 555, 3699, 508, 3971, 502, 3974, 756)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="MoogicianText" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="CastleEntrance" to="." method="_on_castle_entrance_area_entered"]

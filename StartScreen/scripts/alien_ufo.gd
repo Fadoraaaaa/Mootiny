@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var swirl = false
 @export var whoosh = false
 @export var baby = false
+@export var sad_baby = false
 @export var path_finding = false
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
@@ -33,7 +34,6 @@ var vel: Vector2 = Vector2.ZERO
 @export var EFFECT_DIED: PackedScene = null
 
 @onready var sprite = $Sprite2D
-@onready var collShape = $CollisionPolygon2D
 @onready var animPlayer = $AnimationPlayer
 @onready var hurtbox = $Hurtbox
 @onready var healthBar = $EntityHealthbar
@@ -101,11 +101,14 @@ func spawn_dmgIndicator(damage: int):
 
 func _ready():
 	$UfoBeam.visible = false
+	$Exclamation.visible = false
 	hiding = false
-	if !baby:
+	if !baby and !sad_baby:
 		sprite.play("default")
 	if baby:
 		sprite.play("baby")
+	if sad_baby:
+		sprite.play("baby_sad")
 	healthBar.visible = false
 	
 func show_beam():
@@ -196,3 +199,10 @@ func get_speed():
 
 func get_dead():
 	return dead
+
+func show_emote(emotion):
+	if emotion == "surprise":
+		$Exclamation.visible = true
+		$EmotionIndicator.play()
+		await get_tree().create_timer(2).timeout
+		$Exclamation.visible = false
