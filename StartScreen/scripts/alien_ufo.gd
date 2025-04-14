@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var path_finding = false
 @export var player: Node2D
 @onready var nav_agent := $NavigationAgent2D as NavigationAgent2D
-const speed = 400
+@export var speed = 400
 
 signal beam_player()
 
@@ -172,8 +172,9 @@ func stop_sound(sound):
 #beam has been entered
 func _on_area_2d_body_entered(body) -> void:
 	if $UfoBeam.visible and visible and !hiding:
-		print("TRYING TO BEAM")
-		emit_signal("beam_player")
+		if body.name =="You":
+			print("TRYING TO BEAM:" + str(body.name))
+			emit_signal("beam_player")
 	
 	
 func _on_hurtbox_area_entered(body):

@@ -228,3 +228,6 @@ func allow_attacking(can_attack):
 	
 func get_attack():
 	return attack
+	
+func set_gravity(grav):
+	gravity = grav
