@@ -58,7 +58,9 @@ func set_hp_max(value):
 	if value != hp_max:
 		hp_max = max(0, value)
 		emit_signal("hp_max_changed", hp_max)
-		healthBar.max_value = hp_max
+		
+		if is_instance_valid(healthBar):
+			healthBar.max_value = hp_max
 		self.hp = hp
 
 #func move():
@@ -68,6 +70,7 @@ func set_hp_max(value):
 
 func die():
 	spawn_effect(EFFECT_DIED)
+	print("HAS DIED")
 	#queue_free()
 	dead = true
 	visible = false

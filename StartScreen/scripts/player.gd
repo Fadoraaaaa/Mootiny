@@ -23,8 +23,6 @@ const INDICATOR_DAMAGE = preload("res://level2/DamageIndicator.tscn")
 
 @onready var attackTimer = $AttackTimer
 
-@export var hp_max: int = 100: set = set_hp_max
-@export var hp: int = hp_max: get = get_hp, set = set_hp
 @export var defense: int = 0
 
 @export var receives_knockback: bool = true
@@ -39,32 +37,11 @@ var vel: Vector2 = Vector2.ZERO
 @onready var collShape = $CollisionPolygon2D
 @onready var animPlayer = $AnimationPlayer
 @onready var hurtbox = $Hurtbox
-@onready var healthBar = $EntityHealthbar
 @onready var hiding = false
 
-func get_hp():
-	return hp
-	
 func set_hiding(is_hiding):
 	hiding = is_hiding
 
-func set_hp(value):
-	if value != hp:
-		hp = clamp(value, 0, hp_max)
-		emit_signal("hp_changed", hp)
-#		healthBar.value = hp
-		healthBar.animate_hp_change(hp)
-		if hp == 0:
-			emit_signal("died")
-		elif hp != hp_max:
-			healthBar.show()
-
-func set_hp_max(value):
-	if value != hp_max:
-		hp_max = max(0, value)
-		emit_signal("hp_max_changed", hp_max)
-		healthBar.max_value = hp_max
-		self.hp = hp
 
 func die():
 	spawn_effect(EFFECT_DIED)
@@ -106,7 +83,6 @@ func _ready():
 	$Exclamation.visible = false
 	$Questionmark.visible = false
 	horizontal_direction = 0
-	healthBar.visible = false
 
 func _physics_process(_delta):
 	#lets you quit the game
@@ -149,13 +125,8 @@ func _physics_process(_delta):
 	move_and_slide()
 	update_animation(horizontal_direction)
 
-func show_health_bar():
-	healthBar.visible = true
-
-
 func throw_dagger(dagger_direction: Vector2):
 	if !hiding and attack:
-		show_health_bar()
 		if DAGGER:
 			var dagger = DAGGER.instantiate()
 			get_tree().current_scene.add_child(dagger)

@@ -205,7 +205,7 @@ text = "Character Name"
 position = Vector2(896, 829)
 scale = Vector2(1.61132, 1.62115)
 sprite_frames = SubResource("SpriteFrames_s1ny8")
-animation = &"Mademooiselle"
+animation = &"You_Happy"
 autoplay = "Unknown"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

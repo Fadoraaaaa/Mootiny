@@ -3,11 +3,16 @@ extends Node2D
 signal anim_done()
 var death = false
 var hiding = false
+var hidden_first_time = false
+var is_character_saved = false
+var tween3
+
+signal player_hidden_first_time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.current_location = 5
-	$AnimationPlayer.play("scene_1")
+
 	$GameOver.get_node("Button").pressed.connect(set_level)
 	$UFO.get_node("UfoBeam/Area2D").body_entered.connect(beam_collide)
 	$Dialog.visible = false
@@ -19,7 +24,9 @@ func _ready() -> void:
 	$GameOver.hide()
 	$Deathscreen.hide()
 	$TileMap.set_cell(2, Vector2i(52,-2), 0, Vector2i(2, 28), 0)
-	$You.pause = true
+	$You.pause = true	
+	$AnimationPlayer.play("fade_in")
+	await anim_done
 	$AnimationPlayer.play("scene_1") #You run in and ask WHATS THE BEEF
 	await $Dialog.finished
 	
@@ -44,17 +51,24 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func set_level():
-	$You.allow_attacking(true)
+	$minimap.visible = true
+	$You.allow_attacking(false)
 	$You.position = Vector2i(300,700)
 	$You.visible = true
 	$UFO.set_path_find(false)
+	$UFO.set_hp(50)
+	$UFO.visible = true
+	$UFO.dead = false
+	is_character_saved = false
 	$UFO.position = Vector2i(-371, 198)
 	death =  false
+	$Mademooiselle.visible = true
 	$GameOver.hide()
 	$You.set_gravity(25)
 	$Deathscreen.hide()
 	$TileMap.set_cell(2, Vector2i(52,-2), 0, Vector2i(2, 28), 0)
 	$You.pause = true
+	hidden_first_time = false
 
 	$AnimationPlayer.play("scene_4") #she says BEHIND YOUUUUU
 	await $Dialog.finished
@@ -70,19 +84,62 @@ func set_level():
 	$UFO.set_path_find(true)
 	$UFO.get_node("Swirl").play()
 	
-	#setting tile to an OPEN staircase
-	$TileMap.set_cell(2, Vector2i(52,-2), 0, Vector2i(8, 32), 0)
+	await player_hidden_first_time
+	$UFO.set_path_find(false)
+	$UFO.set_velocity(Vector2i(0,0))
+	
+	var tween2 = create_tween()
+	var target_pos = Vector2($Mademooiselle.position.x + 50, 374)
+	tween2.tween_property($UFO, "position", target_pos, 0.5)
 
-	pass
+	print("Traveled over to Mademooiselle location")
+	
+	$Dialog.position.x = $You.position.x - 300
+	$Dialog.visible = true
+	$AnimationPlayer.play("scene_6")
+	await $Dialog.finished
+	$You.allow_attacking(true)
+	
+	tween3 = create_tween()
+	target_pos = Vector2($UFO.position.x - 50, $UFO.position.y + 50)
+	tween3.tween_property($Mademooiselle, "position", target_pos, 7)
+	tween3.finished.connect(on_tween_finished)
+	$Timer.start()
+	$UFO.died.connect(_on_ufo_hp_zero)
+
+func on_tween_finished():
+	
+	if not is_character_saved:
+		$Mademooiselle.visible = false
+		print("Character abducted!")
+		#triggers failure condition
+		$GameOver.show()
+
+func _on_ufo_hp_zero():
+	if $Timer.time_left > 0: #Character was saved in time
+		if is_character_saved:
+			return #already handled
+		is_character_saved = true
+		if tween3.is_running():
+			tween3.kill()
+			print("TWEEN KILLED")
+		print("Character saved!")
+		$AnimationPlayer.play("scene_7")
+		await $Dialog.finished
+		$TileMap.set_cell(2, Vector2i(52,-2), 0, Vector2i(8, 32), 0) #opening up door
+		$AnimationPlayer.play("fade_out")
+		
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	$Deathscreen.position = Vector2($You.position.x - 510, $You.position.y-765)
+	if hidden_first_time:
+		$Dialog.position.x = $You.position.x - 500
+	$minimap.position = Vector2($You.position.x - 516, $You.position.y - 740)
 	pass
 
 func animation_over():
 	emit_signal("anim_done")
-
 
 func _on_void_of_death_body_entered(body: CharacterBody2D) -> void:
 	if body.name == "You":
@@ -92,10 +149,11 @@ func _on_void_of_death_body_entered(body: CharacterBody2D) -> void:
 		$You.velocity.y = 0
 	pass # Replace with function body.
 
-
 func beam_collide(body):
-	if body.name == "You" and !death and !hiding:
+	if body.name == "You" and !death and !$UFO.dead:
+		$minimap.visible = false
 		$UFO.get_node("Whoosh").play()
+		$You.allow_attacking(false)
 		death = true
 		$UFO.set_path_find(false)
 		$UFO.set_velocity(Vector2(0,0))
@@ -109,19 +167,19 @@ func beam_collide(body):
 		$You.visible = false
 		print("attempting to restart")
 		$Deathscreen.death()
-
+		$You.allow_attacking(false)
 	pass
-
 
 func _on_safe_area_body_entered(body: Node2D) -> void:
 	if body.name == "You":
-		hiding = true
+		$You.set_hiding(true)
 		print("HIDING")
+		if !hidden_first_time:
+			emit_signal("player_hidden_first_time")
+			hidden_first_time = true
 	pass # Replace with function body.
-
 
 func _on_safe_area_body_exited(body: Node2D) -> void:
-	hiding = false
+	$You.set_hiding(false)
 	print("NOT HIDING")
 	pass # Replace with function body.
-	
