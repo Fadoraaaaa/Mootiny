@@ -174,7 +174,7 @@ func stop_sound(sound):
 	
 #beam has been entered
 func _on_area_2d_body_entered(body) -> void:
-	if $UfoBeam.visible and visible and !hiding:
+	if $UfoBeam.visible and visible and !hiding and $UfoBeam.modulate.a > 0.5:
 		if body.name =="You":
 			print("TRYING TO BEAM:" + str(body.name))
 			emit_signal("beam_player")

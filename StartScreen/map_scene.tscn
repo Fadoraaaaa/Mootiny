@@ -76,6 +76,10 @@ vertical_alignment = 1
 [node name="map_component3" parent="." instance=ExtResource("3_0itl3")]
 position = Vector2(70.2564, 114.103)
 scene_path = "res://level1/scenes/main.tscn"
+options = {
+"Level 1": "res://level1/scenes/main.tscn",
+"Level 2": "res://level2/level_2_part1.tscn"
+}
 
 [node name="Polygon2D" type="Polygon2D" parent="map_component3"]
 position = Vector2(-7.30769, -9.61539)
@@ -133,6 +137,10 @@ vertical_alignment = 1
 [node name="map_component5" parent="." instance=ExtResource("3_0itl3")]
 position = Vector2(105.897, 116.41)
 scene_path = "res://castle_levels/tile_map_practice.tscn"
+options = {
+"Level 1": "res://castle_levels/castle_level_1.tscn",
+"Level 2": "res://castle_levels/castle_level_2.tscn"
+}
 
 [node name="Polygon2D" type="Polygon2D" parent="map_component5"]
 position = Vector2(-10.5128, -8.84615)
@@ -289,3 +297,10 @@ texture = ExtResource("5_j6sjn")
 stream = ExtResource("6_6m1ea")
 volume_db = 3.782
 bus = &"Sfx"
+
+[node name="SublevelMenu" type="VBoxContainer" parent="."]
+offset_left = 39.8718
+offset_top = 42.5641
+offset_right = 69.8718
+offset_bottom = 81.5641
+alignment = 1

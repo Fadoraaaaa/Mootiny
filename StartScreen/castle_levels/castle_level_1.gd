@@ -47,10 +47,10 @@ func _ready() -> void:
 	$AnimationPlayer.play("camera_pans_to_Mademooiselle")
 	await anim_done
 	set_level()
-	
-	pass # Replace with function body.
+
 
 func set_level():
+	$UFO.hide_beam()
 	$minimap.visible = true
 	$You.allow_attacking(false)
 	$You.position = Vector2i(300,700)
@@ -63,6 +63,7 @@ func set_level():
 	$UFO.position = Vector2i(-371, 198)
 	death =  false
 	$Mademooiselle.visible = true
+	$Mademooiselle.position = Vector2i(4498, 733)
 	$GameOver.hide()
 	$You.set_gravity(25)
 	$Deathscreen.hide()
@@ -108,7 +109,6 @@ func set_level():
 	$UFO.died.connect(_on_ufo_hp_zero)
 
 func on_tween_finished():
-	
 	if not is_character_saved:
 		$Mademooiselle.visible = false
 		print("Character abducted!")
@@ -128,7 +128,7 @@ func _on_ufo_hp_zero():
 		await $Dialog.finished
 		$TileMap.set_cell(2, Vector2i(52,-2), 0, Vector2i(8, 32), 0) #opening up door
 		$AnimationPlayer.play("fade_out")
-		
+		$minimap.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -136,7 +136,6 @@ func _process(delta: float) -> void:
 	if hidden_first_time:
 		$Dialog.position.x = $You.position.x - 500
 	$minimap.position = Vector2($You.position.x - 516, $You.position.y - 740)
-	pass
 
 func animation_over():
 	emit_signal("anim_done")
@@ -147,7 +146,6 @@ func _on_void_of_death_body_entered(body: CharacterBody2D) -> void:
 		$Deathscreen.death()
 		$You.set_gravity(0)
 		$You.velocity.y = 0
-	pass # Replace with function body.
 
 func beam_collide(body):
 	if body.name == "You" and !death and !$UFO.dead:
@@ -168,7 +166,6 @@ func beam_collide(body):
 		print("attempting to restart")
 		$Deathscreen.death()
 		$You.allow_attacking(false)
-	pass
 
 func _on_safe_area_body_entered(body: Node2D) -> void:
 	if body.name == "You":
@@ -177,9 +174,7 @@ func _on_safe_area_body_entered(body: Node2D) -> void:
 		if !hidden_first_time:
 			emit_signal("player_hidden_first_time")
 			hidden_first_time = true
-	pass # Replace with function body.
 
 func _on_safe_area_body_exited(body: Node2D) -> void:
 	$You.set_hiding(false)
 	print("NOT HIDING")
-	pass # Replace with function body.
