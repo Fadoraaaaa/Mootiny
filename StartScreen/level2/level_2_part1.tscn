@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cwlpgvsfckt6u"]
+[gd_scene load_steps=15 format=3 uid="uid://cwlpgvsfckt6u"]
 
 [ext_resource type="Script" path="res://level2/level_2_part_1.gd" id="1_kov6a"]
 [ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="2_ldajg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="8_fdx6u"]
 [ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://level1/scenes/ground.tscn" id="10_o06y6"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="11_2aqab"]
+[ext_resource type="AudioStream" uid="uid://biledpu755ng0" path="res://assets/sound/sfx/loud_crash.wav" id="11_uae7m"]
 [ext_resource type="AudioStream" uid="uid://bg0uvil7dew16" path="res://assets/sound/music/Evasive Paths.mp3" id="12_4t0dr"]
 [ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="13_8tby8"]
 
@@ -208,3 +209,8 @@ offset_top = -45.0
 offset_right = 2719.0
 offset_bottom = 1222.0
 color = Color(0, 0, 0, 1)
+
+[node name="LoudCrash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_uae7m")
+volume_db = 2.644
+bus = &"Sfx"

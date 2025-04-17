@@ -1,6 +1,6 @@
-[gd_scene load_steps=33 format=3 uid="uid://bpbo1lwxwf6xa"]
+[gd_scene load_steps=34 format=3 uid="uid://bpbo1lwxwf6xa"]
 
-[ext_resource type="Script" path="res://level2/level_2_practice.gd" id="1_cgokg"]
+[ext_resource type="Script" path="res://level2/level_2_part_2.gd" id="1_cgokg"]
 [ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="2_aavbg"]
 [ext_resource type="Texture2D" uid="uid://cr2icj5swajpk" path="res://assets/textures/castlev3.png" id="3_qpvmp"]
 [ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="4_bjub0"]
@@ -20,6 +20,7 @@
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="17_h3ufj"]
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="18_5cs1i"]
 [ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="19_t51ra"]
+[ext_resource type="AudioStream" uid="uid://trl03cjx161j" path="res://assets/sound/sfx/foreboding.wav" id="21_xv2vb"]
 
 [sub_resource type="Animation" id="Animation_ecdf7"]
 length = 0.001
@@ -634,6 +635,12 @@ collision_mask = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CastleEntrance"]
 polygon = PackedVector2Array(3654, 756, 3657, 555, 3699, 508, 3971, 502, 3974, 756)
+
+[node name="CastleForeboding" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(3600, 600)
+stream = ExtResource("21_xv2vb")
+volume_db = 10.588
+bus = &"Sfx"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="MoogicianText" to="." method="_on_area_2d_body_entered"]

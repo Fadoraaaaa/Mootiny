@@ -16,4 +16,3 @@ func _on_button_down() -> void:
 	get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_parent().get_node("AnimationPlayer").play("Fade out")
 	await get_tree().create_timer(3).timeout
 	get_tree().change_scene_to_file("res://credits.tscn")
-	pass # Replace with function body.

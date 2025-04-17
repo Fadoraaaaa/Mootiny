@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://bhj86sgtu5xul"]
+[gd_scene load_steps=22 format=3 uid="uid://bhj86sgtu5xul"]
 
 [ext_resource type="Script" path="res://level2/level_2_cutscene.gd" id="1_xqw58"]
 [ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="2_n2f4b"]
 [ext_resource type="Texture2D" uid="uid://dyrw5brgy51yq" path="res://assets/textures/fire_sprite_sheet.png" id="5_fn4s2"]
 [ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="7_3trlw"]
+[ext_resource type="AudioStream" uid="uid://dtmtyq236yet4" path="res://assets/sound/sfx/fire_crackling.wav" id="7_04au3"]
 [ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="9_12qcw"]
 [ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://level1/scenes/ground.tscn" id="10_bu5nd"]
 
@@ -441,3 +442,8 @@ libraries = {
 offset_right = 1333.0
 offset_bottom = 1143.0
 color = Color(0, 0, 0, 0)
+
+[node name="FireCrackle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_04au3")
+autoplay = true
+bus = &"Sfx"

@@ -50,6 +50,7 @@ func _ready() -> void:
 
 
 func set_level():
+	$Instructions.visible = false
 	$UFO.hide_beam()
 	$minimap.visible = true
 	$You.allow_attacking(false)
@@ -98,7 +99,9 @@ func set_level():
 	$Dialog.position.x = $You.position.x - 300
 	$Dialog.visible = true
 	$AnimationPlayer.play("scene_6")
+	$Instructions.visible = true
 	await $Dialog.finished
+	$Instructions.visible = false
 	$You.allow_attacking(true)
 	
 	tween3 = create_tween()
@@ -129,10 +132,14 @@ func _on_ufo_hp_zero():
 		$TileMap.set_cell(2, Vector2i(52,-2), 0, Vector2i(8, 32), 0) #opening up door
 		$AnimationPlayer.play("fade_out")
 		$minimap.visible = false
-
+		await anim_done
+		get_tree().change_scene_to_file("res://castle_levels/castle_level_2.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$Deathscreen.position = Vector2($You.position.x - 510, $You.position.y-765)
+	
+	if !death:
+		$Camera2D.position = Vector2($You.position.x, $You.position.y + 30)
+	$Deathscreen.position = Vector2($Camera2D.position.x -520, $Camera2D.position.y - 770)
 	if hidden_first_time:
 		$Dialog.position.x = $You.position.x - 500
 	$minimap.position = Vector2($You.position.x - 516, $You.position.y - 740)
@@ -146,6 +153,7 @@ func _on_void_of_death_body_entered(body: CharacterBody2D) -> void:
 		$Deathscreen.death()
 		$You.set_gravity(0)
 		$You.velocity.y = 0
+		$You.pause = true
 
 func beam_collide(body):
 	if body.name == "You" and !death and !$UFO.dead:
@@ -165,7 +173,6 @@ func beam_collide(body):
 		$You.visible = false
 		print("attempting to restart")
 		$Deathscreen.death()
-		$You.allow_attacking(false)
 
 func _on_safe_area_body_entered(body: Node2D) -> void:
 	if body.name == "You":

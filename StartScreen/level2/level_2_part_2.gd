@@ -18,13 +18,13 @@ func _ready() -> void:
 	$UFO.get_node("UfoBeam/Area2D").body_entered.connect(beam_collide)
 	$GameOver.get_node("Button").pressed.connect(set_level)
 	set_level()
-	pass # Replace with function body.
 	
 func set_level():
 	get_node("Camera2D/AudioStreamPlayer2D").play()
 	death = false
 	$GameOver.hide()
 	$Dialog.visible = true
+	$UFO.set_hp(100)
 	$You.pause = true
 	$You.visible = true
 	$Deathscreen.hide()
@@ -65,13 +65,12 @@ func beam_collide(body):
 		var target_pos = Vector2($UFO.position.x, $UFO.position.y + 50)
 		tween.tween_property($You, "position", target_pos, 4)
 		await tween.finished
+		$UFO.velocity = Vector2(0,0)
 		$You.velocity.x = 0
 		$Camera2D/AudioStreamPlayer2D.stop()
 		$You.visible = false
 		print("attempting to restart")
 		$Deathscreen.death()
-
-	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -90,7 +89,6 @@ func _process(_delta: float) -> void:
 		$UFO.velocity.x = direction * $UFO.get_speed()
 	if !$Camera2D/AudioStreamPlayer2D.playing and !death:
 		$Camera2D/AudioStreamPlayer2D.play()
-	pass
 	
 func bush_hiding(body: CharacterBody2D):
 	$You.set_hiding(true)
@@ -117,8 +115,6 @@ func _on_timer_timeout() -> void:
 			$UFO.velocity.y = 300
 		else:
 			$UFO.velocity.y = 0
-	
-	pass # Replace with function body.
 
 
 func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
@@ -153,8 +149,7 @@ func _on_area_2d_body_entered(body: CharacterBody2D) -> void:
 				print("UFO is STILL alive, and you CAN attack")	
 				$ColorRect.show()
 				await get_tree().create_timer(2).timeout
-				$ColorRect.hide()	
-	pass # Replace with function body.
+				$ColorRect.hide()
 
 func play_magic_sound():
 	$Magic.play()
@@ -163,10 +158,10 @@ func play_magic_sound():
 func _on_castle_entrance_area_entered(area: Area2D) -> void:
 	if $UFO.get_dead():
 		print("ENTRANCE ENTERED")
+		$CastleForeboding.play()
 		$AnimationPlayer.play("exiting")
 		await anim_done
-		get_tree().change_scene_to_file("res://castle_levels/tile_map_practice.tscn")
-		
+		get_tree().change_scene_to_file("res://castle_levels/castle_level_1.tscn")
+	
 	else:
 		print("UFO IS NOT DEAD YET")
-	pass # Replace with function body.

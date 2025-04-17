@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dnv0wy0kcoar0"]
+[gd_scene load_steps=32 format=3 uid="uid://dnv0wy0kcoar0"]
 
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_tusfr"]
 [ext_resource type="Texture2D" uid="uid://dmk8pyv1gxk8b" path="res://assets/sprites/cocoa/cocoa_closeup.png" id="2_2sfld"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bvxpcky554oj3" path="res://assets/sprites/cocoa/cocoa_closeup_sad.png" id="5_n4re6"]
 [ext_resource type="Texture2D" uid="uid://by57c2p512cfx" path="res://assets/sprites/honey/honey_closeup_happy.png" id="5_suirc"]
 [ext_resource type="Texture2D" uid="uid://de186v744888f" path="res://assets/sprites/unknown.png" id="6_00bfu"]
+[ext_resource type="Texture2D" uid="uid://dufd746kat3oe" path="res://assets/sprites/npcs/dairy_queen_closeup.png" id="6_v703q"]
 [ext_resource type="Texture2D" uid="uid://bpveeqbt0vcre" path="res://assets/sprites/MC/mc_closeup.png" id="7_fu2v8"]
 [ext_resource type="Texture2D" uid="uid://dm7sswsr2gu66" path="res://assets/sprites/honey/honey_closeup_sad.png.png" id="8_b683p"]
 [ext_resource type="Texture2D" uid="uid://brou477w33lca" path="res://assets/sprites/MC/mc_closeup_happy.png" id="8_de311"]
@@ -28,6 +29,10 @@ region = Rect2(0, 0, 240, 260)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxk0i"]
 atlas = ExtResource("5_n4re6")
 region = Rect2(0, 0, 240, 260)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47xia"]
+atlas = ExtResource("6_v703q")
+region = Rect2(0, 0, 256, 240)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jpf5f"]
 atlas = ExtResource("4_3ppoh")
@@ -89,6 +94,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"Cocoa_Sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47xia")
+}],
+"loop": true,
+"name": &"Dairy Queen",
 "speed": 5.0
 }, {
 "frames": [{
@@ -205,7 +218,7 @@ text = "Character Name"
 position = Vector2(896, 829)
 scale = Vector2(1.61132, 1.62115)
 sprite_frames = SubResource("SpriteFrames_s1ny8")
-animation = &"You_Happy"
+animation = &"Dairy Queen"
 autoplay = "Unknown"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]

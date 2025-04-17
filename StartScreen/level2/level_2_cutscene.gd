@@ -12,11 +12,12 @@ func _ready() -> void:
 	await anim_done
 	get_tree().change_scene_to_file("res://level2/level_2_part2.tscn")
 	print("changed scene?")
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if !$FireCrackle.playing:
+		$FireCrackle.play()
 	pass
 
 

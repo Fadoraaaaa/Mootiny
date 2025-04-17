@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c1yqcctewrmgs"]
+[gd_scene load_steps=31 format=3 uid="uid://c1yqcctewrmgs"]
 
 [ext_resource type="Script" path="res://castle_levels/castle_level_1.gd" id="1_uofea"]
 [ext_resource type="Texture2D" uid="uid://bjongmysrng60" path="res://assets/textures/castle_tileset.png" id="2_10qd4"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="9_g8lct"]
 [ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="10_egrrb"]
 [ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="11_d13je"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="12_a11e2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d6sjc"]
 texture = ExtResource("2_10qd4")
@@ -653,12 +654,12 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-205, -60)]
+"values": [Vector2(-205, -80)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("You/Camera2D:offset")
+tracks/2/path = NodePath("Camera2D:offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -698,7 +699,7 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("You/Camera2D:offset")
+tracks/0/path = NodePath("Camera2D:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -727,7 +728,7 @@ resource_name = "camera_pans_to_Player"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("You/Camera2D:offset")
+tracks/0/path = NodePath("Camera2D:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -795,6 +796,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_uk88i"]
 resource_name = "scene_1"
@@ -835,7 +850,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-205, -60)]
+"values": [Vector2(-205, -25)]
 }
 
 [sub_resource type="Animation" id="Animation_plkfd"]
@@ -864,7 +879,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(3850, -60)]
+"values": [Vector2(3850, -25)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -917,7 +932,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-205, -60)]
+"values": [Vector2(-205, -25)]
 }
 
 [sub_resource type="Animation" id="Animation_jbr2l"]
@@ -946,7 +961,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(3850, -60)]
+"values": [Vector2(3850, -25)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -963,7 +978,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("You/Camera2D:offset")
+tracks/3/path = NodePath("Camera2D:offset")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -978,7 +993,7 @@ resource_name = "scene_5"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("You/Camera2D:offset")
+tracks/0/path = NodePath("Camera2D:offset")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1151,9 +1166,6 @@ speed = 350
 gravity = 25
 jump_force = 660
 
-[node name="Camera2D" type="Camera2D" parent="You"]
-offset = Vector2(0, -260)
-
 [node name="Mademooiselle" parent="." instance=ExtResource("5_q0tkw")]
 position = Vector2(4498, 733)
 direction = -1
@@ -1187,7 +1199,7 @@ speed = 360
 hp_max = 50
 
 [node name="Dialog" parent="." instance=ExtResource("8_amgww")]
-position = Vector2(-205, -60)
+position = Vector2(-205, -80)
 
 [node name="Deathscreen" parent="." instance=ExtResource("9_g8lct")]
 
@@ -1220,6 +1232,36 @@ color = Color(0, 0, 0, 1)
 
 [node name="minimap" parent="." instance=ExtResource("11_d13je")]
 position = Vector2(-216, -40)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(300, 700)
+offset = Vector2(0, -260)
+
+[node name="Instructions" type="ColorRect" parent="."]
+offset_left = 4524.0
+offset_top = 301.0
+offset_right = 5047.0
+offset_bottom = 396.0
+color = Color(0, 0, 0, 1)
+
+[node name="StartLabel" type="Label" parent="Instructions"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.5
+offset_top = -50.0
+offset_right = 243.5
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("12_a11e2")
+theme_override_font_sizes/font_size = 40
+text = "PRESS L TO ATTACK"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Void_of_Death" to="." method="_on_void_of_death_body_entered"]
 [connection signal="body_entered" from="SafeArea" to="." method="_on_safe_area_body_entered"]

@@ -127,6 +127,9 @@ func _physics_process(_delta):
 	if path_finding:
 		var dir = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = dir * speed
+	for body in $UfoBeam/Area2D.get_overlapping_bodies():
+		if body.name == "You":
+			_on_area_2d_body_entered(body)
 	move_and_slide()
 
 func makepath() -> void:
@@ -176,7 +179,6 @@ func stop_sound(sound):
 func _on_area_2d_body_entered(body) -> void:
 	if $UfoBeam.visible and visible and !hiding and $UfoBeam.modulate.a > 0.5:
 		if body.name =="You":
-			print("TRYING TO BEAM:" + str(body.name))
 			emit_signal("beam_player")
 	
 	
@@ -190,7 +192,6 @@ func _on_hurtbox_area_entered(body):
 	receive_knockback(body.global_position, actual_damage)
 	spawn_effect(EFFECT_HIT)
 	spawn_dmgIndicator(actual_damage)
-	pass # Replace with function body.
 
 func set_path_find(is_path_finding):
 	path_finding = is_path_finding

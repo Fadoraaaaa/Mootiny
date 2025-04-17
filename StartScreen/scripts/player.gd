@@ -173,9 +173,7 @@ func show_emote(emotion):
 			$JENNAEmotionIndicator.play()
 		await get_tree().create_timer(2).timeout
 		$Exclamation.visible = false
-	else:
-		pass
-		
+
 func is_speaking(direction, emotion):
 	if emotion != "":
 		show_emote(emotion)

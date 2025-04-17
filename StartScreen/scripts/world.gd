@@ -95,7 +95,6 @@ func _process(_delta):
 		music.play()
 	if dead:
 		music.stop()
-	pass
 	
 func fade_out_and_in():
 	$AnimationPlayer.play("fade out")
@@ -126,5 +125,3 @@ func _on_ufo_beam_player() -> void:
 		$You.position = Vector2i(-1000, 1000)
 		$UFO.stop_sound("swirl")
 		$UFO.stop_sound("buzz")
-	else:
-		pass

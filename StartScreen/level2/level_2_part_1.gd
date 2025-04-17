@@ -20,6 +20,7 @@ func set_level():
 	$Ground.position = Vector2i(-370, 220)
 	
 	anim.play("scene_0")
+	$LoudCrash.play()
 	await anim_done
 	get_tree().change_scene_to_file("res://level2/level_2_cutscene.tscn")
 
