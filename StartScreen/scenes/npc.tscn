@@ -216,7 +216,7 @@ script = ExtResource("1_yig3m")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(68, -40)
 sprite_frames = SubResource("SpriteFrames_h0g3n")
-animation = &"Dairy Queen"
+animation = &"Burger King"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

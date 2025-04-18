@@ -139,7 +139,8 @@ position = Vector2(105.897, 116.41)
 scene_path = "res://castle_levels/tile_map_practice.tscn"
 options = {
 "Level 1": "res://castle_levels/castle_level_1.tscn",
-"Level 2": "res://castle_levels/castle_level_2.tscn"
+"Level 2": "res://castle_levels/castle_level_2.tscn",
+"Level 3": "res://castle_levels/castle_level_3.tscn"
 }
 
 [node name="Polygon2D" type="Polygon2D" parent="map_component5"]
@@ -299,8 +300,7 @@ volume_db = 3.782
 bus = &"Sfx"
 
 [node name="SublevelMenu" type="VBoxContainer" parent="."]
-offset_left = 39.8718
-offset_top = 42.5641
-offset_right = 69.8718
-offset_bottom = 81.5641
+offset_left = 40.0
+offset_right = 97.0
+offset_bottom = 122.0
 alignment = 1

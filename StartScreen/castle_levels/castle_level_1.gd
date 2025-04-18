@@ -93,8 +93,6 @@ func set_level():
 	var tween2 = create_tween()
 	var target_pos = Vector2($Mademooiselle.position.x + 50, 374)
 	tween2.tween_property($UFO, "position", target_pos, 0.5)
-
-	print("Traveled over to Mademooiselle location")
 	
 	$Dialog.position.x = $You.position.x - 300
 	$Dialog.visible = true

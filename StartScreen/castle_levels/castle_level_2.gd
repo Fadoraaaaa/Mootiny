@@ -95,11 +95,7 @@ func beam_collide(num):
 		await tween.finished
 		$You.velocity.x = 0
 		$You.visible = false
-		
-		print("attempting to restart")
 		$Deathscreen.death()
-
-
 
 func _on_timer_timeout() -> void:
 	if beams_out == 1:
@@ -115,15 +111,12 @@ func animation_over():
 
 func _on_acoustics_area_body_entered(body: Node2D) -> void:
 	$You.allow_attacking(true)
-	pass # Replace with function body.
 
 func _on_acoustics_area_body_exited(body: Node2D) -> void:
 	$You.allow_attacking(false)
-	pass # Replace with function body.
 
 func _on_dairy_queen_talking_area_body_entered(body: Node2D) -> void:
 	if !game_started:
 		$ColorRect2.visible = true
 		await get_tree().create_timer(2).timeout
 		$ColorRect2.visible = false
-	pass # Replace with function body

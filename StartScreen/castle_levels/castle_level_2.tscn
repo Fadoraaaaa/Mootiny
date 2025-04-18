@@ -703,6 +703,64 @@ tracks/4/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_uc6de"]
+resource_name = "camera_pans_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("You/Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -950), Vector2(0, -260)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_k16cw"]
+resource_name = "camera_pans_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("You/Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -260), Vector2(0, -950)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_2sd5t"]
 resource_name = "fade_in"
 tracks/0/type = "value"
@@ -758,35 +816,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_k16cw"]
-resource_name = "camera_pans_up"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("You/Camera2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -260), Vector2(0, -950)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"animation_over"
-}]
 }
 
 [sub_resource type="Animation" id="Animation_6y5fu"]
@@ -950,35 +979,6 @@ tracks/2/keys = {
 "values": [{
 "args": [[["You fool! Your puny voice has no power from down there! The acoustics are terrible!", "Dairy Queen", "Dairy Queen", "right", "surprise"]]],
 "method": &"change_dialog"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_uc6de"]
-resource_name = "camera_pans_down"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("You/Camera2D:offset")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -950), Vector2(0, -260)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"animation_over"
 }]
 }
 
@@ -1199,19 +1199,19 @@ navigation_polygon = SubResource("NavigationPolygon_krm4c")
 [node name="Dialog" parent="." instance=ExtResource("8_ev746")]
 position = Vector2(-205, -60)
 
-[node name="minimap" parent="." instance=ExtResource("11_06a2c")]
-position = Vector2(-99, 238)
-
-[node name="Timer" type="Timer" parent="."]
-wait_time = 3.5
-autostart = true
-
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -1327.0
 offset_top = -557.0
 offset_right = 5734.0
 offset_bottom = 1115.0
 color = Color(0, 0, 0, 1)
+
+[node name="minimap" parent="." instance=ExtResource("11_06a2c")]
+position = Vector2(-99, 238)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.5
+autostart = true
 
 [node name="AcousticsArea" type="Area2D" parent="."]
 
