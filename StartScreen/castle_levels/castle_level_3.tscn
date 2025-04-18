@@ -1062,7 +1062,7 @@ offset_bottom = 1115.0
 color = Color(0, 0, 0, 1)
 
 [node name="CowGod" type="AnimatedSprite2D" parent="."]
-position = Vector2(742, 656)
+position = Vector2(496, -331)
 sprite_frames = SubResource("SpriteFrames_tvg2a")
 autoplay = "default"
 frame_progress = 0.112145

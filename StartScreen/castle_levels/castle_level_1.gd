@@ -12,7 +12,7 @@ signal player_hidden_first_time
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.current_location = 5
-
+	$Instructions.visible = false
 	$GameOver.get_node("Button").pressed.connect(set_level)
 	$UFO.get_node("UfoBeam/Area2D").body_entered.connect(beam_collide)
 	$Dialog.visible = false
@@ -25,27 +25,22 @@ func _ready() -> void:
 	$Deathscreen.hide()
 	$TileMap.set_cell(2, Vector2i(52,-2), 0, Vector2i(2, 28), 0)
 	$You.pause = true	
+	
 	$AnimationPlayer.play("fade_in")
 	await anim_done
 	$AnimationPlayer.play("scene_1") #You run in and ask WHATS THE BEEF
 	await $Dialog.finished
-	
 	$AnimationPlayer.play("camera_pans_to_Mademooiselle")
-	await anim_done
-	
-	#she explains
+	await anim_done #she explains
 	$AnimationPlayer.play("scene_2")
 	await $Dialog.finished
-	
 	$AnimationPlayer.play("camera_pans_to_Player")
-	await anim_done
-	
-	#you ask where
+	await anim_done #you ask where
 	$AnimationPlayer.play("scene_3")
 	await $Dialog.finished
-	
 	$AnimationPlayer.play("camera_pans_to_Mademooiselle")
 	await anim_done
+	
 	set_level()
 
 
@@ -74,7 +69,6 @@ func set_level():
 
 	$AnimationPlayer.play("scene_4") #she says BEHIND YOUUUUU
 	await $Dialog.finished
-	
 	$AnimationPlayer.play("camera_pans_to_Player")
 	await anim_done
 	$Danger.play()

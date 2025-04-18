@@ -6,6 +6,7 @@ signal anim_done()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await anim_done
+	$You.pause = true
 	$AnimationPlayer.play("camera_pans_right")
 	await anim_done
 	pass # Replace with function body.

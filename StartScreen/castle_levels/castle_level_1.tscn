@@ -1224,6 +1224,7 @@ wait_time = 7.0
 one_shot = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -1327.0
 offset_top = -557.0
 offset_right = 5734.0

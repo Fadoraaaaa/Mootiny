@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://d1sw3lbwx0ff0"]
+[gd_scene load_steps=31 format=3 uid="uid://d1sw3lbwx0ff0"]
 
 [ext_resource type="Script" path="res://castle_levels/castle_level_2.gd" id="1_3bbk3"]
 [ext_resource type="Texture2D" uid="uid://bjongmysrng60" path="res://assets/textures/castle_tileset.png" id="2_fo0bs"]
@@ -702,6 +702,30 @@ tracks/4/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("minimap:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-99, 238)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("minimap:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_uc6de"]
 resource_name = "camera_pans_down"
@@ -731,6 +755,18 @@ tracks/1/keys = {
 "method": &"animation_over"
 }]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("minimap:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-430, -470), Vector2(-430, 220)]
+}
 
 [sub_resource type="Animation" id="Animation_k16cw"]
 resource_name = "camera_pans_up"
@@ -759,6 +795,30 @@ tracks/1/keys = {
 "args": [],
 "method": &"animation_over"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("minimap:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-430, 220), Vector2(-430, -470)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("minimap:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_2sd5t"]
@@ -812,10 +872,36 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 1.2, 2),
+"times": PackedFloat32Array(0, 1.2, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_6y5fu"]
@@ -898,6 +984,18 @@ tracks/1/keys = {
 "args": [],
 "method": &"animation_over"
 }]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("minimap:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.1, 4.36667, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-430, -470), Vector2(-30, -470), Vector2(-30, 220), Vector2(-430, 220)]
 }
 
 [sub_resource type="Animation" id="Animation_cx6jm"]
@@ -1064,6 +1162,35 @@ tracks/2/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_4fe46"]
+resource_name = "scene_7"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["Wow you defeated them! You're udderly amazing! But you still have more to save...", "Dairy Queen", "Dairy Queen", "right", "surprise"]]],
+"method": &"change_dialog"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b77dp"]
 _data = {
 "RESET": SubResource("Animation_3vwls"),
@@ -1076,7 +1203,8 @@ _data = {
 "scene_3": SubResource("Animation_cx6jm"),
 "scene_4": SubResource("Animation_tt5p1"),
 "scene_5": SubResource("Animation_4sufj"),
-"scene_6": SubResource("Animation_twdef")
+"scene_6": SubResource("Animation_twdef"),
+"scene_7": SubResource("Animation_4fe46")
 }
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_krm4c"]
@@ -1088,7 +1216,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(4, 121, 4520, 114, 4451
 size = Vector2(1181, 339)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_88ggu"]
-size = Vector2(529, 344)
+size = Vector2(283, 344)
 
 [node name="Castle_Level_2" type="Node2D"]
 script = ExtResource("1_3bbk3")
@@ -1176,12 +1304,14 @@ position = Vector2(863, 372)
 rotation = 1.5708
 scale = Vector2(0.7, 0.7)
 baby = true
+hp_max = 40
 
 [node name="UFO2" parent="." instance=ExtResource("7_pjlaw")]
 position = Vector2(220, 70)
 rotation = -1.5708
 scale = Vector2(0.7, 0.7)
 baby = true
+hp_max = 40
 
 [node name="Deathscreen" parent="." instance=ExtResource("9_mgwfv")]
 visible = false
@@ -1222,7 +1352,7 @@ shape = SubResource("RectangleShape2D_sgdsa")
 [node name="DairyQueenTalkingArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DairyQueenTalkingArea"]
-position = Vector2(-1.5, -162)
+position = Vector2(-124.5, -162)
 shape = SubResource("RectangleShape2D_88ggu")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

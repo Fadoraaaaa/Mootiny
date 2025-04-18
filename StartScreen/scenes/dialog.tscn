@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dnv0wy0kcoar0"]
+[gd_scene load_steps=56 format=3 uid="uid://dnv0wy0kcoar0"]
 
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_tusfr"]
 [ext_resource type="Texture2D" uid="uid://dmk8pyv1gxk8b" path="res://assets/sprites/cocoa/cocoa_closeup.png" id="2_2sfld"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://de186v744888f" path="res://assets/sprites/unknown.png" id="6_00bfu"]
 [ext_resource type="Texture2D" uid="uid://dufd746kat3oe" path="res://assets/sprites/npcs/dairy_queen_closeup.png" id="6_v703q"]
 [ext_resource type="Texture2D" uid="uid://bpveeqbt0vcre" path="res://assets/sprites/MC/mc_closeup.png" id="7_fu2v8"]
+[ext_resource type="Texture2D" uid="uid://ce6u3g3evbnb" path="res://assets/sprites/npcs/polish_cow_spritesheet.png" id="7_hi2oc"]
 [ext_resource type="Texture2D" uid="uid://dm7sswsr2gu66" path="res://assets/sprites/honey/honey_closeup_sad.png.png" id="8_b683p"]
 [ext_resource type="Texture2D" uid="uid://brou477w33lca" path="res://assets/sprites/MC/mc_closeup_happy.png" id="8_de311"]
 [ext_resource type="Texture2D" uid="uid://cclf88afojcd7" path="res://assets/sprites/npcs/moogician_closeup.png" id="9_btpo1"]
@@ -34,6 +35,90 @@ region = Rect2(0, 0, 240, 260)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxk0i"]
 atlas = ExtResource("5_n4re6")
 region = Rect2(0, 0, 240, 260)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aprr5"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(0, 0, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2imf"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(220, 0, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvdpp"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(440, 0, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbfr5"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(660, 0, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft460"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(880, 0, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwnx8"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(0, 184, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8qoo"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(220, 184, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ai3n0"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(440, 184, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifaxc"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(660, 184, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6hssv"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(880, 184, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu86o"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(0, 368, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nl0b"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(220, 368, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jykh0"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(440, 368, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ayt8"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(660, 368, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnu61"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(880, 368, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fwn1"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(0, 552, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgtal"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(220, 552, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6re0c"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(440, 552, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5nam"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(660, 552, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04582"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(880, 552, 220, 184)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbfso"]
+atlas = ExtResource("7_hi2oc")
+region = Rect2(0, 736, 220, 184)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47xia"]
 atlas = ExtResource("6_v703q")
@@ -107,6 +192,74 @@ animations = [{
 }],
 "loop": true,
 "name": &"Cocoa_Sad",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aprr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2imf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvdpp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbfr5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft460")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwnx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8qoo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ai3n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifaxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6hssv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu86o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nl0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jykh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ayt8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnu61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fwn1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgtal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6re0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5nam")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04582")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbfso")
+}],
+"loop": true,
+"name": &"Cow God",
 "speed": 5.0
 }, {
 "frames": [{
@@ -231,7 +384,7 @@ text = "Character Name"
 position = Vector2(896, 829)
 scale = Vector2(1.61132, 1.62115)
 sprite_frames = SubResource("SpriteFrames_s1ny8")
-animation = &"Burger King"
+animation = &"Cow God"
 autoplay = "Unknown"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
