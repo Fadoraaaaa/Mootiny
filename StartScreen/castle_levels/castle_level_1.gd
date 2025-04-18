@@ -126,9 +126,8 @@ func _on_ufo_hp_zero():
 		$minimap.visible = false
 		await anim_done
 		get_tree().change_scene_to_file("res://castle_levels/castle_level_2.tscn")
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
-	
 	if !death:
 		$Camera2D.position = Vector2($You.position.x, $You.position.y + 30)
 	$Deathscreen.position = Vector2($Camera2D.position.x -520, $Camera2D.position.y - 770)

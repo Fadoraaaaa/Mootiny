@@ -1,15 +1,16 @@
-[gd_scene load_steps=33 format=3 uid="uid://bn16pnjwue1je"]
+[gd_scene load_steps=36 format=3 uid="uid://bn16pnjwue1je"]
 
 [ext_resource type="Script" path="res://scripts/alien_ufo.gd" id="1_hp4kt"]
-[ext_resource type="Texture2D" uid="uid://c5i1yd7uyqutb" path="res://assets/sprites/baby_ufo.png" id="2_qrmcs"]
+[ext_resource type="Texture2D" uid="uid://c5i1yd7uyqutb" path="res://assets/sprites/ufo/baby_ufo.png" id="2_qrmcs"]
 [ext_resource type="PackedScene" uid="uid://ckx4aehxac0ot" path="res://effects/HitEffect.tscn" id="2_xknd0"]
-[ext_resource type="Texture2D" uid="uid://c0ji2n0qlg2tp" path="res://assets/sprites/ufo.png" id="3_aql82"]
+[ext_resource type="Texture2D" uid="uid://c0ji2n0qlg2tp" path="res://assets/sprites/ufo/ufo.png" id="3_aql82"]
 [ext_resource type="PackedScene" uid="uid://dvvfmp7gxpg8n" path="res://effects/DeathEffect.tscn" id="3_idbtg"]
 [ext_resource type="AudioStream" uid="uid://d1cnjj2jguqhj" path="res://assets/sound/sfx/UFO_buzz.wav" id="3_r408j"]
-[ext_resource type="Texture2D" uid="uid://c7cafes7o53b" path="res://assets/sprites/ufo_beam.png" id="4_g2dkd"]
-[ext_resource type="Texture2D" uid="uid://blt3ed2ke4ft7" path="res://assets/sprites/baby_ufo_sad.png" id="5_ol6xd"]
+[ext_resource type="Texture2D" uid="uid://c7cafes7o53b" path="res://assets/sprites/ufo/ufo_beam.png" id="4_g2dkd"]
+[ext_resource type="Texture2D" uid="uid://blt3ed2ke4ft7" path="res://assets/sprites/ufo/baby_ufo_sad.png" id="5_ol6xd"]
 [ext_resource type="AudioStream" uid="uid://3h8uktx7yiqo" path="res://assets/sound/sfx/UFO_beam_swirl.wav" id="5_yb6pp"]
 [ext_resource type="AudioStream" uid="uid://c5q6t51gdcvgs" path="res://assets/sound/sfx/UFO_swoosh.wav" id="6_b5o76"]
+[ext_resource type="Texture2D" uid="uid://bxu2ycoixq6e5" path="res://assets/sprites/ufo/baby_ufo_headphones.png.png" id="7_p5api"]
 [ext_resource type="AudioStream" uid="uid://b6d0wggy1as67" path="res://assets/sound/JENNA MODE/jenna UFO hum.wav" id="7_w60r3"]
 [ext_resource type="AudioStream" uid="uid://dx04sc7v1mqvt" path="res://assets/sound/JENNA MODE/jenna UFO swirl.wav" id="8_v58v1"]
 [ext_resource type="AudioStream" uid="uid://chgo3irxmq654" path="res://assets/sound/JENNA MODE/jenna UFO whoosh.wav" id="9_hwefr"]
@@ -42,6 +43,14 @@ region = Rect2(0, 0, 130, 130)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qreu2"]
 atlas = ExtResource("3_aql82")
+region = Rect2(130, 0, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieu6g"]
+atlas = ExtResource("7_p5api")
+region = Rect2(0, 0, 130, 130)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1auiv"]
+atlas = ExtResource("7_p5api")
 region = Rect2(130, 0, 130, 130)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1d1lp"]
@@ -77,6 +86,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieu6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1auiv")
+}],
+"loop": true,
+"name": &"headphones_baby",
 "speed": 5.0
 }]
 
@@ -258,9 +278,7 @@ EFFECT_DIED = ExtResource("3_idbtg")
 position = Vector2(-2, 328.094)
 scale = Vector2(7.04615, 7.12452)
 sprite_frames = SubResource("SpriteFrames_1d1lp")
-animation = &"baby"
-frame = 1
-frame_progress = 0.688863
+animation = &"headphones_baby"
 
 [node name="UfoBeam" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.858824)

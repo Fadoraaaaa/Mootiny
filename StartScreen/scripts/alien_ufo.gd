@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var swirl = false
 @export var whoosh = false
 @export var baby = false
+@export var headphones_baby = false
 @export var sad_baby = false
 @export var path_finding = false
 @export var player: Node2D
@@ -106,12 +107,14 @@ func _ready():
 	$UfoBeam.visible = false
 	$Exclamation.visible = false
 	hiding = false
-	if !baby and !sad_baby:
+	if !baby and !sad_baby and !headphones_baby:
 		sprite.play("default")
 	if baby:
 		sprite.play("baby")
 	if sad_baby:
 		sprite.play("baby_sad")
+	if headphones_baby:
+		sprite.play("headphones_baby")
 	healthBar.visible = false
 	
 func show_beam():

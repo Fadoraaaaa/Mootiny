@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="6_6n2u1"]
 [ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="7_i8imr"]
 [ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="8_g5vde"]
-[ext_resource type="Texture2D" uid="uid://cgfu8maw5s1rg" path="res://assets/sprites/mini_ufo.png" id="9_plo03"]
+[ext_resource type="Texture2D" uid="uid://cgfu8maw5s1rg" path="res://assets/sprites/ufo/mini_ufo.png" id="9_plo03"]
 [ext_resource type="Texture2D" uid="uid://dq2obeht71po" path="res://assets/sprites/MC/cow_face.png.png" id="9_ujxiy"]
 [ext_resource type="AudioStream" uid="uid://ccl38fhknsogp" path="res://assets/sound/JENNA MODE/Tense SARAH Music.wav" id="11_ph731"]
 [ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="12_sxjjd"]

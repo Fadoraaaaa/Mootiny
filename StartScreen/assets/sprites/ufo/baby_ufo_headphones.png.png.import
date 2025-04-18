@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://blt3ed2ke4ft7"
-path="res://.godot/imported/baby_ufo_sad.png-391fa862ead0129666026fd3aeeba30b.ctex"
+uid="uid://bxu2ycoixq6e5"
+path="res://.godot/imported/baby_ufo_headphones.png.png-c9866f0b133c997ebefec19f2b3ac44a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/baby_ufo_sad.png"
-dest_files=["res://.godot/imported/baby_ufo_sad.png-391fa862ead0129666026fd3aeeba30b.ctex"]
+source_file="res://assets/sprites/ufo/baby_ufo_headphones.png.png"
+dest_files=["res://.godot/imported/baby_ufo_headphones.png.png-c9866f0b133c997ebefec19f2b3ac44a.ctex"]
 
 [params]
 

@@ -25,6 +25,7 @@ func _ready() -> void:
 	$minimap.visible = true
 	$minimap.position = Vector2(-430, 220)
 	animation_playing = true
+	$TileMap.set_cell(1, Vector2i(-2,11), 0, Vector2i(0, 28), 0) #setting door as closewd
 	await anim_done
 	await play_sequence([
 		["camera_pans_up", "anim"],
@@ -113,5 +114,7 @@ func _on_dairy_queen_talking_area_body_entered(body: Node2D) -> void:
 	if !game_started and $UFO1.get_dead() and $UFO2.get_dead(): #both UFO's are dead
 		print("both UFOS are dead")
 		$Dialog.visible = true
+		$TileMap.set_cell(1, Vector2i(-2,-11), 0, Vector2i(0, 31), 0) #opening up door
 		await play_sequence([["scene_7", "dialog"], ["fade_out", "anim"]])
 		get_tree().change_scene_to_file("res://castle_levels/castle_level_3.tscn")
+		
