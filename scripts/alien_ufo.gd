@@ -75,7 +75,8 @@ func die():
 func receive_damage(base_damage: int):
 	var actual_damage = base_damage
 	actual_damage -= defense
-	$Metal.play()
+	if !dead:
+		$Metal.play()
 	self.hp -= actual_damage
 	if get_hp() == 10:
 		emit_signal("at_10_hp")
@@ -193,9 +194,10 @@ func _on_hurtbox_area_entered(body):
 		healthBar.visible = true
 		body.destroy()
 	
-	receive_knockback(body.global_position, actual_damage)
-	spawn_effect(EFFECT_HIT)
-	spawn_dmgIndicator(actual_damage)
+	if !dead:
+		receive_knockback(body.global_position, actual_damage)
+		spawn_effect(EFFECT_HIT)
+		spawn_dmgIndicator(actual_damage)
 
 func set_path_find(is_path_finding):
 	path_finding = is_path_finding
