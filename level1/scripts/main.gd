@@ -16,9 +16,9 @@ var score : int
 const SCORE_MODIFIER : int = 10
 var high_score : int
 var speed : int
-const START_SPEED : int = 6
-const MAX_SPEED : int = 10
-const SPEED_MODIFIER : int = 5000
+const START_SPEED : int = 800
+const MAX_SPEED : int = 1000
+const SPEED_MODIFIER : int = 50
 var screen_size : Vector2i
 var ground_height : int
 var game_running : bool 
@@ -95,15 +95,19 @@ func new_game():
 	$Deathscreen.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
 	$minimap.position = Vector2($Camera2D.position.x - 500, $Camera2D.position.y-450)
 	if game_running:
 		if !$Camera2D/JENNATenseMusic.playing:
 			$Camera2D/JENNATenseMusic.play()
 		if !$Camera2D/AudioStreamPlayer2D.playing:
 			$Camera2D/AudioStreamPlayer2D.play()
+			
+		var hit_penalty = 1.0 - (hit_num * 0.1)
 		#speed up and adjust difficulty
-		speed = (START_SPEED + score / SPEED_MODIFIER) - hit_num
+		speed = (START_SPEED + score / SPEED_MODIFIER) * hit_penalty
+		speed = clamp(speed, 0, MAX_SPEED)
+		
 		if speed > MAX_SPEED:
 			speed = MAX_SPEED
 		if speed <= 0 and ($Dino.position.x - $UFO.position.x) >= 700:
@@ -115,17 +119,17 @@ func _process(_delta):
 		generate_obs()
 		
 		#move dino and camera
-		$Dino.position.x += speed
+		$Dino.position.x += speed * delta
 		$Camera2D.position.x = $Dino.position.x +126
-		$UFO.position.x += 5
+		$UFO.position.x += 700 * delta
 		
-		$ProgressBar.value = score / SCORE_MODIFIER
-		$ProgressBar.position.x += speed
-		$CowFace.position.x = $ProgressBar.position.x + 907 * ($ProgressBar.value / 3000)
+		$ProgressBar.value = $Dino.position.x
+		$ProgressBar.position.x += speed * delta
+		$CowFace.position.x = $ProgressBar.position.x + 907 * ($Dino.position.x / 30000)
 		$MiniUFO.position.x = $ProgressBar.position.x + 907 * ($UFO.position.x/30000)
 		
 		#update score
-		score += speed
+		score += speed * delta
 		show_score()
 		
 		if $Dino.position.x >= ($bush.position.x - 50):
@@ -159,8 +163,8 @@ func _process(_delta):
 
 func generate_obs():
 	#generate ground obstacles
-	if ($Dino.position.x < 28000):
-		if obstacles.is_empty() or last_obs.position.x < score + randi_range(300, 500):
+	if ($Dino.position.x < 28000): #havent made it to the bush yet
+		if obstacles.is_empty() or last_obs.position.x < $Dino.position.x + randi_range(300, 500):
 			var obs_type = obstacle_types[randi() % obstacle_types.size()]
 			var obs
 			var max_obs = difficulty + 1
@@ -168,7 +172,7 @@ func generate_obs():
 				obs = obs_type.instantiate()
 				var obs_height = obs.get_node("Sprite2D").texture.get_height()
 				var obs_scale = obs.get_node("Sprite2D").scale
-				var obs_x : int = screen_size.x + score + 200 + (i * 100)
+				var obs_x : int = $Camera2D.position.x + screen_size.x + (i * 100)
 				var obs_y : int = screen_size.y - ground_height - (obs_height * obs_scale.y / 2) - 200
 				last_obs = obs
 				add_obs(obs, obs_x, obs_y-350)
@@ -207,9 +211,8 @@ func check_high_score():
 		$HUD.get_node("HighScoreLabel").text = "BEST: " + str(high_score / SCORE_MODIFIER)
 
 func adjust_difficulty():
-	difficulty = score / SPEED_MODIFIER
-	if difficulty > MAX_DIFFICULTY:
-		difficulty = MAX_DIFFICULTY
+	difficulty = ($Dino.position.x / 6000.0)
+	difficulty = int(clamp(difficulty, 0, MAX_DIFFICULTY))
 
 func game_over():
 	check_high_score()

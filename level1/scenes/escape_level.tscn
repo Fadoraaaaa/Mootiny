@@ -255,7 +255,7 @@ offset_left = 107.0
 offset_top = -354.0
 offset_right = 1013.0
 offset_bottom = -327.0
-max_value = 3000.0
+max_value = 30000.0
 
 [node name="MiniUFO" type="Sprite2D" parent="."]
 position = Vector2(111, -338.375)
