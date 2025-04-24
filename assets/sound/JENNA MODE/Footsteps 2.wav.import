@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cgj6l0si2g0jr"
+path="res://.godot/imported/Footsteps 2.wav-75225ab2a4602b27eb13d328c0c347b6.sample"
+
+[deps]
+
+source_file="res://assets/sound/JENNA MODE/Footsteps 2.wav"
+dest_files=["res://.godot/imported/Footsteps 2.wav-75225ab2a4602b27eb13d328c0c347b6.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

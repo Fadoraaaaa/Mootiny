@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6d0wggy1as67"
+path="res://.godot/imported/UFO hum.wav-6350bcc7f04b2f3b206f463b677d57f7.sample"
+
+[deps]
+
+source_file="res://assets/sound/JENNA MODE/UFO hum.wav"
+dest_files=["res://.godot/imported/UFO hum.wav-6350bcc7f04b2f3b206f463b677d57f7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

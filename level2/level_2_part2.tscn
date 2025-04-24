@@ -1,0 +1,655 @@
+[gd_scene load_steps=35 format=3 uid="uid://bpbo1lwxwf6xa"]
+
+[ext_resource type="Script" path="res://level2/level_2_part_2.gd" id="1_cgokg"]
+[ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="2_aavbg"]
+[ext_resource type="Texture2D" uid="uid://cr2icj5swajpk" path="res://assets/textures/castlev3.png" id="3_qpvmp"]
+[ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="4_bjub0"]
+[ext_resource type="Texture2D" uid="uid://bku7dtcd14evp" path="res://assets/textures/castle_front_chunk.png" id="4_hp145"]
+[ext_resource type="PackedScene" uid="uid://ckx4aehxac0ot" path="res://effects/HitEffect.tscn" id="5_a2rug"]
+[ext_resource type="PackedScene" uid="uid://dvvfmp7gxpg8n" path="res://effects/DeathEffect.tscn" id="6_m3ywg"]
+[ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="7_607u2"]
+[ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="8_643mi"]
+[ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="9_0ndsd"]
+[ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://level1/scenes/ground.tscn" id="10_cucy5"]
+[ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="11_hwbxf"]
+[ext_resource type="AudioStream" uid="uid://bg0uvil7dew16" path="res://assets/sound/music/Evasive Paths.mp3" id="12_2nco2"]
+[ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="13_et2nl"]
+[ext_resource type="Texture2D" uid="uid://cq0rnrw6tn3g0" path="res://assets/textures/magic_vortex swirl.png" id="14_77ism"]
+[ext_resource type="Texture2D" uid="uid://bf1p3e2a65akm" path="res://assets/sprites/MC/mc_jump.png" id="15_iffby"]
+[ext_resource type="AudioStream" uid="uid://cbfge1xeckvk2" path="res://assets/sound/sfx/sparkles.wav" id="16_f8go7"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="17_h3ufj"]
+[ext_resource type="PackedScene" uid="uid://cn7mmujjy6xnq" path="res://scenes/deathscreen.tscn" id="18_5cs1i"]
+[ext_resource type="PackedScene" uid="uid://lotwuige1aee" path="res://level1/scenes/game_over.tscn" id="19_t51ra"]
+[ext_resource type="AudioStream" uid="uid://trl03cjx161j" path="res://assets/sound/sfx/foreboding.wav" id="21_xv2vb"]
+
+[sub_resource type="Animation" id="Animation_ecdf7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(516, 514)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MagicSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BlackScreen:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MagicSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("McJump:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2030, 715)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("McJump:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Camera2D/minimap:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-516, -514)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Dialog:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fcg5j"]
+resource_name = "exiting"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_folmn"]
+resource_name = "scene_1"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["Phew! The UFO didn't spot me in the bush! I wonder what that crash sound was...", "You", "You", "right", ""], ["AAAAAA SAVE ME SAVE ME SAVE ME SAVE ME AAAAAAAA", "Unknown", "Unknown", "", ""], ["...what?", "You", "You", "right", "curious"]]],
+"method": &"change_dialog"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-300, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D/minimap:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-516, -514)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BlackScreen:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dialog:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_0q7v7"]
+resource_name = "scene_2"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1700, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(2000, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Camera2D/minimap:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-516, -514), Vector2(1484, -514)]
+}
+
+[sub_resource type="Animation" id="Animation_gw4s7"]
+resource_name = "scene_3"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["AAAAAA SAVE ME GOSH DARNIT GET OVER HERE", "Moogician", "Moogician", "left", "surprise"]]],
+"method": &"change_dialog"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lb6j5"]
+resource_name = "scene_4"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2000, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D/minimap:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.866667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1484, -514), Vector2(-516, -514)]
+}
+
+[sub_resource type="Animation" id="Animation_vnrow"]
+resource_name = "scene_5"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["Great! You made it! Now what do we do about those UFOs...?", "Moogician", "Moogician", "left", "curious"], ["Can't you do something with your moogic?", "You", "You", "right", "curious"], ["AHA! You have a great set of vocal cords on you...here!", "Moogician", "Moogician", "left", "surprise"]]],
+"method": &"change_dialog"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ry8gr"]
+resource_name = "scene_6"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["Moorvelous! Your sonic moo defeated the UFO! Thank you.", "Moogician", "Moogician", "left", ""], ["No problem! What happened here?", "You", "You", "right", ""], ["The UFOs have taken over the kingdom of Camoolot!!! Can you help rescue the civilians?", "Moogician", "Moogician", "left", "surprise"], ["I'll hoof them out of there in no time!", "You", "You", "right", ""]]],
+"method": &"change_dialog"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fs85c"]
+resource_name = "swirly_magic"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MagicSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.16667, 2.2, 2.23333, 2.26667, 2.3, 2.33333, 2.36667, 2.4, 2.43333, 2.46667, 2.5, 2.53333, 2.56667, 2.6, 2.63333, 2.66667, 2.7, 2.73333, 2.76667, 2.8, 2.83333, 2.86667, 2.9, 2.93333, 2.96667, 3, 3.03333, 3.06667, 3.1, 3.13333, 3.16667, 3.2, 3.23333, 3.26667, 3.3, 3.33333, 3.36667, 3.4, 3.43333, 3.46667, 3.53333, 3.56667, 3.6, 3.63333, 3.66667, 3.7, 3.73333, 3.76667, 3.8, 3.83333, 3.86667, 3.9, 3.93333, 3.96667, 4, 4.03333, 4.06667, 4.1, 4.13333, 4.16667, 4.22, 4.25333, 4.28667, 4.32, 4.35333, 4.38667, 4.42, 4.45333, 4.48667, 4.52, 4.55333, 4.58667, 4.62, 4.65333, 4.68667, 4.72, 4.75333, 4.78667, 4.82, 4.85333, 4.9, 4.93333, 4.96667, 5, 5.03333, 5.06667, 5.1, 5.13333, 5.16667, 5.2, 5.23333, 5.26667, 5.3, 5.33333, 5.36667, 5.4, 5.43333, 5.46667, 5.5, 5.53333, 5.59, 5.62333, 5.65667, 5.69, 5.72333, 5.75667, 5.79, 5.82333, 5.85667, 5.89, 5.92333, 5.95667, 5.99, 6.02333, 6.05667, 6.09, 6.12333, 6.15667, 6.19, 6.22333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BlackScreen:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.7, 7.53333, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MagicSprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.73333, 2.6, 5.93333, 6.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.545045), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("McJump:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 1.76667, 2.63333, 9.16667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1980, 715), Vector2(1980, 715), Vector2(2000, 526), Vector2(1980, 715)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("McJump:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.133333, 9.16667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.86667, 9.23333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"play_magic_sound"
+}, {
+"args": [],
+"method": &"animation_over"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_agwhr"]
+_data = {
+"RESET": SubResource("Animation_ecdf7"),
+"exiting": SubResource("Animation_fcg5j"),
+"scene_1": SubResource("Animation_folmn"),
+"scene_2": SubResource("Animation_0q7v7"),
+"scene_3": SubResource("Animation_gw4s7"),
+"scene_4": SubResource("Animation_lb6j5"),
+"scene_5": SubResource("Animation_vnrow"),
+"scene_6": SubResource("Animation_ry8gr"),
+"swirly_magic": SubResource("Animation_fs85c")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgvef"]
+size = Vector2(3967, 215)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p2vh"]
+size = Vector2(54, 513.125)
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_f6fsp"]
+vertices = PackedVector2Array(3956.23, 801.07, -4349.05, 862.859, -3900.39, 131, 4.02344, 131, 3972.75, 117.031)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(4, 121, 3983, 107, 3966, 811, -4367, 873, -3906, 121)])
+
+[node name="level2part2" type="Node2D"]
+script = ExtResource("1_cgokg")
+
+[node name="Bg" parent="." instance=ExtResource("2_aavbg")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_agwhr")
+}
+
+[node name="Castlev3" type="Sprite2D" parent="."]
+position = Vector2(2360, -129)
+scale = Vector2(7, 7)
+texture = ExtResource("3_qpvmp")
+centered = false
+
+[node name="You" parent="." instance=ExtResource("4_bjub0")]
+position = Vector2(192, 768)
+scale = Vector2(0.9, 0.9)
+jump_force = 600
+EFFECT_HIT = ExtResource("5_a2rug")
+EFFECT_DIED = ExtResource("6_m3ywg")
+
+[node name="CastleFrontChunk" type="Sprite2D" parent="."]
+position = Vector2(3166, 326)
+scale = Vector2(7, 7)
+texture = ExtResource("4_hp145")
+
+[node name="Moogician" parent="." instance=ExtResource("7_607u2")]
+position = Vector2(2075, 766)
+character_name = "Moogician"
+color_rect_size = 93
+
+[node name="Bush3" parent="." instance=ExtResource("8_643mi")]
+position = Vector2(1920, 725)
+
+[node name="Bush2" parent="." instance=ExtResource("8_643mi")]
+position = Vector2(1000, 730)
+
+[node name="Bush1" parent="." instance=ExtResource("8_643mi")]
+position = Vector2(193, 735)
+
+[node name="UFO" parent="." node_paths=PackedStringArray("player") instance=ExtResource("9_0ndsd")]
+position = Vector2(508, 388)
+scale = Vector2(0.7, 0.7)
+baby = true
+player = NodePath("../You")
+
+[node name="Ground" parent="." instance=ExtResource("10_cucy5")]
+position = Vector2(-80, 226)
+
+[node name="Ground" parent="Ground" instance=ExtResource("10_cucy5")]
+position = Vector2(1925, -1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Ground"]
+position = Vector2(2053.5, 642)
+shape = SubResource("RectangleShape2D_jgvef")
+
+[node name="Dialog" parent="." instance=ExtResource("11_hwbxf")]
+visible = false
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -609.0
+offset_top = -45.0
+offset_right = 4044.0
+offset_bottom = 1222.0
+color = Color(0, 0, 0, 1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(516, 514)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
+position = Vector2(-516, -514)
+stream = ExtResource("12_2nco2")
+volume_db = -19.973
+bus = &"Music"
+
+[node name="minimap" parent="Camera2D" instance=ExtResource("13_et2nl")]
+position = Vector2(-516, -514)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+
+[node name="MoogicianText" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MoogicianText"]
+position = Vector2(2030, 512.563)
+shape = SubResource("RectangleShape2D_2p2vh")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_f6fsp")
+
+[node name="MagicSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(1983, 557)
+scale = Vector2(2.85625, 2.755)
+texture = ExtResource("14_77ism")
+hframes = 5
+vframes = 4
+
+[node name="McJump" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2030, 715)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("15_iffby")
+
+[node name="Magic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2000, 0)
+stream = ExtResource("16_f8go7")
+volume_db = 13.246
+bus = &"Sfx"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 235.0
+offset_top = 232.0
+offset_right = 798.0
+offset_bottom = 384.0
+color = Color(0, 0, 0, 1)
+
+[node name="StartLabel" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.5
+offset_top = -50.5
+offset_right = 264.5
+offset_bottom = 54.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("17_h3ufj")
+theme_override_font_sizes/font_size = 40
+text = "LEAVE THE BUSH AND 
+SHIFT TO ATTACK
+USE MOUSE TO AIM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Deathscreen" parent="." instance=ExtResource("18_5cs1i")]
+
+[node name="GameOver" parent="." instance=ExtResource("19_t51ra")]
+offset = Vector2(0, 150)
+transform = Transform2D(1, 0, 0, 1, 0, 150)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(3974, 38, 3985.27, 771.141, 2000, 777, 4267, 1148, 4229, 34)
+
+[node name="CastleEntrance" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CastleEntrance"]
+polygon = PackedVector2Array(3598, 763, 3598, 514, 3674, 437, 3971, 502, 3974, 756)
+
+[node name="CastleForeboding" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(3600, 600)
+stream = ExtResource("21_xv2vb")
+volume_db = 10.588
+bus = &"Sfx"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="MoogicianText" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="CastleEntrance" to="." method="_on_castle_entrance_area_entered"]

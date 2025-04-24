@@ -1,0 +1,216 @@
+[gd_scene load_steps=15 format=3 uid="uid://cwlpgvsfckt6u"]
+
+[ext_resource type="Script" path="res://level2/level_2_part_1.gd" id="1_kov6a"]
+[ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="2_ldajg"]
+[ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="4_84c85"]
+[ext_resource type="PackedScene" uid="uid://ckx4aehxac0ot" path="res://effects/HitEffect.tscn" id="5_it736"]
+[ext_resource type="PackedScene" uid="uid://dvvfmp7gxpg8n" path="res://effects/DeathEffect.tscn" id="6_4g7tc"]
+[ext_resource type="PackedScene" uid="uid://qot0dbdb6w34" path="res://level2/bush.tscn" id="8_fdx6u"]
+[ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://level1/scenes/ground.tscn" id="10_o06y6"]
+[ext_resource type="PackedScene" uid="uid://dnv0wy0kcoar0" path="res://scenes/dialog.tscn" id="11_2aqab"]
+[ext_resource type="AudioStream" uid="uid://biledpu755ng0" path="res://assets/sound/sfx/loud_crash.wav" id="11_uae7m"]
+[ext_resource type="AudioStream" uid="uid://bg0uvil7dew16" path="res://assets/sound/music/Evasive Paths.mp3" id="12_4t0dr"]
+[ext_resource type="PackedScene" uid="uid://bpymec431vssf" path="res://minimap.tscn" id="13_8tby8"]
+
+[sub_resource type="Animation" id="Animation_ecdf7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(516, 514)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Camera2D:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BlackScreen:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Camera2D/minimap:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-516, -514)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dialog:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5orqn"]
+resource_name = "scene_0"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3, 0.433333, 0.566667, 0.7, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(193, 514), Vector2(243, 514), Vector2(143, 514), Vector2(243, 514), Vector2(143, 514), Vector2(243, 514), Vector2(193, 514)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.93333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BlackScreen:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.03333, 4.93333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("You")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["curious"],
+"method": &"show_emote"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dialog:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_agwhr"]
+_data = {
+"RESET": SubResource("Animation_ecdf7"),
+"scene_0": SubResource("Animation_5orqn")
+}
+
+[node name="level2part1" type="Node2D"]
+script = ExtResource("1_kov6a")
+
+[node name="Bg" parent="." instance=ExtResource("2_ldajg")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_agwhr")
+}
+
+[node name="You" parent="." instance=ExtResource("4_84c85")]
+position = Vector2(192, 768)
+scale = Vector2(0.9, 0.9)
+jump_force = 600
+EFFECT_HIT = ExtResource("5_it736")
+EFFECT_DIED = ExtResource("6_4g7tc")
+
+[node name="Bush1" parent="." instance=ExtResource("8_fdx6u")]
+position = Vector2(193, 735)
+
+[node name="Ground" parent="." instance=ExtResource("10_o06y6")]
+position = Vector2(-80, 226)
+
+[node name="Ground" parent="Ground" instance=ExtResource("10_o06y6")]
+position = Vector2(1925, -1)
+
+[node name="Dialog" parent="." instance=ExtResource("11_2aqab")]
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(516, 514)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Camera2D"]
+position = Vector2(-516, -514)
+stream = ExtResource("12_4t0dr")
+volume_db = -19.973
+bus = &"Music"
+
+[node name="minimap" parent="Camera2D" instance=ExtResource("13_8tby8")]
+position = Vector2(-516, -514)
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -609.0
+offset_top = -45.0
+offset_right = 2719.0
+offset_bottom = 1222.0
+color = Color(0, 0, 0, 1)
+
+[node name="LoudCrash" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_uae7m")
+volume_db = 2.644
+bus = &"Sfx"

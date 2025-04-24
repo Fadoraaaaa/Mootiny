@@ -1,0 +1,449 @@
+[gd_scene load_steps=22 format=3 uid="uid://bhj86sgtu5xul"]
+
+[ext_resource type="Script" path="res://level2/level_2_cutscene.gd" id="1_xqw58"]
+[ext_resource type="PackedScene" uid="uid://bpkphu8qj137m" path="res://level1/scenes/bg.tscn" id="2_n2f4b"]
+[ext_resource type="Texture2D" uid="uid://dyrw5brgy51yq" path="res://assets/textures/fire_sprite_sheet.png" id="5_fn4s2"]
+[ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="7_3trlw"]
+[ext_resource type="AudioStream" uid="uid://dtmtyq236yet4" path="res://assets/sound/sfx/fire_crackling.wav" id="7_04au3"]
+[ext_resource type="PackedScene" uid="uid://bn16pnjwue1je" path="res://scenes/alien_ufo.tscn" id="9_12qcw"]
+[ext_resource type="PackedScene" uid="uid://b5pwnh1tmyrnl" path="res://level1/scenes/ground.tscn" id="10_bu5nd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulmd8"]
+atlas = ExtResource("5_fn4s2")
+region = Rect2(0, 0, 11, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5poh"]
+atlas = ExtResource("5_fn4s2")
+region = Rect2(11, 0, 11, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ponas"]
+atlas = ExtResource("5_fn4s2")
+region = Rect2(22, 0, 11, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o23d4"]
+atlas = ExtResource("5_fn4s2")
+region = Rect2(33, 0, 11, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joa21"]
+atlas = ExtResource("5_fn4s2")
+region = Rect2(44, 0, 11, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kstm"]
+atlas = ExtResource("5_fn4s2")
+region = Rect2(55, 0, 11, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_773ha"]
+atlas = ExtResource("5_fn4s2")
+region = Rect2(66, 0, 11, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upno0"]
+atlas = ExtResource("5_fn4s2")
+region = Rect2(77, 0, 11, 21)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57rpi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulmd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5poh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ponas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o23d4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joa21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kstm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_773ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upno0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_cq1bf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Honey:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1219, 746)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cocoa:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1354, 750)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Honey:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Cocoa:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BabyUFO1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(353, 201)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BabyUFO2:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(773, 168)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BabyUFO3:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1074, 274)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BlackScreen:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wj44f"]
+resource_name = "fade_in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.9),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xm33o"]
+resource_name = "fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackScreen:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.96667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_77b8n"]
+resource_name = "scene_1"
+length = 10.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BabyUFO1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["surprise"],
+"method": &"show_emote"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BabyUFO2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["surprise"],
+"method": &"show_emote"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BabyUFO3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4.66667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["surprise"],
+"method": &"show_emote"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Honey:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.5, 2.53, 4.93333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1219, 746), Vector2(1219, 746), Vector2(717, 760), Vector2(1400, 760)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Cocoa:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.66667, 2.73333, 5.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1354, 750), Vector2(1354, 750), Vector2(717, 760), Vector2(1400, 760)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Honey:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.53),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Cocoa:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2.733),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BabyUFO1:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 5, 7.33333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(353, 201), Vector2(353, 201), Vector2(1400, 201)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BabyUFO2:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 5.03333, 6.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(773, 168), Vector2(773, 168), Vector2(1400, 168)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BabyUFO3:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 5.03333, 6.66667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1074, 274), Vector2(1074, 274), Vector2(1400, 274)]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(7.26667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyovj"]
+_data = {
+"RESET": SubResource("Animation_cq1bf"),
+"fade_in": SubResource("Animation_wj44f"),
+"fade_out": SubResource("Animation_xm33o"),
+"scene_1": SubResource("Animation_77b8n")
+}
+
+[node name="Level2Cutscene" type="Node2D"]
+script = ExtResource("1_xqw58")
+
+[node name="Bg" parent="." instance=ExtResource("2_n2f4b")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(193, 514)
+offset = Vector2(500, 0)
+
+[node name="BabyUFO1" parent="." instance=ExtResource("9_12qcw")]
+position = Vector2(353, 201)
+scale = Vector2(0.7, 0.7)
+sad_baby = true
+
+[node name="BabyUFO2" parent="." instance=ExtResource("9_12qcw")]
+position = Vector2(773, 168)
+scale = Vector2(0.7, 0.7)
+sad_baby = true
+
+[node name="BabyUFO3" parent="." instance=ExtResource("9_12qcw")]
+position = Vector2(1074, 274)
+scale = Vector2(0.7, 0.7)
+sad_baby = true
+
+[node name="Honey" parent="." instance=ExtResource("7_3trlw")]
+visible = false
+position = Vector2(1219, 746)
+character_name = "Honey"
+
+[node name="Cocoa" parent="." instance=ExtResource("7_3trlw")]
+visible = false
+position = Vector2(1354, 750)
+
+[node name="AlienUFO" parent="." instance=ExtResource("9_12qcw")]
+position = Vector2(786, 604)
+rotation = 0.935496
+scale = Vector2(2, 2)
+
+[node name="Fire" type="AnimatedSprite2D" parent="."]
+position = Vector2(858, 572)
+scale = Vector2(20, 20)
+sprite_frames = SubResource("SpriteFrames_57rpi")
+autoplay = "default"
+
+[node name="Ground" parent="." instance=ExtResource("10_bu5nd")]
+position = Vector2(-80, 226)
+
+[node name="Ground" parent="Ground" instance=ExtResource("10_bu5nd")]
+position = Vector2(1925, -1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dyovj")
+}
+
+[node name="BlackScreen" type="ColorRect" parent="."]
+offset_right = 1333.0
+offset_bottom = 1143.0
+color = Color(0, 0, 0, 0)
+
+[node name="FireCrackle" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_04au3")
+autoplay = true
+bus = &"Sfx"

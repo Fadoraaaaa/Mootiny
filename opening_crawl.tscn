@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6q66so21nxae"]
+
+[ext_resource type="Script" path="res://opening_crawl.gd" id="1_dloaw"]
+[ext_resource type="AudioStream" uid="uid://lma30trq0qxt" path="res://assets/sound/sfx/opening_crawl_theme.wav" id="2_nf1at"]
+
+[sub_resource type="VideoStreamTheora" id="VideoStreamTheora_4qllg"]
+file = "res://opening_crawl.ogv"
+
+[node name="OpeningCrawl" type="Node2D"]
+script = ExtResource("1_dloaw")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = -4.0
+offset_top = -1.0
+offset_right = 1022.0
+offset_bottom = 1019.0
+stream = SubResource("VideoStreamTheora_4qllg")
+autoplay = true
+expand = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_nf1at")
+volume_db = 8.696
+autoplay = true
+bus = &"Sfx"
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

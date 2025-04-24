@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://bck5n3282d1hs"]
+
+[ext_resource type="PackedScene" uid="uid://b7wxa66jcmnx2" path="res://level2/Hitbox.tscn" id="1"]
+[ext_resource type="Script" path="res://level2/PlayerDagger.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://qy8yykheqtl7" path="res://assets/sprites/sonic_moo.png" id="3_6qarw"]
+[ext_resource type="AudioStream" uid="uid://bfp2ht4e8f3wc" path="res://assets/sound/sfx/sonic_moo.wav" id="4_25p8o"]
+[ext_resource type="Texture2D" uid="uid://chn8ak8aib7se" path="res://assets/sprites/sword.png" id="5_4d6oo"]
+
+[sub_resource type="RectangleShape2D" id="1"]
+size = Vector2(8, 6)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kssgg"]
+atlas = ExtResource("3_6qarw")
+region = Rect2(0, 0, 10, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by6p0"]
+atlas = ExtResource("5_4d6oo")
+region = Rect2(0, 0, 40, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nn7jc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kssgg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_by6p0")
+}],
+"loop": true,
+"name": &"excowlibur",
+"speed": 5.0
+}]
+
+[node name="PlayerDagger" groups=["Projectile"] instance=ExtResource("1")]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("3")
+SPEED = 350
+
+[node name="CollisionShape2D" parent="." index="0"]
+scale = Vector2(5, 5)
+shape = SubResource("1")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="1"]
+position = Vector2(2, -1)
+scale = Vector2(4.475, 4.175)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource("4_25p8o")
+volume_db = 6.339
+bus = &"Sfx"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." index="3"]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_nn7jc")
+
+[connection signal="area_entered" from="." to="." method="_on_PlayerDagger_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_PlayerDagger_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

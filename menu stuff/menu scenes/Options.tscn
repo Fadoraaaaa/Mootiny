@@ -1,0 +1,57 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpaddhkdb7p3p"]
+
+[ext_resource type="Script" path="res://menu stuff/menu scripts/Options.gd" id="1_wtsa3"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="2_3gr26"]
+[ext_resource type="PackedScene" uid="uid://d0s8d4hhloocd" path="res://menu stuff/menu scenes/SettingsTab.tscn" id="3_2gfij"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wtsa3")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1022.0
+offset_bottom = 765.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = -48
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("2_3gr26")
+theme_override_font_sizes/font_size = 45
+text = "OPTIONS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsTab" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_2gfij")]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/SettingsTab"]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 575.0
+offset_right = 822.0
+offset_bottom = 655.0
+
+[node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer/SettingsTab/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_3gr26")
+theme_override_font_sizes/font_size = 35
+text = "EXIT"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsTab/VBoxContainer/ExitButton" to="." method="_on_button_pressed"]

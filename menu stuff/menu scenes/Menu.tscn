@@ -1,0 +1,186 @@
+[gd_scene load_steps=11 format=3 uid="uid://b5cyk16qqhx3s"]
+
+[ext_resource type="Script" path="res://menu stuff/menu scripts/Menu.gd" id="1_gyh52"]
+[ext_resource type="Texture2D" uid="uid://tyhwpypfddtr" path="res://assets/textures/startscreen-3.png.png" id="3_hus4d"]
+[ext_resource type="AudioStream" uid="uid://cjlh8ni0qcf63" path="res://assets/sound/music/StartScreen Harmony.wav" id="3_toh0g"]
+[ext_resource type="PackedScene" uid="uid://cpaddhkdb7p3p" path="res://menu stuff/menu scenes/Options.tscn" id="4_eaqif"]
+[ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="4_lbqve"]
+[ext_resource type="AudioStream" uid="uid://ddp7rl32rp4mh" path="res://assets/sound/JENNA MODE/Meowmeowmeow.wav" id="5_l78j1"]
+
+[sub_resource type="Animation" id="Animation_itagb"]
+resource_name = "Fade in"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4t6yw"]
+resource_name = "Fade out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_agjgc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BlackFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hipqa"]
+_data = {
+"Fade in": SubResource("Animation_itagb"),
+"Fade out": SubResource("Animation_4t6yw"),
+"RESET": SubResource("Animation_agjgc")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -125.0
+offset_bottom = 332.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gyh52")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Startscreen-3_png" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(513, 511)
+scale = Vector2(8, 7.8)
+texture = ExtResource("3_hus4d")
+
+[node name="MusicStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_toh0g")
+volume_db = -14.0
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_hipqa")
+}
+
+[node name="OptionColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 128.0
+offset_right = 1020.0
+offset_bottom = 201.0
+color = Color(0.498039, 0.635294, 0.796078, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="OptionColorRect"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 8.0
+offset_right = 236.0
+offset_bottom = 65.0
+color = Color(0.800108, 0.850754, 0.90104, 1)
+
+[node name="Menu" type="Label" parent="OptionColorRect"]
+modulate = Color(0, 0.29423, 0.514051, 1)
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 236.0
+offset_bottom = 63.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_lbqve")
+theme_override_font_sizes/font_size = 40
+text = "MENU"
+horizontal_alignment = 1
+
+[node name="StartColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 128.0
+offset_right = 248.0
+offset_bottom = 201.0
+color = Color(0.497233, 0.635749, 0.796786, 1)
+
+[node name="ColorRect" type="ColorRect" parent="StartColorRect"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 233.0
+offset_bottom = 64.0
+color = Color(0.800108, 0.850754, 0.90104, 1)
+
+[node name="Start" type="Label" parent="StartColorRect"]
+modulate = Color(0, 0.29423, 0.514051, 1)
+layout_mode = 0
+offset_left = 11.0
+offset_top = 10.0
+offset_right = 233.0
+offset_bottom = 63.0
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_lbqve")
+theme_override_font_sizes/font_size = 40
+text = "START"
+horizontal_alignment = 1
+
+[node name="BlackFade" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1029.0
+offset_bottom = 1025.0
+color = Color(0, 0, 0, 1)
+
+[node name="StartButton" type="Button" parent="."]
+visibility_layer = 0
+layout_mode = 2
+offset_left = 3.0
+offset_top = 124.0
+offset_right = 247.0
+offset_bottom = 200.0
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="."]
+visibility_layer = 0
+layout_mode = 2
+offset_left = 772.0
+offset_top = 128.0
+offset_right = 1020.0
+offset_bottom = 202.0
+text = "Options"
+
+[node name="Options" parent="." instance=ExtResource("4_eaqif")]
+visible = false
+layout_mode = 1
+
+[node name="JennaMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_l78j1")
+volume_db = 20.0
+bus = &"JENNA MODE"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
