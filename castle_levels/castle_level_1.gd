@@ -9,8 +9,6 @@ var tween3
 
 signal player_hidden_first_time
 
-#ur mom
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.current_location = 5

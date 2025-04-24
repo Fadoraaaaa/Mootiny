@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://b5cyk16qqhx3s"]
 
 [ext_resource type="Script" path="res://menu stuff/menu scripts/Menu.gd" id="1_gyh52"]
+[ext_resource type="AudioStream" uid="uid://berkdrkadcqhi" path="res://assets/sound/music/StartScreen Harmony.mp3" id="3_0t7qn"]
 [ext_resource type="Texture2D" uid="uid://tyhwpypfddtr" path="res://assets/textures/startscreen-3.png.png" id="3_hus4d"]
-[ext_resource type="AudioStream" uid="uid://cjlh8ni0qcf63" path="res://assets/sound/music/StartScreen Harmony.wav" id="3_toh0g"]
 [ext_resource type="PackedScene" uid="uid://cpaddhkdb7p3p" path="res://menu stuff/menu scenes/Options.tscn" id="4_eaqif"]
 [ext_resource type="FontFile" uid="uid://s15272omc2m3" path="res://assets/retro.ttf" id="4_lbqve"]
 [ext_resource type="AudioStream" uid="uid://ddp7rl32rp4mh" path="res://assets/sound/JENNA MODE/Meowmeowmeow.wav" id="5_l78j1"]
@@ -80,7 +80,7 @@ scale = Vector2(8, 7.8)
 texture = ExtResource("3_hus4d")
 
 [node name="MusicStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_toh0g")
+stream = ExtResource("3_0t7qn")
 volume_db = -14.0
 bus = &"Music"
 

@@ -16,7 +16,7 @@ func _ready():
 	leaving_scene = true
 	$You.pause = true
 	await anim_done
-	get_tree().change_scene_to_file("res://level1/scenes/main.tscn")
+	get_tree().change_scene_to_file("res://level1/scenes/escape_level.tscn")
 
 func new_game():
 	dead = false

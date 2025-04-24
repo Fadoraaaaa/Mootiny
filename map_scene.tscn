@@ -77,7 +77,7 @@ vertical_alignment = 1
 position = Vector2(70.2564, 114.103)
 scene_path = "res://level1/scenes/main.tscn"
 options = {
-"Level 1": "res://level1/scenes/main.tscn",
+"Level 1": "res://level1/scenes/escape_level.tscn",
 "Level 2": "res://level2/level_2_part1.tscn"
 }
 

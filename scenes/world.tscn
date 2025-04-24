@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://jn778v63oasw" path="res://scenes/player.tscn" id="1_qbsxo"]
 [ext_resource type="Script" path="res://scripts/world.gd" id="1_smdob"]
-[ext_resource type="AudioStream" uid="uid://cdm6l8jrbqymf" path="res://assets/sound/music/Overworld Serene.wav" id="2_fyus3"]
 [ext_resource type="Texture2D" uid="uid://dvysufqtq07j5" path="res://assets/textures/restofbackgroundv2.png.png" id="2_hoxhf"]
+[ext_resource type="AudioStream" uid="uid://ksuv05v28rhe" path="res://assets/sound/music/Overworld Serene.mp3" id="6_kssg4"]
 [ext_resource type="PackedScene" uid="uid://dmkbx4xm8x5gj" path="res://scenes/npc.tscn" id="6_t2ysa"]
 [ext_resource type="Texture2D" uid="uid://iwd68i47a8re" path="res://assets/textures/grass.png" id="7_ubrti"]
 [ext_resource type="Script" path="res://scripts/exit_scene.gd" id="9_1eojw"]
@@ -768,7 +768,7 @@ position = Vector2(839.813, 891.813)
 shape = SubResource("RectangleShape2D_m4ea5")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_fyus3")
+stream = ExtResource("6_kssg4")
 volume_db = -14.0
 bus = &"Music"
 
