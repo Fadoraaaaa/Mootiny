@@ -18,6 +18,7 @@ var knight_mode = false
 signal hp_max_changed(new_hp_max)
 signal hp_changed(new_hp)
 signal died
+signal dagger_thrown
 
 const INDICATOR_DAMAGE = preload("res://level2/DamageIndicator.tscn")
 
@@ -120,8 +121,6 @@ func _physics_process(_delta):
 		var dagger_direction = self.global_position.direction_to(get_global_mouse_position())
 		throw_dagger(dagger_direction)
 	
-	
-	
 	move_and_slide()
 	update_animation(horizontal_direction)
 
@@ -135,6 +134,7 @@ func throw_dagger(dagger_direction: Vector2):
 			var dagger_rotation = dagger_direction.angle()
 			dagger.rotation = dagger_rotation	
 			attackTimer.start()
+			emit_signal("dagger_thrown")
 
 func update_animation(horizontal_direction):
 	
@@ -143,15 +143,24 @@ func update_animation(horizontal_direction):
 	
 	if is_on_floor():
 		if horizontal_direction == 0:
-			ap.play("idle")
+			if knight_mode:
+				ap.play("knight_idle")
+			else:
+				ap.play("idle")
 			if footsteps_sound.playing:
 				footsteps_sound.stop()
 		else:
-			ap.play("run")
+			if knight_mode:
+				ap.play("knight_run")
+			else:
+				ap.play("run")
 			if !footsteps_sound.playing:
 				footsteps_sound.play()
 	else:
-		ap.play("jump")
+		if knight_mode:
+			ap.play("knight_jump")
+		else:
+			ap.play("jump")
 		if footsteps_sound.playing:
 			footsteps_sound.stop()
 	

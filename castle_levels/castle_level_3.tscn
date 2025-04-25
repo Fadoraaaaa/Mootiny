@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ct0ivbum8k38"]
+[gd_scene load_steps=51 format=3 uid="uid://ct0ivbum8k38"]
 
 [ext_resource type="Script" path="res://castle_levels/castle_level_3.gd" id="1_yijm7"]
 [ext_resource type="Texture2D" uid="uid://bjongmysrng60" path="res://assets/textures/castle_tileset.png" id="2_xceko"]
@@ -815,6 +815,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"animation_over"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_d4j7x"]
 resource_name = "scene_1"
@@ -998,6 +1012,35 @@ tracks/1/keys = {
 "values": [true]
 }
 
+[sub_resource type="Animation" id="Animation_kg158"]
+resource_name = "scene_6"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [[["You did it, Sir Loincelot!!!! You saved Camoolot! Thank you!", "Burger King", "Burger King", "", ""], ["But...the udder nearby areas are still in danger. Save them too! ", "Burger King", "Burger King", "", ""]]],
+"method": &"change_dialog"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dialog:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b77dp"]
 _data = {
 "RESET": SubResource("Animation_3vwls"),
@@ -1008,7 +1051,8 @@ _data = {
 "scene_2": SubResource("Animation_483lh"),
 "scene_3": SubResource("Animation_3tdn8"),
 "scene_4": SubResource("Animation_2f2lw"),
-"scene_5": SubResource("Animation_dnge1")
+"scene_5": SubResource("Animation_dnge1"),
+"scene_6": SubResource("Animation_kg158")
 }
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_krm4c"]

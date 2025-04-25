@@ -19,9 +19,10 @@ func _ready() -> void:
 
 
 func set_level() -> void:
-	
+	$PolishCowMusic.stop()
+	$You.set_knight_mode(false)
+	$You.use_excowlibur_dagger = false
 	$Dialog.visible = true
-	
 	$UFO.set_sprite("baby")
 	death = false
 	$You.allow_attacking(false)
@@ -65,26 +66,32 @@ func set_level() -> void:
 	$You.pause = true
 	$CowGod.position.x = $You.position.x
 	var godtween = create_tween()
-	var target_pos = Vector2($You.position.x, $You.position.y - 200)
+	var target_pos = Vector2($You.position.x, $You.position.y - 300)
 	godtween.tween_property($CowGod, "position", target_pos, 10)
 	await godtween.finished
 	
 	$AnimationPlayer.play("scene_5") #cow god speaks
-
+	await $Dialog.finished
 	
+	$You.set_knight_mode(true)
 	
-	$You.pause == false	
+	var godtween2 = create_tween()
+	target_pos = Vector2($CowGod.position.x, -991)
+	godtween2.tween_property($CowGod, "position", target_pos, 10)
+	
+	$You.pause = false	
 	$You.allow_attacking(true)
-
+	$UFO.set_path_find(true)
 	
+	await $You.dagger_thrown #you may only throw ONE excowlibur
+	$You.allow_attacking(false)
 	
-	#polish cow music will play...a holy light shines from above as THE COW GOD descends
-	#"give your enemies a lactaste of their own medicine...SEND TO THE UDDERWORLD!" I dub thee..Sir Loincelot!"
-	#the Cow God bestows upon you Excowlibur, ascends once more, AND the player skin has been changed to a knight
-	#player will be prompted to finish off the UFO
-	
-	await $UFO.dead
-	
+	await $UFO.died #YOU KILLED THE UFO
+	$AnimationPlayer.play("scene_6")
+	await $Dialog.finished
+	$AnimationPlayer.play("fade_out")
+	await anim_done
+	get_tree().change_scene_to_file("credits.tscn")
 	#once dead, the Burger king will thank you and the end credits will roll
 
 func beam_collide():

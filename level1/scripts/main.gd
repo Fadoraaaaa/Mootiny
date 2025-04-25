@@ -73,6 +73,7 @@ func new_game():
 	obstacles.clear()
 	
 	#reset the nodes
+	$Dino.pause = false
 	$UFO.position = Vector2i(143, -167)
 	$Dino.position = DINO_START_POS
 	$Dino.velocity = Vector2i(0, 0)
@@ -245,6 +246,7 @@ func bush_hiding(_body: CharacterBody2D):
 	for obs in obstacles:
 		remove_obs(obs)
 	$UFO.set_hiding(true)
+	$Dino.pause = true
 	$UFO.position.x = $Dino.position.x - 2000
 	var tween = get_tree().create_tween()
 	var target_pos = Vector2($Dino.position.x + 2000, $UFO.position.y)

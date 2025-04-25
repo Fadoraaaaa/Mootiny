@@ -179,7 +179,7 @@ EFFECT_HIT = ExtResource("5_it736")
 EFFECT_DIED = ExtResource("6_4g7tc")
 
 [node name="Bush1" parent="." instance=ExtResource("8_fdx6u")]
-position = Vector2(193, 735)
+position = Vector2(193, 728)
 
 [node name="Ground" parent="." instance=ExtResource("10_o06y6")]
 position = Vector2(-80, 226)

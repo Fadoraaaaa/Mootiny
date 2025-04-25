@@ -109,7 +109,7 @@ func _on_timer_timeout() -> void:
 	if !$UFO.path_finding:
 		if $UFO.position.x >= 1940:
 			direction = -1
-		if $UFO.position.x <= -250:
+		if $UFO.position.x <= -350:
 			direction = 1
 		if $UFO.position.y < 376:
 			$UFO.velocity.y = 300
