@@ -12,6 +12,7 @@ var use_excowlibur_dagger: bool = false
 var horizontal_direction
 var pause = false
 var attack = false
+var knight_mode = false
 
 #attack stuff
 signal hp_max_changed(new_hp_max)
@@ -200,3 +201,6 @@ func get_attack():
 	
 func set_gravity(grav):
 	gravity = grav
+
+func set_knight_mode(is_knight):
+	knight_mode = is_knight

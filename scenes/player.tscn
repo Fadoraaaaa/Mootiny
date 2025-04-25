@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://jn778v63oasw"]
+[gd_scene load_steps=24 format=3 uid="uid://jn778v63oasw"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_7g5cj"]
 [ext_resource type="Texture2D" uid="uid://b138wds3lptgy" path="res://assets/sprites/MC/mc_idle.png" id="2_lusii"]
@@ -8,6 +8,8 @@
 [ext_resource type="AudioStream" uid="uid://p21vcwtqu1gm" path="res://assets/sound/sfx/footsteps.wav" id="5_s4to5"]
 [ext_resource type="Texture2D" uid="uid://cc8bawglkbwtg" path="res://assets/textures/exclamation.png" id="5_wwx00"]
 [ext_resource type="Texture2D" uid="uid://3s1s0hs5xpbw" path="res://assets/textures/questionmark.png" id="6_bv0ae"]
+[ext_resource type="Texture2D" uid="uid://dc43y7hd5pymc" path="res://assets/sprites/MC/knight_idle.png" id="6_thb03"]
+[ext_resource type="Texture2D" uid="uid://shpsppfqvoyp" path="res://assets/sprites/MC/knight_walk.png" id="7_jc6sc"]
 [ext_resource type="AudioStream" uid="uid://djxygndl5wfw0" path="res://assets/sound/sfx/emotion.wav" id="9_hoi6t"]
 [ext_resource type="AudioStream" uid="uid://dtdvh7lypeh8n" path="res://assets/sound/JENNA MODE/jenna_bing.wav" id="10_arsap"]
 [ext_resource type="AudioStream" uid="uid://cgj6l0si2g0jr" path="res://assets/sound/JENNA MODE/jenna footsteps.wav" id="11_dqqy1"]
@@ -287,12 +289,120 @@ tracks/3/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_2b1dq"]
+resource_name = "knight_idle"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_thb03")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_8bbnb"]
+resource_name = "knight_run"
+length = 0.3
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_jc6sc")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cft2c"]
 _data = {
 "RESET": SubResource("Animation_xc42v"),
 "idle": SubResource("Animation_11xuh"),
 "jump": SubResource("Animation_sfqsy"),
 "kick": SubResource("Animation_s4tiy"),
+"knight_idle": SubResource("Animation_2b1dq"),
+"knight_run": SubResource("Animation_8bbnb"),
 "run": SubResource("Animation_u442o")
 }
 

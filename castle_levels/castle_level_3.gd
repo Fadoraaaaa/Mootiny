@@ -22,7 +22,6 @@ func set_level() -> void:
 	
 	$Dialog.visible = true
 	
-	
 	$UFO.set_sprite("baby")
 	death = false
 	$You.allow_attacking(false)
@@ -60,7 +59,24 @@ func set_level() -> void:
 	$UFO.set_sprite("headphones_baby")
 	$AnimationPlayer.play("scene_4") #NOOO HEADPHONES BABY	
 	await $Dialog.finished
+
+	$PolishCowMusic.play() #the cow god descends
+	$God_Descends.play() 
+	$You.pause = true
+	$CowGod.position.x = $You.position.x
+	var godtween = create_tween()
+	var target_pos = Vector2($You.position.x, $You.position.y - 200)
+	godtween.tween_property($CowGod, "position", target_pos, 10)
+	await godtween.finished
+	
+	$AnimationPlayer.play("scene_5") #cow god speaks
+
+	
+	
+	$You.pause == false	
 	$You.allow_attacking(true)
+
+	
 	
 	#polish cow music will play...a holy light shines from above as THE COW GOD descends
 	#"give your enemies a lactaste of their own medicine...SEND TO THE UDDERWORLD!" I dub thee..Sir Loincelot!"

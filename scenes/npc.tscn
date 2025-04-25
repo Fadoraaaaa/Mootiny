@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bd4u66grdenac" path="res://assets/sprites/npcs/Mademooiselle.png" id="6_ygu5s"]
 [ext_resource type="AudioStream" uid="uid://djxygndl5wfw0" path="res://assets/sound/sfx/emotion.wav" id="8_6pnyp"]
 [ext_resource type="AudioStream" uid="uid://dtdvh7lypeh8n" path="res://assets/sound/JENNA MODE/jenna_bing.wav" id="9_8cyrs"]
-[ext_resource type="Texture2D" uid="uid://dc43y7hd5pymc" path="res://assets/sprites/npcs/sir_loincelot.png" id="10_greoa"]
+[ext_resource type="Texture2D" uid="uid://dc43y7hd5pymc" path="res://assets/sprites/MC/knight_idle.png" id="10_greoa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tv5pd"]
 atlas = ExtResource("3_wkdic")

@@ -129,6 +129,10 @@ action_name = "menu"
 layout_mode = 2
 action_name = "quit"
 
+[node name="Hotkey_Rebind_Button6" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_miffa")]
+layout_mode = 2
+action_name = "sonic_moo"
+
 [node name="HSeparator" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 12

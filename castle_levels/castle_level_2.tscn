@@ -1078,7 +1078,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [[["You fool! Your puny voice has no power from down there! The acoustics are terrible!", "Dairy Queen", "Dairy Queen", "right", "surprise"]]],
+"args": [[["You fool! Your puny voice has no power from down there! The amoostics are terrible!", "Dairy Queen", "Dairy Queen", "right", "surprise"]]],
 "method": &"change_dialog"
 }]
 }

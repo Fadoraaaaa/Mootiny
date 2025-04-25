@@ -730,7 +730,7 @@ script = ExtResource("1_smdob")
 
 [node name="Restofbackground" type="Sprite2D" parent="."]
 position = Vector2(511, 430)
-scale = Vector2(7.84615, 7.07692)
+scale = Vector2(7.9, 7.1)
 texture = ExtResource("2_hoxhf")
 
 [node name="You" parent="." instance=ExtResource("1_qbsxo")]
@@ -795,7 +795,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("9_1eojw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitScene"]
-position = Vector2(1268, 372)
+position = Vector2(1325, 372)
 shape = SubResource("RectangleShape2D_58io7")
 
 [node name="minimap" parent="." instance=ExtResource("10_7m2ip")]

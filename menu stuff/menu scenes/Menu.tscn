@@ -150,6 +150,7 @@ text = "START"
 horizontal_alignment = 1
 
 [node name="BlackFade" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 1029.0
 offset_bottom = 1025.0
