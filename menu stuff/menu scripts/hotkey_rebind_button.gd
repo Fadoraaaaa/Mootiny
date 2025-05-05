@@ -25,8 +25,8 @@ func set_action_name() -> void:
 			label.text = "Jump"
 		"menu":
 			label.text = "Menu"
-		"quit":
-			label.text = "Quit"
+		"sonic_moo":
+			label.text = "Sonic Moo"
 
 func set_text_for_key() -> void:
 	var action_events = InputMap.action_get_events(action_name)
