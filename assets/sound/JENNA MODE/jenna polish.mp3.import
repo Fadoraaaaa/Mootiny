@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blpbtajuyw7g3"
+path="res://.godot/imported/jenna polish.mp3-5fced611d69567251d7785046edcbc47.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/JENNA MODE/jenna polish.mp3"
+dest_files=["res://.godot/imported/jenna polish.mp3-5fced611d69567251d7785046edcbc47.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

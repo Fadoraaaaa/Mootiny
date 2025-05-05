@@ -86,11 +86,6 @@ func _ready():
 	horizontal_direction = 0
 
 func _physics_process(_delta):
-	#lets you quit the game
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
-		print("quitting")
-		
 	#lets you go to the menu
 	if Input.is_action_just_pressed("menu"):
 			print("menu button pressed")

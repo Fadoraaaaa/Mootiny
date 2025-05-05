@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4d4th4xj62qy"
+path="res://.godot/imported/jenna god descends.mp3-733042add571307a53d37825778630de.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/JENNA MODE/jenna god descends.mp3"
+dest_files=["res://.godot/imported/jenna god descends.mp3-733042add571307a53d37825778630de.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -30,10 +30,6 @@ func on_exit_options_menu() -> void:
 	options_menu.visible = false
 	
 func _process(_delta):
-	if Input.is_action_just_pressed("quit"):
-		get_tree().quit()
-		print("quitting")
-	
 	if $MusicStreamPlayer2D.playing == false:
 		$MusicStreamPlayer2D.play()
 	if $JennaMusic.playing == false:

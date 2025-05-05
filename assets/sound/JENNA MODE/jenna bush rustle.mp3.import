@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tjj247ryg5ds"
+path="res://.godot/imported/jenna bush rustle.mp3-1925eb2c9fb9f42d979ef655a9ac0413.mp3str"
+
+[deps]
+
+source_file="res://assets/sound/JENNA MODE/jenna bush rustle.mp3"
+dest_files=["res://.godot/imported/jenna bush rustle.mp3-1925eb2c9fb9f42d979ef655a9ac0413.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -44,6 +44,7 @@ func _ready():
 	await $Dialog.finished
 	$AnimationPlayer.play("intro2")
 	$Danger.play()
+	$JennaDanger.play()
 	$UFO.show()
 	$UFO.show_beam()
 	$UFO.play_sound("buzz")
